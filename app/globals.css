@@ -2,25 +2,80 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #222222;
+
+  --backgroundSecondary: #f4f4f4;
+  --backgroundTeritary: #000000;
+  --backgroundBlack: #0e0e0e;
+
+  --textPrimary: #222222;
+  --textSecondary: #616161;
+  --textTeritary: #ffffff1f;
+
+  --borderColor: #EBEBEB;
+  --white: #ffffff;
+  --white70: rgba(255, 255, 255, 0.5);
+  --blue: #0080C7;
 }
 
 @theme inline {
+  /* Color BG & Text */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-backgroundSecondary: var(--backgroundSecondary);
+  --color-backgroundTeritary: var(--backgroundTeritary);
+  --color-backgroundBlack: var(--backgroundBlack);
+
+  --color-textPrimary: var(--textPrimary);
+  --color-textSecondary: var(--textSecondary);
+  --color-textTeritary: var(--textTeritary);
+
+  --color-borderColor: var(--borderColor);
+  --color-white: var(--white);
+  --color-white70: var(--white70);
+  --color-blue: var(--blue);
+
+  /* Font Size */
+  --text-display: clamp(3.75rem, 2.283rem + 6.52vw, 7.5rem) /*120px, 60px*/;
+  --text-heading1: clamp(2.5rem, 2.011rem + 2.17vw, 3.75rem) /*60px, 40px*/;
+  --text-heading2: clamp(1.75rem, 1.457rem + 1.3vw, 2.5rem) /*40px, 28px*/;
+  --text-heading3: clamp(1.5rem, 1.304rem + 0.87vw, 2rem) /*32px, 24px*/;
+  --text-subHeading1: clamp(1.25rem, 1.152rem + 0.43vw, 1.5rem) /*24px, 20px*/;
+  --text-subHeading2: clamp(1.125rem, 1.076rem + 0.22vw, 1.25rem) /*20px, 18px*/;
+
+  --text-bodyBase: clamp(1rem, 0.951rem + 0.22vw, 1.125rem) /*18px, 16px*/;
+  --text-body: clamp(0.875rem, 0.826rem + 0.22vw, 1rem) /*16px, 14px*/;
+  --text-text20: 20px;
+  --text-text18: 18px;
+  --text-text16: 16px;
+  --text-text14: 14px;
+
+  /* Font Family */
+  --font-inter: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }

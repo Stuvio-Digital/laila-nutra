@@ -31,7 +31,7 @@ const Features: React.FC = () => {
               World's first patented extract of Asparagus Racemosus
             </p>
           </div>
-          <div className='flex flex-col justify-between col-span-1 sm:col-span-12 lg:col-span-3 gap-y-6 sm:gap-y-10'>
+          <div className='flex flex-col justify-between col-span-1 sm:col-span-12 lg:col-span-3'>
             <img src="/icons/psychiatry.svg" alt="psychiatry" className='h-8 w-8 mb-4 lg:mb-6' />
             <p className='max-w-[90%] text-textSecondary text-body [@media(min-width:1920px)]:text-bodyBase font-normal leading-[124%] tracking-[-2%] 2xl:max-w-[80%] pt-4 lg:pt-6 border-t border-borderColor'>
               100% plant-based & clinically validated

@@ -159,8 +159,7 @@ const Header: React.FC = () =>{
                   </ul>
                 </div>
               </li>
-
-              {/* Other Links */}
+              
               {[
                 { name: 'Products', href: '/products' },
                 { name: 'Health Solutions', href: '/health-solutions' },

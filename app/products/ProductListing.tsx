@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 
 export interface ProductItem {
   title: string;
@@ -15,7 +16,7 @@ const ProductListing: React.FC<ProductListingProps> = ({ items = [] }) => {
   return (
     <section className='@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 md:gap-y-7 lg:gap-y-10 xl:gap-y-15 px-4 sm:px-6 lg:px-10 bg-backgroundSecondary items-stretch'>
       {items.map((item, index) => (
-        <div key={index} className={`col-span-4 sm:col-span-4 @6xl:col-span-3 [@media(min-width:1920px)]:col-span-2 w-full aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 bg-white flex flex-col justify-between`}>
+        <Link href="/products/productInside" key={index} className={`col-span-4 sm:col-span-4 @6xl:col-span-3 [@media(min-width:1920px)]:col-span-2 w-full aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 bg-white flex flex-col justify-between`}>
 
           {/* [@media(min-width:1920px)]:w-87.5 */}
           <div className="flex flex-col w-full items-start gap-y-3 p-4 sm:p-5 lg:p-6">
@@ -44,7 +45,7 @@ const ProductListing: React.FC<ProductListingProps> = ({ items = [] }) => {
               />
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </section>
   )

@@ -136,7 +136,7 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
               <div 
                 key={index}
                 onClick={() => handleItemClick(index)}
-                className={`w-full h-fit px-4 sm:px-6 md:px-0 ${index === 0 ? "pb-6 pt-6 md:pb-7 md:pt-0 lg:pb-10" : "py-6 md:py-7 lg:py-10"} flex flex-col group cursor-pointer relative border-b-0 md:border-b-[1.5px] border-white/20 transition-colors duration-500 overflow-hidden bg-backgroundBlack md:bg-transparent rounded-lg md:rounded-none`}
+                className={`w-full h-fit px-4 sm:px-6 md:px-0 py-6 md:py-7 lg:py-10 flex flex-col group cursor-pointer relative border-b-0 md:border-b-[1.5px] border-white/20 transition-colors duration-500 overflow-hidden bg-backgroundBlack md:bg-transparent rounded-lg md:rounded-none`}
               >
                 {/* Desktop Progress Bar (Animated Border) */}
                 <div 

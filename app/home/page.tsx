@@ -29,7 +29,7 @@ const carouselItems = [
 
 const overlayBannerItems = [
   { iconSrc: '/icons/autorenew.svg', text: '8-Step Innovation Cycle (from ideation to launch)' },
-  { iconSrc: '/icons/pill.svg', text: 'Wide dosage forms (capsules, gummies, effervescents, sprays, topicals)' },
+  { iconSrc: '/icons/pill_white.svg', text: 'Wide dosage forms (capsules, gummies, effervescents, sprays, topicals)' },
   { iconSrc: '/icons/policy.svg', text: 'Global compliance & dossier readiness' },
   { iconSrc: '/icons/shield.svg', text: 'IP protection with 80+ US and 120+ Indian patents' }
 ];

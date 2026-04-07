@@ -4,12 +4,11 @@ import Banner from "@/components/Banner";
 import WhiteCardCarouselSection from "@/layout/WhiteCardCarouselSection";
 import FeatureGridSection from "@/layout/FeatureGridSection";
 import InlineImageSection from "@/layout/InlineImageSection";
-import BlackSection from "@/layout/BlackSection";
-import InlineListingSection from "@/layout/InlineListingSection";
-import SectionHeader from "@/components/SectionHeader";
+import InlineListingSection from "@/layout/InlineListingSection";;
 import How from "./How";
 import Features from "./Features";
 import Specifications from "./Specifications";
+import BlackSectionList from "@/layout/BlackSectionList";
 
 const inlineListItems = [
   {
@@ -86,29 +85,24 @@ const featureGridItems = [
 
 const testingData = [
   {
-    title: "Raw Material Authentication",
-    description: "Verified through botanical and chemical fingerprinting.",
+    title: "Teens And Young Women (13 – 24)",
+    points: ["Decreases luteinizing hormone and follicle-stimulating hormone by 15%", "Helps reduce testosterone levels by 34% for reduced facial hair", "Regulates cycles, reduces acne & hirsutism", "Enhances mood & restores natural glow in 30 days"],
     image: "/images/quality-certifications/raw-material-authentication.webp"
   },
   {
-    title: "In-Process Quality Checks",
-    description: "Continuous monitoring during extraction and formulation.",
+    title: "Reproductive Age (25 – 39) ",
+    points: ["Lowers ovarian volume by 23% and follicle count by 24%", "Increases insulin sensitivity by 14%", "Eases bloating, irritability & supports hormonal harmony", "Boosts fertility & metabolic wellness", "Clinically proven results in 42 days"],
     image: "/images/quality-certifications/in-process-quality-checks.webp"
   },
   {
-    title: "Microbiological & Heavy Metal Screening",
-    description: "Ensures absolute purity and safety.",
+    title: "Perimenopause (40+)",
+    points: ["Visibly reduces hot flashes by 73%", "Improves sleep quality, mood and hydration", "Supports natural estrogen equilibrium"],
     image: "/images/quality-certifications/microbiological-heavy-metal-screening.webp"
   },
   {
-    title: "Clinical Validation",
-    description: "Proven efficacy through documented studies and trials.",
+    title: "Menopause (50+)",
+    points: ["5× better symptom control vs placebo", "Strengthens emotional resilience & calm", "Restores skin & vaginal hydration", "Natural alternative to hormone replacement therapy with no hormonal side effects"],
     image: "/images/quality-certifications/clinical-validation.webp"
-  },
-  {
-    title: "Batch Certification",
-    description: "Every batch is traceable, tested, and certified before export.",
-    image: "/images/quality-certifications/batch-certification.webp"
   }
 ];
 
@@ -120,26 +114,26 @@ const page: React.FC = () => {
         title={"Empowering \n Women With \n EstroMira™"}
         subCopy="Formulating the first ever patented Asparagus Racemosus extract for complete women’s wellness."
       />
-      <Features/>
-      <Specifications/>
+      <Features />
+      <Specifications />
       <InlineListingSection
         heading="Complete Care For Her"
         inlineListItems={inlineListItems}
         inlineListStructure="col-span-4 md:col-span-2"
         inlineListDetailsStructure="col-span-3 sm:col-span-9 lg:col-span-4 ml-6" inlineListImgStructure="col-span-1 sm:col-span-3 lg:col-span-2"
       />
-      <BlackSection 
-        heading={"Testing & \n Validation Process"}
-        text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety."
-        textColor="text-white70" 
+      <BlackSectionList
+        heading={"For Every Woman"}
+        text="Formulated to adapt to women’s changing physiology, EstroMira™ empowers their wellness from adolescence to menopause."
+        textColor="text-white70"
         textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
         data={testingData}
       />
-      <How/>
+      <How />
       <WhiteCardCarouselSection heading="Why Choose EstroMira™?" text="Designed for versatility, EstroMira is an ingredient that fits seamlessly into a range of health formulations without compromising its efficacy or stability." textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
-      headingColor="black"
-      textColor="textSecondary"
-      whiteCardCarouselItems={whiteCardCarouselItems}
+        headingColor="black"
+        textColor="textSecondary"
+        whiteCardCarouselItems={whiteCardCarouselItems}
       />
       <FeatureGridSection
         heading={"Versatile Formulation \n Possibilities"}

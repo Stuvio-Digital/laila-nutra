@@ -22,10 +22,57 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
       }
     };
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Block Ctrl+P / Cmd+P (Print)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P')) {
+        e.preventDefault();
+        return false;
+      }
+
+      // Block Ctrl+S / Cmd+S (Save)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+        e.preventDefault();
+        return false;
+      }
+
+      // Block PrintScreen / Win+Shift+S (Screenshots)
+      if (e.key === 'PrintScreen' || e.key === 'Snapshot') {
+        // Clearing clipboard on PrintScreen (though not always possible in all browsers)
+        navigator.clipboard?.writeText?.("");
+        alert("Screenshots are disabled for this site.");
+        return false;
+      }
+
+      // Block DevTools shortcuts (F12, Ctrl+Shift+I/J/C or Cmd+Opt+I/J/C)
+      const isDevTools =
+        e.key === "F12" ||
+        ((e.ctrlKey || e.metaKey) && e.shiftKey && ["I", "J", "C"].includes(e.key.toUpperCase())) ||
+        ((e.ctrlKey || e.metaKey) && (e.key === "U" || e.key === "u")); // View Source
+
+      if (isDevTools) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
     document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    const handleBeforePrint = () => {
+      document.body.style.display = 'none';
+    };
+    const handleAfterPrint = () => {
+      document.body.style.display = 'block';
+    };
+
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
     
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
     };
   }, []);
 

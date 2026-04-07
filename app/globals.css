@@ -86,3 +86,9 @@ img {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+@media print {
+  body {
+    display: none !important;
+  }
+}

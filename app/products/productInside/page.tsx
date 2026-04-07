@@ -9,6 +9,7 @@ import InlineListingSection from "@/layout/InlineListingSection";
 import SectionHeader from "@/components/SectionHeader";
 import How from "./How";
 import Features from "./Features";
+import Specifications from "./Specifications";
 
 const inlineListItems = [
   {
@@ -119,9 +120,8 @@ const page: React.FC = () => {
         title={"Empowering \n Women With \n EstroMira™"}
         subCopy="Formulating the first ever patented Asparagus Racemosus extract for complete women’s wellness."
       />
-      <Features
-      
-      />
+      <Features/>
+      <Specifications/>
       <InlineListingSection
         heading="Complete Care For Her"
         inlineListItems={inlineListItems}

@@ -107,7 +107,7 @@ const Header: React.FC = () =>{
         
         <div 
           ref={contentRef}
-          className='absolute w-full sm:w-[500px] lg:w-[640px] right-0 h-full bg-white sm:rounded-2xl flex flex-col shadow-2xl translate-x-full overflow-hidden'
+          className='absolute w-full sm:w-125 lg:w-160 right-0 h-full bg-white sm:rounded-2xl flex flex-col shadow-2xl translate-x-full overflow-hidden'
         >
           {/* Close button: blue circle with white X */}
           <button 
@@ -138,7 +138,7 @@ const Header: React.FC = () =>{
                 </div>
                 
                 <div 
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${isAboutOpen ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${isAboutOpen ? 'max-h-125 opacity-100 mt-6' : 'max-h-0 opacity-0'}`}
                 >
                   <ul className="flex flex-col gap-5 pl-4 border-l-2 border-blue/20">
                     <li>

@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { ReactLenis } from "lenis/react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 interface ClientLayoutProps {
   children: React.ReactNode;
@@ -80,6 +81,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     <ReactLenis root>
       <Header/>
       {children}
+      <Footer/>
     </ReactLenis>
   );
 }

@@ -92,3 +92,7 @@ img {
     display: none !important;
   }
 }
+
+.footer-bg {
+  background: linear-gradient(107deg, #80B9E6 -20.85%, #99C7EB 48.97%, #CAE16D 118.78%);
+}

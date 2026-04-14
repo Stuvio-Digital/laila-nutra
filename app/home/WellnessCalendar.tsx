@@ -57,7 +57,7 @@ const WellnessCalendar: React.FC = () => {
           <div className='col-span-4 sm:col-span-2 sm:col-start-1 lg:col-start-3 lg:col-span-1 w-full aspect-278/208 relative overflow-hidden'>
             <img src={event.imgSrc} alt={event.imgAlt} className='w-full h-full object-cover object-center' />
           </div>
-          <div className='col-span-4 sm:col-span-2 lg:col-span-1 lg:col-start-4 w-full max-w-max'>
+          <div className='col-span-4 sm:col-span-2 lg:col-span-1 lg:col-start-4 w-full max-w-[90%]'>
             <p className='text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-normal text-textSecondary text-wrap mb-4'>
               {event.benefits}
             </p>

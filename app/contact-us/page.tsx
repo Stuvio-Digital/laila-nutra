@@ -133,7 +133,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-26 sm:pt-28 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 items-center">
+    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-26 sm:pt-28 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 my-auto">
 
       {/* LEFT */}
       <div className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5">

@@ -88,7 +88,7 @@ const contactItems = [
 // ─── Shared field classes ─────────────────────────────────────────────────────
 
 const baseField =
-  'w-full bg-transparent border border-transparent rounded-sm px-3 @4xl:px-4 py-2.5 @4xl:py-3 contact-input text-gray-900 placeholder:text-gray-400 transition-all duration-200 outline outline-textSecondary/50 focus:outline-blue';
+  'w-full bg-transparent border border-transparent rounded-sm px-3 @4xl:px-4 py-2.5 @4xl:py-3 contact-input text-gray-900 placeholder:text-gray-400 placeholder:text-body transition-all duration-200 outline outline-textSecondary/50 focus:outline-blue';
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
@@ -177,7 +177,7 @@ const ContactPage: React.FC = () => {
 
             {/* Name */}
             <div className="flex flex-col gap-1.5">
-              <label className="contact-label font-medium text-gray-700">
+              <label className="contact-label text-body font-medium text-gray-700">
                 Name <span className="text-red-500">*</span>
               </label>
               <input {...register('name')} type="text" placeholder="Your full name" className={baseField} />
@@ -189,7 +189,7 @@ const ContactPage: React.FC = () => {
             {/* Phone & Email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5">
-                <label className="contact-label font-medium text-gray-700">
+                <label className="contact-label text-body font-medium text-gray-700">
                   Phone Number <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -208,7 +208,7 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="contact-label font-medium text-gray-700">
+                <label className="contact-label text-body font-medium text-gray-700">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input {...register('email')} type="email" placeholder="you@example.com" className={baseField} />
@@ -220,11 +220,11 @@ const ContactPage: React.FC = () => {
 
             {/* Support Type */}
             <div className="flex flex-col gap-1.5">
-              <label className="contact-label font-medium text-gray-700">
+              <label className="contact-label text-body font-medium text-gray-700">
                 Support Type <span className="text-red-500">*</span>
               </label>
               <div className="relative">
-                <select {...register('supportType')} defaultValue="" className={`${baseField} appearance-none pr-10 cursor-pointer`}>
+                <select {...register('supportType')} defaultValue="" className={`${baseField} appearance-none pr-10 cursor-pointer text-body`}>
                   <option value="" disabled>Select support type</option>
                   <option value="Product">Product</option>
                   <option value="General Enquiry">General Enquiry</option>
@@ -238,7 +238,7 @@ const ContactPage: React.FC = () => {
 
             {/* Message */}
             <div className="flex flex-col gap-1.5">
-              <label className="contact-label font-medium text-gray-700">Message</label>
+              <label className="contact-label text-body font-medium text-gray-700">Message</label>
               <textarea {...register('message')} rows={4} placeholder="Write your message here…" className={`${baseField} resize-none`} />
             </div>
 
@@ -252,7 +252,7 @@ const ContactPage: React.FC = () => {
                 className="flex items-start gap-3 group w-fit outline-none focus:outline-none focus:ring-0 focus:border-none border-none focus-visible:outline-none"
               >
                 {termsChecked ? <CheckSquare size={20} className="text-blue" /> : <Square size={20} className="text-gray-400" />}
-                <span className="contact-label text-gray-700">
+                <span className="contact-label text-body text-gray-700">
                   I agree to the{' '} terms and conditions
                 </span>
               </button>

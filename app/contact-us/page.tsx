@@ -149,10 +149,10 @@ const ContactPage: React.FC = () => {
       {/* LEFT */}
       <div className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5">
         <h3 className="text-white text-heading1 font-semibold leading-[124%] tracking-[-2%]">
-          Contact Us
+          Let's Connect <br /> With Us
         </h3>
 
-        <div className="hidden flex-col gap-7.5 md:flex">
+        {/* <div className="hidden flex-col gap-7.5 md:flex">
           {contactItems.map(({ icon: Icon, label, value, href }) => (
             <div key={label} className="flex items-start gap-3">
               <div className="shrink-0 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
@@ -177,7 +177,7 @@ const ContactPage: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* RIGHT */}
@@ -304,7 +304,7 @@ const ContactPage: React.FC = () => {
         </div>
 
       </div>
-      <div className="grid grid-cols-4 sm:grid-cols-12 gap-7.5 md:hidden col-span-4 sm:col-span-12 mt-10">
+      {/* <div className="grid grid-cols-4 sm:grid-cols-12 gap-7.5 md:hidden col-span-4 sm:col-span-12 mt-10">
         {contactItems.map(({ icon: Icon, label, value, href }) => (
           <div key={label} className="flex items-start gap-3 col-span-4 sm:col-span-6">
             <div className="shrink-0 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
@@ -329,7 +329,7 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </main>
   );
 };

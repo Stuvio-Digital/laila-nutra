@@ -249,7 +249,7 @@ const ContactPage: React.FC = () => {
                 onClick={() =>
                   setValue('terms', termsChecked ? (undefined as any) : true, { shouldValidate: true })
                 }
-                className="flex items-start gap-3 group w-fit outline-none focus:outline-none focus:ring-0 focus:border-none border-none"
+                className="flex items-start gap-3 group w-fit outline-none focus:outline-none focus:ring-0 focus:border-none border-none focus-visible:outline-none"
               >
                 {termsChecked ? <CheckSquare size={20} className="text-blue" /> : <Square size={20} className="text-gray-400" />}
                 <span className="contact-label text-gray-700">

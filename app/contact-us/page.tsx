@@ -2,6 +2,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { useForm } from 'react-hook-form';
+import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import {
@@ -133,8 +134,17 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-26 sm:pt-28 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 my-auto">
-
+    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-28 sm:pt-30 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 my-auto">
+      <Link
+        href="/"
+        className="aspect-84/40 sm:aspect-104/60 max-w-26 absolute left-4 sm:left-1/2 sm:-translate-x-1/2 z-30 top-6"
+      >
+        <img
+          src="/images/common/laila-logo-color.png"
+          alt="Laila Nutra Logo"
+          className="w-auto h-full sm:mx-auto"
+        />
+      </Link>
       {/* LEFT */}
       <div className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5">
         <h3 className="text-white text-heading1 font-semibold leading-[124%] tracking-[-2%]">
@@ -148,7 +158,7 @@ const ContactPage: React.FC = () => {
                 <Icon size={18} className="text-white" strokeWidth={1.8} />
               </div>
               <div className="flex flex-col gap-0.5">
-                <span className="text-white/50 text-text18 tracking-[-2%] font-medium">
+                <span className="text-white text-text18 tracking-[-2%] font-medium">
                   {label}
                 </span>
                 {href ? (
@@ -156,12 +166,12 @@ const ContactPage: React.FC = () => {
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel="noreferrer"
-                    className="text-text16 text-white hover:text-blue-300 transition-colors duration-200 break-all"
+                    className="text-text16 text-white/60 hover:text-white transition-colors duration-200 break-all"
                   >
                     {value}
                   </a>
                 ) : (
-                  <span className="text-text16 text-white">{value}</span>
+                  <span className="text-text16 text-white/64">{value}</span>
                 )}
               </div>
             </div>
@@ -294,7 +304,7 @@ const ContactPage: React.FC = () => {
               <Icon size={18} className="text-white" strokeWidth={1.8} />
             </div>
             <div className="flex flex-col gap-0.5">
-              <span className="text-white/50 text-text18 tracking-[-2%] font-medium">
+              <span className="text-white text-text18 tracking-[-2%] font-medium">
                 {label}
               </span>
               {href ? (
@@ -302,12 +312,12 @@ const ContactPage: React.FC = () => {
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel="noreferrer"
-                  className="text-text16 text-white hover:text-blue-300 transition-colors duration-200 break-all"
+                  className="text-text16 text-white/64 hover:text-white transition-colors duration-200 break-all"
                 >
                   {value}
                 </a>
               ) : (
-                <span className="text-text16 text-white">{value}</span>
+                <span className="text-text16 text-white/64">{value}</span>
               )}
             </div>
           </div>

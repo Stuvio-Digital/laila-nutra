@@ -164,7 +164,8 @@ const Header: React.FC = () =>{
                 { name: 'Products', href: '/products' },
                 { name: 'Health Solutions', href: '/health-solutions' },
                 { name: 'CDMO', href: '/cdmo' },
-                { name: 'Research & Innovations', href: '/research-innovations' }
+                { name: 'Research & Innovations', href: '/research-innovations' },
+                { name: 'Contact Us', href: '/contact-us' }
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} onClick={toggleMenu} className={`tracking-[-2%] text-heading3 leading-[110%] font-medium transition-colors block ${isActive(link.href) ? 'text-blue' : 'text-textPrimary hover:text-blue'}`}>

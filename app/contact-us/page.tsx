@@ -133,7 +133,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-26 sm:pt-28 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
+    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-26 sm:pt-28 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 items-center">
 
       {/* LEFT */}
       <div className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5">
@@ -249,7 +249,7 @@ const ContactPage: React.FC = () => {
                 onClick={() =>
                   setValue('terms', termsChecked ? (undefined as any) : true, { shouldValidate: true })
                 }
-                className="flex items-start gap-3 group w-fit"
+                className="flex items-start gap-3 group w-fit outline-none focus:outline-none focus:ring-0 focus:border-none border-none"
               >
                 {termsChecked ? <CheckSquare size={20} className="text-blue" /> : <Square size={20} className="text-gray-400" />}
                 <span className="contact-label text-gray-700">

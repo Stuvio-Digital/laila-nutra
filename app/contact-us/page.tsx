@@ -65,6 +65,7 @@ const contactSchema = z.object({
     .min(1, 'Phone number is required')
     .regex(/^\d{10}$/, 'Phone number must be exactly 10 digits'),
   email: z.string().min(1, 'Email is required').email('Enter a valid email address'),
+  companyName: z.string().min(1, 'Company name is required'),
   supportType: z.enum(['Product', 'General Enquiry'], {
     error: 'Please select a support type',
   }),
@@ -180,13 +181,13 @@ const ContactPage: React.FC = () => {
       </div>
 
       {/* RIGHT */}
-      <div className="col-span-4 sm:col-span-12 md:col-span-7 @6xl:max-w-[90%] @6xl:ml-auto mt-10 md:mt-0">
+      <div className="col-span-4 sm:col-span-12 md:col-span-7 @6xl:max-w-[80%] [@media(min-width:1920px)]:max-w-[70%] w-full @6xl:ml-auto mt-10 md:mt-0">
         <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 lg:p-[30px] xl:p-10">
 
-          <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="flex flex-col gap-5">
+          <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2">
 
             {/* Name */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 col-span-1">
               <label className="contact-label text-body font-medium text-gray-700">
                 Name <span className="text-red-500">*</span>
               </label>
@@ -197,39 +198,45 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Phone & Email */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="flex flex-col gap-1.5">
-                <label className="contact-label text-body font-medium text-gray-700">
-                  Phone Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  {...register('phone')}
-                  type="tel"
-                  placeholder="+91 XXXXX XXXXX"
-                  className={baseField}
-                  maxLength={10}
-                  onInput={(e: any) => {
-                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
-                  }}
-                />
-                {(touchedFields.phone || isSubmitted) && errors.phone && (
-                  <p className="error-msg text-red-500">{errors.phone.message}</p>
-                )}
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label className="contact-label text-body font-medium text-gray-700">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input {...register('email')} type="email" placeholder="you@example.com" className={baseField} />
-                {(touchedFields.email || isSubmitted) && errors.email && (
-                  <p className="error-msg text-red-500">{errors.email.message}</p>
-                )}
-              </div>
+            <div className="flex flex-col gap-1.5 col-span-1">
+              <label className="contact-label text-body font-medium text-gray-700">
+                Phone Number <span className="text-red-500">*</span>
+              </label>
+              <input
+                {...register('phone')}
+                type="tel"
+                placeholder="+91 XXXXX XXXXX"
+                className={baseField}
+                maxLength={10}
+                onInput={(e: any) => {
+                  e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                }}
+              />
+              {(touchedFields.phone || isSubmitted) && errors.phone && (
+                <p className="error-msg text-red-500">{errors.phone.message}</p>
+              )}
+            </div>
+            <div className="flex flex-col gap-1.5 col-span-1">
+              <label className="contact-label text-body font-medium text-gray-700">
+                Email <span className="text-red-500">*</span>
+              </label>
+              <input {...register('email')} type="email" placeholder="you@example.com" className={baseField} />
+              {(touchedFields.email || isSubmitted) && errors.email && (
+                <p className="error-msg text-red-500">{errors.email.message}</p>
+              )}
+            </div>
+            <div className="flex flex-col gap-1.5 col-span-1">
+              <label className="contact-label text-body font-medium text-gray-700">
+                Company Name <span className="text-red-500">*</span>
+              </label>
+              <input {...register('companyName')} type="text" placeholder="Company Name" className={baseField} />
+              {(touchedFields.companyName || isSubmitted) && errors.companyName && (
+                <p className="error-msg text-red-500">{errors.companyName.message}</p>
+              )}
             </div>
 
             {/* Support Type */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 col-span-2">
               <label className="contact-label text-body font-medium text-gray-700">
                 Support Type <span className="text-red-500">*</span>
               </label>
@@ -247,13 +254,13 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Message */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 col-span-2">
               <label className="contact-label text-body font-medium text-gray-700">Message</label>
               <textarea {...register('message')} rows={4} placeholder="Write your message here…" className={`${baseField} resize-none`} />
             </div>
 
             {/* Terms */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 col-span-2">
               <button
                 type="button"
                 onClick={() =>
@@ -273,7 +280,7 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Submit */}
-            <div className="pt-1">
+            <div className="pt-1 col-span-2">
               <CTA
                 ctaContent={
                 submitState === "loading" ? (

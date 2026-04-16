@@ -107,7 +107,7 @@ const Header: React.FC = () =>{
         
         <div 
           ref={contentRef}
-          className='absolute w-full sm:w-125 lg:w-160 right-0 h-full bg-white sm:rounded-2xl flex flex-col shadow-2xl translate-x-full overflow-hidden'
+          className='absolute w-full sm:w-125 lg:w-[38%] right-0 h-full bg-white sm:rounded-2xl flex flex-col shadow-2xl translate-x-full overflow-hidden'
         >
           {/* Close button: blue circle with white X */}
           <button 

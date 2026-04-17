@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
@@ -22,6 +22,12 @@ const Header: React.FC = () =>{
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleAbout = () => setIsAboutOpen(!isAboutOpen);
+
+  useEffect(() => {
+    if (isOpen && isAboutSectionActive) {
+      setIsAboutOpen(true);
+    }
+  }, [isOpen, isAboutSectionActive]);
 
   useGSAP(() => {
     if (isOpen) {
@@ -56,6 +62,7 @@ const Header: React.FC = () =>{
         delay: 0.2,
         onComplete: () => {
           gsap.set(navRef.current, { visibility: 'hidden' });
+          setIsAboutOpen(false);
         }
       });
     }
@@ -121,6 +128,12 @@ const Header: React.FC = () =>{
 
           <div className="flex flex-col h-full py-10 px-4 sm:px-6 lg:px-10 overflow-y-auto no-scrollbar">
             <ul ref={linksRef} className="flex flex-col gap-6 sm:gap-7">
+              {/* Home */}
+              <li>
+                <Link href="/" onClick={toggleMenu} className={`tracking-[-2%] text-heading3 leading-[110%] font-medium transition-colors block ${isActive('/') ? 'text-blue' : 'text-textPrimary hover:text-blue'}`}>
+                  Home
+                </Link>
+              </li>
               {/* About - Dropdown */}
               <li className="flex flex-col">
                 <div 

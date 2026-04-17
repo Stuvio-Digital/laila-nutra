@@ -94,13 +94,13 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
       // [@media(min-width:1920px)]:flex
       >
         {displayItems.map((item, index) => {
-          const cardClass = `group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex flex-col justify-between relative ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-75 sm:w-87.5 @4xl:w-100 @6xl:w-[calc(25vw-46px)]"}`;
+          const cardClass = `group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex flex-col justify-between relative ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-70 sm:w-[33vw] @4xl:w-[25vw] @6xl:w-[calc(25vw-46px)]"}`;
 
           const cardInner = (
             <>
               {/* [@media(min-width:1920px)]:w-87.5 */}
-              <div className="flex flex-col w-full items-start gap-y-3 p-6">
-                <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-[90%]">
+              <div className="flex flex-col w-full items-start gap-y-3 px-3.5 sm:px-5 lg:px-6 pt-6">
+                <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">
                   {item.title.split("\n").map((line, i) => (
                     <React.Fragment key={i}>
                       {line}
@@ -116,8 +116,8 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
                   )
                 }
               </div>
-              <div className="w-full h-auto flex justify-center items-center pb-[11%]">
-                <div className="w-[71.44%] aspect-square rounded-full relative overflow-hidden">
+              <div className={`w-full h-auto flex justify-center items-end ${item.text ? "pb-[11%] [@media(min-width:1920px)]:pb-[16%]" : "pb-[18%] [@media(min-width:1280px)]:pb-[20%]"} px-5 md:px-6 grow`}>
+                <div className="w-[90%] md:w-[80%] [@media(min-width:1920px)]:w-[75%] aspect-square rounded-full relative overflow-hidden">
                   <img
                     src={item.imgSrc}
                     alt={item.title}

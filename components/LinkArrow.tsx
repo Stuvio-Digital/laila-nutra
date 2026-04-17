@@ -29,7 +29,7 @@ const LinkArrow: React.FC<LinkArrowProps> = ({ className = "absolute bottom-7 ri
         src="/icons/link_arrow.svg"
         alt="Link Arrow"
         className="absolute inset-0 h-full w-full transition-transform duration-300 ease-in-out
-                   translate-x-[-100%] translate-y-full
+                   -translate-x-full translate-y-full
                    group-hover:translate-x-0 group-hover:translate-y-0"
       />
     </div>

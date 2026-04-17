@@ -94,7 +94,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
       // [@media(min-width:1920px)]:flex
       >
         {displayItems.map((item, index) => {
-          const cardClass = `shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex flex-col justify-between relative ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-75 sm:w-87.5 @4xl:w-100 @6xl:w-[calc(25vw-46px)]"}`;
+          const cardClass = `group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex flex-col justify-between relative ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-75 sm:w-87.5 @4xl:w-100 @6xl:w-[calc(25vw-46px)]"}`;
 
           const cardInner = (
             <>
@@ -126,7 +126,10 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
                 </div>
               </div>
               {item.href && (
-                <img src="/icons/link_arrow.svg" alt="Link Arrow" className="absolute bottom-7 right-6 h-8 w-8" />
+                <div className="absolute bottom-7 right-6 h-8 w-8 overflow-hidden rounded-sm flex items-center justify-center">
+                  <img src="/icons/link_arrow.svg" alt="Link Arrow" className="absolute w-full h-full transform group-hover:transition-transform group-hover:duration-300 group-hover:ease-in-out group-hover:translate-x-full group-hover:-translate-y-full" />
+                  <img src="/icons/link_arrow.svg" alt="" className="absolute w-full h-full transform -translate-x-full translate-y-full group-hover:transition-transform group-hover:duration-300 group-hover:ease-in-out group-hover:translate-x-0 group-hover:translate-y-0" />
+                </div>
               )}
             </>
           );

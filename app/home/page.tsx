@@ -21,10 +21,10 @@ const inlineListItems = [
 ]
 
 const carouselItems = [
-  { imgSrc: '/images/home/green.webp', title: 'Ethical Sourcing & \n Green Chemistry', text: 'Adopting Green Extraction-CO₂ & solvent-free.' },
-  { imgSrc: '/images/home/renewable.webp', title: 'Renewable Energy & \n Waste Reduction', text: 'Clean energy integrated across all 6 GMP plants.' },
-  { imgSrc: '/images/home/empowering.webp', title: 'Empowering Farmers & \n Communities', text: 'Supporting health equity with accessible nutraceuticals.' },
-  { imgSrc: '/images/home/transparency-integrity.webp', title: 'Transparency & \n Integrity', text: '70+ patents backed by safety, ethics & clinical validation.' }
+  { imgSrc: '/images/home/green.webp', title: 'Ethical Sourcing & Green Chemistry', text: 'Adopting Green Extraction-CO₂ & solvent-free.' },
+  { imgSrc: '/images/home/renewable.webp', title: 'Renewable Energy & Waste Reduction', text: 'Clean energy integrated across all 6 GMP plants.' },
+  { imgSrc: '/images/home/empowering.webp', title: 'Empowering Farmers & Communities', text: 'Supporting health equity with accessible nutraceuticals.' },
+  { imgSrc: '/images/home/transparency-integrity.webp', title: 'Transparency & Integrity', text: '70+ patents backed by safety, ethics & clinical validation.' }
 ]
 
 const overlayBannerItems = [

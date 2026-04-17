@@ -20,8 +20,8 @@ const ProductListing: React.FC<ProductListingProps> = ({ items = [] }) => {
         <Link href="/products/productInside" key={index} className={`group col-span-4 sm:col-span-4 @6xl:col-span-3 [@media(min-width:1920px)]:col-span-2 w-full aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 bg-white flex flex-col justify-between relative`}>
 
           {/* [@media(min-width:1920px)]:w-87.5 */}
-          <div className="flex flex-col w-full items-start gap-y-3 p-4 sm:p-5 lg:p-6">
-            <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-[90%]">
+          <div className="flex flex-col w-full items-start gap-y-3 px-3.5 sm:px-5 lg:px-6 pt-6">
+            <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">
               {item.title.split("\n").map((line, i) => (
                 <React.Fragment key={i}>
                   {line}
@@ -36,10 +36,9 @@ const ProductListing: React.FC<ProductListingProps> = ({ items = [] }) => {
                 </p>
               )
             }
-            {/* <ActionLink href="/products/productInside" text="Learn More" /> */}
           </div>
-          <div className="w-full h-auto flex justify-center items-center pb-[11%]">
-            <div className="w-[71.44%] aspect-square rounded-full relative overflow-hidden">
+          <div className="w-full h-fit flex justify-center items-end pb-[11%] @6xl:pb-6 xl:pb-[11%] [@media(min-width:1920px)]:pb-[16%] px-5 md:px-6 grow">
+            <div className="w-[90%] md:w-[80%] [@media(min-width:1920px)]:w-[75%] aspect-square rounded-full relative overflow-hidden">
               <img
                 src={item.imgSrc}
                 alt={item.title}

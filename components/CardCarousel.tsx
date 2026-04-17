@@ -127,8 +127,8 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
               </div>
               {item.href && (
                 <div className="absolute bottom-7 right-6 h-8 w-8 overflow-hidden rounded-sm flex items-center justify-center">
-                  <img src="/icons/link_arrow.svg" alt="Link Arrow" className="absolute w-full h-full transform group-hover:transition-transform group-hover:duration-300 group-hover:ease-in-out group-hover:translate-x-full group-hover:-translate-y-full" />
-                  <img src="/icons/link_arrow.svg" alt="" className="absolute w-full h-full transform -translate-x-full translate-y-full group-hover:transition-transform group-hover:duration-300 group-hover:ease-in-out group-hover:translate-x-0 group-hover:translate-y-0" />
+                  <img src="/icons/link_arrow.svg" alt="Link Arrow" className="absolute w-full h-full transform group-hover:transition-transform group-hover:duration-500 group-hover:ease-in-out group-hover:translate-x-full group-hover:-translate-y-full" />
+                  <img src="/icons/link_arrow.svg" alt="" className="absolute w-full h-full transform -translate-x-full translate-y-full group-hover:transition-transform group-hover:duration-500 group-hover:ease-in-out group-hover:translate-x-0 group-hover:translate-y-0" />
                 </div>
               )}
             </>

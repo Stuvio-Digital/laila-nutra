@@ -7,6 +7,7 @@ interface BannerCarouselItem {
   title: string;
   text: string;
   imgSrc: string;
+  href?: string;
 }
 
 interface BannerCarouselSection {

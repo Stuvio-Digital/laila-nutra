@@ -1,10 +1,12 @@
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export interface CarouselItem {
   title: string;
   text?: string;
   imgSrc: string;
+  href?: string;
 }
 
 interface CardCarouselProps {
@@ -91,37 +93,54 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
 
       // [@media(min-width:1920px)]:flex
       >
-        {displayItems.map((item, index) => (
-          <div key={index} className={`shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex flex-col justify-between ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-75 sm:w-87.5 @4xl:w-100 @6xl:w-[calc(25vw-46px)]"}`}>
-            {/* [@media(min-width:1920px)]:w-87.5 */}
-            <div className="flex flex-col w-full items-start gap-y-3 p-6">
-              <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-[90%]">
-                {item.title.split("\n").map((line, i) => (
-                  <React.Fragment key={i}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </p>
-              {
-                item.text && (
-                  <p className="text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-normal text-textSecondary text-wrap lg:max-w-[90%]">
-                    {item.text}
-                  </p>
-                )
-              }
-            </div>
-            <div className="w-full h-auto flex justify-center items-center pb-[11%]">
-              <div className="w-[71.44%] aspect-square rounded-full relative overflow-hidden">
-                <img
-                  src={item.imgSrc}
-                  alt={item.title}
-                  className="h-full w-full object-cover object-center"
-                />
+        {displayItems.map((item, index) => {
+          const cardClass = `shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex flex-col justify-between relative ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-75 sm:w-87.5 @4xl:w-100 @6xl:w-[calc(25vw-46px)]"}`;
+
+          const cardInner = (
+            <>
+              {/* [@media(min-width:1920px)]:w-87.5 */}
+              <div className="flex flex-col w-full items-start gap-y-3 p-6">
+                <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-[90%]">
+                  {item.title.split("\n").map((line, i) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+                {
+                  item.text && (
+                    <p className="text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-normal text-textSecondary text-wrap lg:max-w-[90%]">
+                      {item.text}
+                    </p>
+                  )
+                }
               </div>
+              <div className="w-full h-auto flex justify-center items-center pb-[11%]">
+                <div className="w-[71.44%] aspect-square rounded-full relative overflow-hidden">
+                  <img
+                    src={item.imgSrc}
+                    alt={item.title}
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+              </div>
+              {item.href && (
+                <img src="/icons/link_arrow.svg" alt="Link Arrow" className="absolute bottom-7 right-6 h-8 w-8" />
+              )}
+            </>
+          );
+
+          return item.href ? (
+            <Link key={index} href={item.href} className={cardClass}>
+              {cardInner}
+            </Link>
+          ) : (
+            <div key={index} className={cardClass}>
+              {cardInner}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {showButtons && (

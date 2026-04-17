@@ -147,7 +147,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
       </div>
 
       {showButtons && (
-        <div className='w-fit mx-auto h-fit flex justify-center items-center gap-x-4.25 md:gap-x-5 lg:gap-x-7.5'>
+        <div className='w-fit mx-auto h-fit flex justify-center items-center gap-x-4.5 md:gap-x-5 lg:gap-x-7.5'>
           <button
             onClick={() => scroll('left')}
             disabled={!canScrollLeft}

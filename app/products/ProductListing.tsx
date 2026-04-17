@@ -17,7 +17,7 @@ const ProductListing: React.FC<ProductListingProps> = ({ items = [] }) => {
   return (
     <section className='@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 md:gap-y-7 lg:gap-y-10 xl:gap-y-15 px-4 sm:px-6 lg:px-10 bg-backgroundSecondary items-stretch'>
       {items.map((item, index) => (
-        <Link href="/products/productInside" key={index} className={`group col-span-4 sm:col-span-4 @6xl:col-span-3 [@media(min-width:1920px)]:col-span-2 w-full aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 bg-white flex flex-col justify-between relative`}>
+        <Link href="/products/productInside" key={index} className={`group col-span-4 sm:col-span-6 @6xl:col-span-3 [@media(min-width:1920px)]:col-span-2 w-full aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 bg-white flex flex-col justify-between relative`}>
 
           {/* [@media(min-width:1920px)]:w-87.5 */}
           <div className="flex flex-col w-full items-start gap-y-3 px-3.5 sm:px-5 lg:px-6 pt-6">
@@ -37,7 +37,7 @@ const ProductListing: React.FC<ProductListingProps> = ({ items = [] }) => {
               )
             }
           </div>
-          <div className="w-full h-fit flex justify-center items-end pb-[11%] @6xl:pb-6 xl:pb-[11%] [@media(min-width:1920px)]:pb-[16%] px-5 md:px-6 grow">
+          <div className="w-full h-fit flex justify-center items-end pb-[11%] @6xl:pb-6 xl:pb-[11%] [@media(min-width:1920px)]:pb-[16%] px-5 md:px-6">
             <div className="w-[90%] md:w-[80%] [@media(min-width:1920px)]:w-[75%] aspect-square rounded-full relative overflow-hidden">
               <img
                 src={item.imgSrc}

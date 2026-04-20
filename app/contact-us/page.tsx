@@ -104,8 +104,8 @@ const ContactPage: React.FC = () => {
     formState: { errors, isSubmitting, touchedFields, isSubmitted },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    mode: 'onChange',
-    reValidateMode: 'onBlur',
+    mode: 'all',
+    reValidateMode: 'onChange',
     defaultValues: { name: '', phone: '', email: '', message: '' },
   });
 
@@ -203,14 +203,15 @@ const ContactPage: React.FC = () => {
                 Phone Number <span className="text-red-500">*</span>
               </label>
               <input
-                {...register('phone')}
+                {...register('phone', {
+                  onChange: (e) => {
+                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                  }
+                })}
                 type="tel"
                 placeholder="+91 XXXXX XXXXX"
                 className={baseField}
                 maxLength={10}
-                onInput={(e: any) => {
-                  e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
-                }}
               />
               {(touchedFields.phone || isSubmitted) && errors.phone && (
                 <p className="error-msg text-red-500">{errors.phone.message}</p>

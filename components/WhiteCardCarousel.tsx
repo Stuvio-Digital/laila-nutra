@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
 import ActionLink from './ActionLink';
+import FadeUp from '@/components/FadeUp';
 
 export interface CarouselItem {
   title: string;
@@ -84,7 +85,7 @@ const WhiteCardCarousel: React.FC<WhiteCardCarouselProps> = ({ items = [] }) => 
   };
 
   return (
-    <div className="col-span-4 flex flex-col gap-y-7.5 lg:gap-y-10">
+    <FadeUp className="col-span-4 flex flex-col gap-y-7.5 lg:gap-y-10">
       <div
         ref={scrollRef}
         onScroll={checkScroll}
@@ -133,7 +134,7 @@ const WhiteCardCarousel: React.FC<WhiteCardCarouselProps> = ({ items = [] }) => 
           </button>
         </div>
       )}
-    </div>
+    </FadeUp>
   );
 }
 

@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import SectionHeader from '@/components/SectionHeader';
+import FadeUp from '@/components/FadeUp';
 
 const sustainabilityEfforts = [
   {
@@ -85,11 +86,11 @@ const Cdmo: React.FC = () => {
       />
       <div className='col-span-4 sm:col-span-12 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 gap-y-6 md:gap-y-7.5 lg:gap-y-10'>
         {displayedItems.map((item, index) => (
-          <div key={index} className='col-span-4 sm:col-span-6 @4xl:col-span-4 flex flex-col'>
+          <FadeUp key={index} className='col-span-4 sm:col-span-6 @4xl:col-span-4 flex flex-col'>
             <img src={item.imgSrc} alt={item.title} className='h-8 w-8 mb-3.5 lg:mb-4.5' />
             <p className='text-black text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] font-medium tracking-[-2%] mb-2 md:mb-3'>{item.title}</p>
             <p className='text-textSecondary text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] font-normal max-w-[90%] @6xl:max-w-[80%]'>{item.text}</p>
-          </div>
+          </FadeUp>
         ))}
       </div>
     </section>

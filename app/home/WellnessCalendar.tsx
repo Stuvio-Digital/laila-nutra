@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import SectionHeader from '@/components/SectionHeader';
+import FadeUp from '@/components/FadeUp';
 
 const calendarEvents = [
   {
@@ -42,7 +43,7 @@ const WellnessCalendar: React.FC = () => {
         ctaHref="#"
       />
       {calendarEvents.map((event, index) => (
-        <div key={index} className='col-span-4 h-fit w-full grid grid-cols-4 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 mb-6 md:mb-7.5 lg:mb-10 pt-6 border-t border-borderColor px-4 sm:px-6 lg:px-10'>
+        <FadeUp key={index} className='col-span-4 h-fit w-full grid grid-cols-4 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 mb-6 md:mb-7.5 lg:mb-10 pt-6 border-t border-borderColor px-4 sm:px-6 lg:px-10'>
           <div className='col-span-4 sm:col-span-3 lg:col-span-2 md:max-w-[80%]'>
             <p className='mb-6 md:mb-7.5 lg:mb-10 text-heading3 text-blue leading-[110%] tracking-[-3%] font-medium'>
               {event.date}
@@ -67,7 +68,7 @@ const WellnessCalendar: React.FC = () => {
               </p>
             ))}
           </div>
-        </div>
+        </FadeUp>
       ))}
     </section>
   )

@@ -3,6 +3,7 @@ import SectionHeader from './SectionHeader';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINK_CLASS, LINKS_HEADING_CLASS, navSections } from '@/data/footerData';
+import FadeUp from './FadeUp';
 
 const Footer: React.FC = () => {
   return (
@@ -21,11 +22,11 @@ const Footer: React.FC = () => {
 
       <div className={`pb-10 lg:pb-15 px-4 sm:px-6 lg:px-10 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 col-span-4 sm:col-span-12 gap-y-10 sm:gap-y-15 ${usePathname() === "/contact-us" && "pt-10 lg:pt-15"}`}>
         <Link href='/' className='w-[104px] @6xl:w-[30%] aspect-104/60 col-span-4 sm:col-span-12 @6xl:col-span-3'>
-          <img src='/images/common/laila-footer-logo.png' alt='Laila Footer Logo' className='w-full h-full' />
+          <FadeUp as="img" src='/images/common/laila-footer-logo.png' alt='Laila Footer Logo' className='w-full h-full' />
         </Link>
 
         {navSections.map(({ title, links, colClass }) => (
-          <div key={title} className={`${colClass} flex flex-col`}>
+          <FadeUp key={title} className={`${colClass} flex flex-col`}>
             <p className={LINKS_HEADING_CLASS}>{title}</p>
             <div className='flex flex-col gap-3 sm:gap-4 lg:gap-5'>
               {links.map(({ label, href }) => (
@@ -34,7 +35,7 @@ const Footer: React.FC = () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </FadeUp>
         ))}
       </div>
 

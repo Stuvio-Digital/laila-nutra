@@ -15,6 +15,7 @@ import {
   CheckSquare,
   Square,
 } from 'lucide-react';
+import FadeUp from '@/components/FadeUp';
 
 // ─── CTA Component ───────────────────────────────────────────────────────────
 
@@ -147,7 +148,7 @@ const ContactPage: React.FC = () => {
         />
       </Link>
       {/* LEFT */}
-      <div className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5">
+      <FadeUp className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5" delay={0.2}>
         <h3 className="text-white text-heading1 font-semibold leading-[124%] tracking-[-2%]">
           Let's Connect <br /> With Us
         </h3>
@@ -178,10 +179,10 @@ const ContactPage: React.FC = () => {
             </div>
           ))}
         </div> */}
-      </div>
+      </FadeUp>
 
       {/* RIGHT */}
-      <div className="col-span-4 sm:col-span-12 md:col-span-7 @6xl:max-w-[80%] [@media(min-width:1920px)]:max-w-[70%] w-full @6xl:ml-auto mt-10 md:mt-0">
+      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-7 @6xl:max-w-[80%] [@media(min-width:1920px)]:max-w-[70%] w-full @6xl:ml-auto mt-10 md:mt-0" delay={0.4}>
         <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 lg:p-[30px] xl:p-10">
 
           <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2">
@@ -304,7 +305,7 @@ const ContactPage: React.FC = () => {
           </form>
         </div>
 
-      </div>
+      </FadeUp>
       {/* <div className="grid grid-cols-4 sm:grid-cols-12 gap-7.5 md:hidden col-span-4 sm:col-span-12 mt-10">
         {contactItems.map(({ icon: Icon, label, value, href }) => (
           <div key={label} className="flex items-start gap-3 col-span-4 sm:col-span-6">

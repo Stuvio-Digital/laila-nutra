@@ -1,6 +1,7 @@
 "use client"
-import SectionHeader from '@/components/SectionHeader';
 import React from 'react';
+import SectionHeader from '@/components/SectionHeader';
+import FadeUp from '@/components/FadeUp';
 
 const awardItems = [
   {
@@ -31,7 +32,7 @@ const Awards: React.FC = () => {
       <SectionHeader className='col-span-4 sm:col-span-12' heading='Awards & Recognitions' />
       <div className='col-span-4 sm:col-span-12 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 px-4 sm:px-6 lg:px-10'>
         {awardItems.map((item, index) => (
-          <div 
+          <FadeUp 
             key={index} 
             className='col-span-4 sm:col-span-6 xl:col-span-3 p-4 sm:p-5 lg:p-6 flex flex-col justify-between border border-borderColor aspect-square @6xl:aspect-auto @6xl:gap-y-25 xl:aspect-276/370 w-full items-stretch'
           >
@@ -48,7 +49,7 @@ const Awards: React.FC = () => {
                 {item.description}
               </p>
             </div>
-          </div>
+          </FadeUp>
         ))}
       </div>
     </section>

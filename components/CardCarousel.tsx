@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import FadeUp from '@/components/FadeUp';
 
 export interface CarouselItem {
   title: string;
@@ -85,7 +86,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
   };
 
   return (
-    <div className="col-span-4 flex flex-col gap-y-7.5 lg:gap-y-10">
+    <FadeUp className="col-span-4 flex flex-col gap-y-7.5 lg:gap-y-10">
       <div
         ref={scrollRef}
         onScroll={checkScroll}
@@ -164,7 +165,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
           </button>
         </div>
       )}
-    </div>
+    </FadeUp>
   );
 }
 

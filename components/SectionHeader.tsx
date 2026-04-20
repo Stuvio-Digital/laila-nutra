@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import CTA from './CTA';
+import FadeUp from '@/components/FadeUp';
 
 interface sectionHeaderProps {
   heading?: string;
@@ -21,7 +22,7 @@ interface sectionHeaderProps {
 
 const SectionHeader: React.FC<sectionHeaderProps> = ({ heading, text, className, classNameHeadingStructure, classNameTextStructure, textPadding, textMaxWidth, textColor, headingColor, ctaContent, ctaHref, categories, activeCategory, onCategoryChange }) => {
   return (
-    <div className={`${className} grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-5 md:gap-y-6 mb-10 lg:mb-15`}>
+    <FadeUp className={`${className} grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-5 md:gap-y-6 mb-10 lg:mb-15`}>
       <h3 className={`text-heading2 leading-[110%] tracking-[-2%] lg:tracking-[-4%] font-medium pl-4 sm:pl-6 lg:pl-10 ${headingColor ? `text-${headingColor}` : "text-black"} ${classNameHeadingStructure ? classNameHeadingStructure : "col-span-4 sm:col-span-12 lg:col-span-6 "}`}>
         {heading?.split("\n").map((line, i) => (
           <React.Fragment key={i}>
@@ -55,7 +56,7 @@ const SectionHeader: React.FC<sectionHeaderProps> = ({ heading, text, className,
           ))}
         </div>
       )}
-    </div>
+    </FadeUp>
   )
 }
 

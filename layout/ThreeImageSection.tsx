@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import SectionHeader from '@/components/SectionHeader';
+import FadeUp from '@/components/FadeUp';
 
 interface ThreeImageSectionItem {
   imgSrc: string;
@@ -27,7 +28,7 @@ const ThreeImageSection: React.FC<ThreeImageSectionProps> = ({ heading, text, th
         textPadding='pe-4 pl-4 sm:pe-6 sm:pl-6 @4xl:pe-10 @4xl:pl-0'
         textMaxWidth="max-w-142 lg:max-w-[90%] 2xl:max-w-[80%]"
       />
-      <div className='flex no-scrollbar overflow-x-scroll min-w-full col-span-4 sm:col-span-12 @4xl:grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 items-stretch'>
+      <FadeUp className='flex no-scrollbar overflow-x-scroll min-w-full col-span-4 sm:col-span-12 @4xl:grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 items-stretch'>
         {threeImageSectionItems.map((item, index) => (
           <div key={index} className='shrink-0 @4xl:shrink @4xl:col-span-4 flex flex-col w-[80vw] sm:w-[40vw] @4xl:w-full'>
             <div className='w-full aspect-square relative overflow-hidden mb-6'>
@@ -37,7 +38,7 @@ const ThreeImageSection: React.FC<ThreeImageSectionProps> = ({ heading, text, th
             <p className='text-textSecondary text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] font-normal max-w-[90%] @6xl:max-w-[80%]'>{item.description}</p>
           </div>
         ))}
-      </div>
+      </FadeUp>
     </section>
   )
 }

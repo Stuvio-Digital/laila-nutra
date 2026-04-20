@@ -117,18 +117,18 @@ const WhiteCardCarousel: React.FC<WhiteCardCarouselProps> = ({ items = [] }) => 
       </div>
 
       {showButtons && (
-        <div className='w-fit mx-auto h-fit flex justify-center items-center gap-x-7.5'>
+         <div className='w-fit mx-auto h-fit flex justify-center items-center gap-x-4.5 md:gap-x-5 lg:gap-x-7.5'>
           <button
             onClick={() => scroll('left')}
             disabled={!canScrollLeft}
-            className={`flex items-center justify-center p-2.5 2xl:p-5 bg-[#d9d9d9]/50 aspect-square rounded-full transition-opacity ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'}`}
+            className={`flex items-center justify-center p-4 2xl:p-5 bg-[#d9d9d9]/50 aspect-square rounded-full transition-opacity ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'}`}
           >
             <img src="/icons/arrow_next.svg" alt="Previous Cards" className='object-contain object-center h-4 2xl:h-5 w-4 2xl:w-5 -scale-x-100' />
           </button>
           <button
             onClick={() => scroll('right')}
             disabled={!canScrollRight}
-            className={`flex items-center justify-center p-2.5 2xl:p-5 bg-[#d9d9d9]/50 aspect-square rounded-full transition-opacity ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'}`}
+            className={`flex items-center justify-center p-4 2xl:p-5 bg-[#d9d9d9]/50 aspect-square rounded-full transition-opacity ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'}`}
           >
             <img src="/icons/arrow_next.svg" alt="Next Cards" className='object-contain object-center h-4 2xl:h-5 w-4 2xl:w-5' />
           </button>

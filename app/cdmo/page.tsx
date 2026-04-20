@@ -8,6 +8,7 @@ import FeatureImageGridSection from "@/layout/FeatureImageGridSection";
 import BlockLineFeatureSection from "@/layout/BlockLineFeatureSection";
 import FeatureGridSection from "@/layout/FeatureGridSection";
 import InlineImageSection from "@/layout/InlineImageSection";
+import Step from "./Step";
 
 const solidDosageItems = [
   {
@@ -191,6 +192,7 @@ const page: React.FC = () => {
         subCopy="From concept to commercial manufacturing, we at Laila Nutra offer an end-to-end innovation ecosystem for our clients’ success."
       />
       <FeatureImageGridSection featureGridItem={featureGridItem} />
+      <Step/>
       <InlineListingSection
         heading={"Various Formulation \n Expertise"}
         text="We create a versatile range of dosage formats ranging from tablets to AYUSH-compliant sprays and drops, to meet global consumer preferences."

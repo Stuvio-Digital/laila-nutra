@@ -28,17 +28,19 @@ export const FeatureGridItem: React.FC<FeatureGridItemProps> = ({ item, index, t
             </FadeUp>
           )
         }
-        <FadeUp className='lg:hidden col-span-3 sm:col-span-6 w-full aspect-square relative overflow-hidden mb-6'>
-          <img src={item.image} alt={item.subTitle || item.title} className='w-full h-full object-cover object-center' />
-        </FadeUp>
-        <div className='col-span-4 sm:col-span-12 2xl:max-w-[80%] 2xl:w-full h-fit grid grid-cols-2 items-stretch gap-x-4 md:gap-x-5 lg:gap-x-7.5'>
-          {item.subTitle && <FadeUp as="p" className='col-span-2 text-subHeading1 leading-[110%] tracking-[-2%] font-medium mb-6'>{item.subTitle}</FadeUp>}
-          {item.featureItems.map((item, index) => (
-            <FadeUp key={index} className='col-span-1 flex flex-col gap-y-4.5 lg:gap-y-5.5 gap-x-4 py-6 border-b border-borderColor'>
-              <img src={item.icon} alt={item.title} className='h-8 w-8' />
-              <p className='text-textSecondary text-body xl:text-bodyBase font-normal leading-[124%]'>{item.title}</p>
-            </FadeUp>
-          ))}
+        <div className='grid grid-col-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 col-span-4 sm:col-span-12 md:items-stretch'>
+          <FadeUp className='lg:hidden col-span-3 sm:col-span-6 w-full md:h-full aspect-square relative overflow-hidden md:mb-6'>
+            <img src={item.image} alt={item.subTitle || item.title} className='w-full h-full object-cover object-center'/>
+          </FadeUp>
+          <div className='col-span-4 sm:col-span-12 md:col-span-6 lg:col-span-12 [@media(min-width:1920px)]:max-w-[80%] 2xl:max-w-[90%] h-fit grid grid-cols-2 items-stretch gap-x-4 md:gap-x-5 lg:gap-x-7.5 md:mt-auto'>
+            {item.subTitle && <FadeUp as="p" className='col-span-2 text-subHeading1 leading-[110%] tracking-[-2%] font-medium mb-6'>{item.subTitle}</FadeUp>}
+            {item.featureItems.map((item, index) => (
+              <FadeUp key={index} className='col-span-1 flex flex-col gap-y-4.5 gap-x-4 py-6 border-b border-borderColor'>
+                <img src={item.icon} alt={item.title} className='h-8 w-8' />
+                <p className='text-textSecondary text-body [@media(min-width:1920px)]:text-bodyBase font-normal leading-[124%]'>{item.title}</p>
+              </FadeUp>
+            ))}
+          </div>
         </div>
       </div>
       <FadeUp className={`${item.orderClassImage} hidden lg:inline-block col-span-6 w-full aspect-square relative overflow-hidden`}>

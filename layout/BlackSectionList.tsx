@@ -112,13 +112,13 @@ const BlackSectionList: React.FC<BlackSectionListProps> = ({ heading, text, text
       <SectionHeader heading={heading} text={text} textColor={textColor} textMaxWidth={textMaxWidth} headingColor='white' className='col-span-4 sm:col-span-12' />
       
       <div className='col-span-4 sm:col-span-12 w-full h-fit px-4 sm:px-6 lg:px-10'>
-        <div className='grid grid-cols-4 sm:grid-cols-12 gap-y-0 md:gap-y-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 h-fit md:py-10 px-0 md:px-6 lg:px-10 md:bg-backgroundBlack items-stretch'>
+        <div className='grid grid-cols-4 sm:grid-cols-12 gap-y-0 md:gap-y-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 h-fit md:py-10 px-0 md:px-6 lg:px-10 md:bg-backgroundBlack'>
           
           {/* Left Side: flex-col justify-between */}
           <div className='col-span-4 sm:col-span-12 md:col-span-7 lg:col-span-6 md:max-w-[90%] h-auto flex flex-col justify-between gap-y-4 md:gap-y-0'>
             
             {/* Top: Titles List */}
-            <div className='flex flex-col'>
+            <div className='flex flex-col gap-y-4 md:gap-y-0'>
               {data.map((item, index) => (
                 <div 
                   key={index}

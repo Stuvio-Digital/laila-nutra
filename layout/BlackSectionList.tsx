@@ -147,7 +147,7 @@ const BlackSectionList: React.FC<BlackSectionListProps> = ({ heading, text, text
                   {/* Mobile Accordion Content (Custom order: title, img, points) */}
                   <div className={`md:hidden ${index === activeIndex ? 'block' : 'hidden'}`}>
                     <div className='overflow-hidden pt-4 pb-2'>
-                        <div className='relative w-full aspect-4/3 overflow-hidden rounded-lg mb-6'>
+                        <div className='relative w-full aspect-square overflow-hidden rounded-lg mb-6'>
                           <img 
                             src={item.image} 
                             alt={item.title} 

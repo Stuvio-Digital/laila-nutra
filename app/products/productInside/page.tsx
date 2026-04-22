@@ -138,7 +138,7 @@ const page: React.FC = () => {
       <FeatureGridSection
         heading={"Versatile Formulation \n Possibilities"}
         text="Designed for versatility, EstroMira is an ingredient that fits seamlessly into a range of health formulations without compromising its efficacy or stability."
-        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
+        textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]"
         headingColor="black"
         textColor="textSecondary"
         features={featureGridItems}

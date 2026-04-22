@@ -4,6 +4,7 @@ import Banner from "@/components/Banner";
 import Wellness from "./Wellness";
 import InlineListingSection from "@/layout/InlineListingSection";
 import CarouselSection from "@/layout/CarouselSection";
+import HealthSolutions from "./HealthSolutions";
 import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import WellnessCalendar from "./WellnessCalendar";
 
@@ -53,6 +54,7 @@ const Home: React.FC = () => {
         inlineListDetailsStructure="col-span-4 sm:col-span-9 lg:col-span-4 sm:ml-6"
         inlineListImgStructure="col-span-2 sm:col-span-3 lg:col-span-2"
       />
+      <HealthSolutions />
       <OverlayBannerSection
         heading={"From \n Idea to Global Launch- \n End-to-End Service"}
         text="Laila Nutra CDMO is the next-generation innovation engine, combining formulation expertise, advanced technology platforms, and regulatory readiness. From concept to commercial launch, we enable brands to scale faster, safer, and smarter."

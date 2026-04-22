@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { ReactLenis } from "lenis/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,6 +10,15 @@ interface ClientLayoutProps {
 }
 
 export default function ClientLayout({ children }: ClientLayoutProps) {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => {
       const target = e.target as HTMLElement;

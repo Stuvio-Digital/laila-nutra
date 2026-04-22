@@ -33,7 +33,7 @@ const healthData = [
   {
     title: "Metabolic Health & Obesity",
     image: "/images/home/womens-health.webp",
-    chips: ["Slimvance®", "Meratrim®", "CardiaSlim®", "Lowat®", "SuperCitrimax® (SXM/SXS)", "TheoLim®"]
+    chips: ["Slimvance®", "Meratrim®", "CardiaSlim®", "Lowat®", "SuperCitrimax®", "TheoLim®"]
   },
   {
     title: "Immunity & Respiratory Health",
@@ -61,18 +61,16 @@ const HealthSolutions: React.FC = () => {
   const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 6 distinct non-overlapping zones to ensure chips remain far from each other
     const baseZones = [
-      { tMin: 5, tMax: 20, lMin: 5, lMax: 25 },   // Top-Left
-      { tMin: 5, tMax: 20, lMin: 45, lMax: 65 },  // Top-Right
-      { tMin: 35, tMax: 45, lMin: 5, lMax: 20 },  // Mid-Left
-      { tMin: 35, tMax: 45, lMin: 45, lMax: 65 }, // Mid-Right
-      { tMin: 60, tMax: 70, lMin: 5, lMax: 25 },  // Bottom-Left
-      { tMin: 60, tMax: 70, lMin: 45, lMax: 65 }, // Bottom-Right
+      { tMin: 5, tMax: 20, lMin: 5, lMax: 25 },
+      { tMin: 5, tMax: 20, lMin: 45, lMax: 65 },
+      { tMin: 35, tMax: 45, lMin: 5, lMax: 20 },
+      { tMin: 35, tMax: 45, lMin: 45, lMax: 65 },
+      { tMin: 60, tMax: 70, lMin: 5, lMax: 25 },
+      { tMin: 60, tMax: 70, lMin: 45, lMax: 65 },
     ];
 
     const positions = healthData.map((item) => {
-      // Shuffle zones to get random separated points for this item
       const availableZones = [...baseZones].sort(() => Math.random() - 0.5);
       
       return item.chips.map((_, chipIndex) => {
@@ -149,7 +147,7 @@ const HealthSolutions: React.FC = () => {
     <section className='@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 bg-black'>
       <SectionHeader heading={"Solutions for Today’s \n Health Needs"} text="From women’s health to longevity, our clinically validated ingredients address today’s most pressing health needs." textColor="textSecondary" textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]" headingColor="white" className='col-span-4 sm:col-span-12' ctaContent='Know More' ctaHref='/health-solutions' />
       <div className='col-span-4 sm:col-span-12 w-full h-fit px-4 sm:px-6 lg:px-10'>
-        <div className='grid grid-cols-4 sm:grid-cols-12 gap-y-0 md:gap-y-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 h-fit md:py-10 px-4 sm:px-6 lg:px-10 md:bg-backgroundBlack md:items-center'>
+        <div className='grid grid-cols-4 sm:grid-cols-12 gap-y-0 md:gap-y-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 h-fit md:py-10 px-0 sm:px-6 lg:px-10 md:bg-backgroundBlack md:items-center'>
           
           <div className='col-span-2 sm:col-span-6 relative border-l border-[#242424] py-4 sm:py-6 md:py-10 h-max'>
             <div ref={lineRef} className='absolute left-[-4px] top-0 z-10 pointer-events-none'>
@@ -181,8 +179,8 @@ const HealthSolutions: React.FC = () => {
                   onClick={() => setActiveIndex(index)}
                   className={`cursor-pointer transition-colors duration-300 ${
                     activeIndex === index 
-                    ? 'text-subHeading2 lg:text-heading3 font-medium leading-[124%] tracking-[-2%] text-white' 
-                    : 'text-bodyBase lg:text-subHeading1 font-medium leading-[124%] tracking-[-2%] text-textSecondary hover:text-white/60'
+                    ? 'text-text18 lg:text-heading3 font-medium leading-[124%] tracking-[-2%] text-white' 
+                    : 'text-text16 lg:text-subHeading1 font-medium leading-[124%] tracking-[-2%] text-textSecondary hover:text-white/60'
                   }`}
                 >
                   {index === 8 ? (
@@ -196,37 +194,52 @@ const HealthSolutions: React.FC = () => {
             </ul>
           </div>
 
-          <div className='col-span-2 sm:col-span-6 w-full aspect-square relative overflow-hidden'>
-            {healthData.map((item, index) => (
-              <div 
-                key={index}
-                ref={el => { imageRefs.current[index] = el; }}
-                className='absolute top-0 left-0 w-full h-full'
-                style={{
-                  clipPath: "inset(100% 0% 0% 0%)",
-                  zIndex: 1
-                }}
-              >
-                <img src={item.image} alt={item.title} className='w-full h-full object-cover object-center' />
-                
-                <div className='absolute h-full w-full top-0 left-0 z-20 pointer-events-none p-4 sm:p-6 lg:p-10'>
-                  <div className='relative w-full h-full'>
-                    {item.chips.map((chip, chipIndex) => {
-                      const pos = randomPositions[index]?.[chipIndex];
-                      return (
-                        <div 
-                          key={chipIndex}
-                          className={`health-chip absolute px-4.5 md:px-5 py-3.5 md:py-4 text-body [@media(min-width:1920px)]:px-6 [@media(min-width:1920px)]:py-5 [@media(min-width:1920px)]:text-bodyBase rounded-full w-fit tracking-[-0.75%] font-medium leading-[110%] bg-black/32 backdrop-blur-xl text-white`}
-                          style={pos ? { top: pos.top, left: pos.left } : { top: '50%', left: '50%', opacity: 0 }}
-                        >
-                          {chip}
-                        </div>
-                      );
-                    })}
+          <div className='col-span-2 sm:col-span-6 w-full flex flex-col'>
+            <div className='w-full aspect-square relative overflow-hidden'>
+              {healthData.map((item, index) => (
+                <div 
+                  key={index}
+                  ref={el => { imageRefs.current[index] = el; }}
+                  className='absolute top-0 left-0 w-full h-full'
+                  style={{
+                    clipPath: "inset(100% 0% 0% 0%)",
+                    zIndex: 1
+                  }}
+                >
+                  <img src={item.image} alt={item.title} className='w-full h-full object-cover object-center' />
+                  
+                  {/* Desktop Chips */}
+                  <div className='hidden md:block absolute h-full w-full top-0 left-0 z-20 pointer-events-none p-6 lg:p-10'>
+                    <div className='relative w-full h-full'>
+                      {item.chips.map((chip, chipIndex) => {
+                        const pos = randomPositions[index]?.[chipIndex];
+                        return (
+                          <div 
+                            key={chipIndex}
+                            className={`health-chip absolute px-4.5 py-3.5 text-sm lg:text-body [@media(min-width:1920px)]:px-6 [@media(min-width:1920px)]:py-5 [@media(min-width:1920px)]:text-bodyBase rounded-full w-max text-center tracking-[-0.75%] font-medium leading-[110%] bg-black/32 backdrop-blur-xl text-white`}
+                            style={pos ? { top: pos.top, left: pos.left } : { top: '50%', left: '50%', opacity: 0 }}
+                          >
+                            {chip}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Mobile Chips (Flex Wrap below image) */}
+            <div className='md:hidden w-full flex flex-wrap gap-1.5 mt-4 sm:mt-5'>
+              {healthData[activeIndex]?.chips.map((chip, i) => (
+                <div 
+                  key={i} 
+                  className='text-[12px] w-max tracking-[-0.75%] text-white/50 font-medium leading-[110%]'
+                >
+                  {chip}{i < healthData[activeIndex].chips.length - 1 ? ',' : ''}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

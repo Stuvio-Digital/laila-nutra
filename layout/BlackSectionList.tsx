@@ -156,7 +156,7 @@ const BlackSectionList: React.FC<BlackSectionListProps> = ({ heading, text, text
                         </div>
                         <ul className='flex flex-col gap-y-2 pl-5 list-disc'>
                           {item.points.map((point, idx) => (
-                            <li key={idx} className='font-normal text-textSecondary/ leading-[140%] tracking-[-2%] text-bodyBase [@media(min-width:1920px)]:text-bodyBase'>
+                            <li key={idx} className='font-normal text-textSecondary leading-[140%] tracking-[-2%] text-bodyBase [@media(min-width:1920px)]:text-bodyBase'>
                               {point}
                             </li>
                           ))}
@@ -171,9 +171,9 @@ const BlackSectionList: React.FC<BlackSectionListProps> = ({ heading, text, text
             <div className='hidden md:block mt-10 min-h-[120px]'>
               {activeIndex !== null && (
                 <div ref={pointsRef}>
-                   <ul className='flex flex-col gap-y-2.5 list-disc'>
+                   <ul className='flex flex-col gap-y-2.5 list-disc list-inside'>
                     {data[activeIndex].points.map((point, idx) => (
-                      <li key={idx} className='font-normal list-inside text-textSecondary leading-[140%] tracking-[-2%] text-bodyBase [@media(min-width:1920px)]:text-bodyBase'>
+                      <li key={idx} className='font-normal text-textSecondary leading-[140%] tracking-[-2%] text-bodyBase [@media(min-width:1920px)]:text-bodyBase'>
                         {point}
                       </li>
                     ))}

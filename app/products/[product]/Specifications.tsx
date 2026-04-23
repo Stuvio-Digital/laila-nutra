@@ -12,55 +12,26 @@ export interface SpecCategory {
   points: SpecPoint[];
 }
 
-export interface SpecificationsProps {
+export interface SpecificationsData {
   title?: string;
   image?: string;
   categories?: SpecCategory[];
   points?: SpecPoint[];
 }
 
-// const defaultPoints: SpecPoint[] = [
-//   { label: 'Common Name', value: 'Asparagus Racemosus Extract' },
-//   { label: 'Specification', value: 'Standardized to 15% Shatavarins' },
-//   { label: 'Type', value: 'Extract' },
-//   { label: 'Health Benefit', value: 'Aids in hormonal balance and women’s wellness across every life stage' },
-//   { label: 'Plant Source', value: 'Flowers and leaves (aerial part)' }
-// ];
-
-const defaultCategories: SpecCategory[] = [
-  {
-    name: "About The Patent",
-    points: [
-      { label: 'Common Name', value: 'Asparagus Racemosus Extract' },
-      { label: 'Specification', value: 'Standardized to 15% Shatavarins' },
-      { label: 'Type', value: 'Extract' },
-      { label: 'Health Benefit', value: 'Aids in hormonal balance and women’s wellness across every life stage' },
-      { label: 'Plant Source', value: 'Flowers and leaves (aerial part)' },
-    ]
-  },
-  // {
-  //   name: "Clinical Studies",
-  //   points: [
-  //     { label: 'Health Benefit', value: 'Aids in hormonal balance and women’s wellness across every life stage' },
-  //     { label: 'Clinical Efficacy', value: 'Proven to naturally restore vitality and balance through extensive testing.' },
-  //     { label: 'Plant Source', value: 'Flowers and leaves (aerial part)' }
-  //   ]
-  // },
-  // {
-  //   name: "Clinical Outcomes",
-  //   points: [
-  //     { label: 'Results', value: 'Visibly reduces hot flashes by 73% and significantly improves sleep quality and mood.' },
-  //     { label: 'Safety & Action', value: 'Works seamlessly without any hormonal side effects, fully validated by safe human trials.' }
-  //   ]
-  // }
-];
+export interface SpecificationsProps {
+  specifications?: SpecificationsData;
+}
 
 const Specifications: React.FC<SpecificationsProps> = ({ 
-  title = "Key Sepcifications", 
-  image = "/images/products/root.webp", 
-  categories = defaultCategories, 
-  points = []
+  specifications 
 }) => {
+  const {
+    title, 
+    image, 
+    categories = [], 
+    points = []
+  } = specifications || {};
   const [activeTab, setActiveTab] = useState("");
 
   const currentTab = activeTab || (categories && categories.length > 0 ? categories[0].name : "");

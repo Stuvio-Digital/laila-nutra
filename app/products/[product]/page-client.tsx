@@ -11,42 +11,6 @@ import FeatureGridSection from "@/layout/FeatureGridSection";
 import InlineImageSection from "@/layout/InlineImageSection";
 import OverlayBannerSection from "@/layout/OverlayBannerSection";
 
-const featureGridItems = [
-
-]
-
-const featureGridItem = [
-  {
-    title: "Plant Science For Women",
-    description: "EstroMira™ is a patented Asparagus Racemosus extract (standardized to 15% Shatavarins) crafted to support hormonal balance, reproductive health and overall vitality in women with the help of nature's power.",
-    image: "/images/products/productInside-banner.webp",
-    orderClassFeature: "lg:order-1",
-    orderClassImage: "lg:order-2",
-    featureItems: [
-      {
-        icon: "/icons/stress_management.svg",
-        title: "Safe and natural remedy for hormonal wellness"
-      },
-      {
-        icon: "/icons/footprint.svg",
-        title: "Made for every stage of womanhood"
-      },
-      {
-        icon: "/icons/salinity.svg",
-        title: "World's first patented extract of Asparagus Racemosus"
-      },
-      {
-        icon: "/icons/psychiatry.svg",
-        title: "100% plant-based & clinically validated"
-      },
-      {
-        icon: "/icons/distance.svg",
-        title: "Presence across 25+ countries"
-      },
-    ]
-  }
-]
-
 interface FeatureImageGridSection {
   title: string;
   description: string;

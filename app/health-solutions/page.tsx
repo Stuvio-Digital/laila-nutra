@@ -8,25 +8,25 @@ const bannerCarouselItems = [
     title: "EstroMira™",
     text: "Aids in hormonal balance and women’s wellness across every life stage.",
     imgSrc: "/images/products/estromira.webp",
-    href: "/products/productInside",
+    href: "/products/estromira",
   },
   {
     title: "Eve226™",
     text: "Supports PMS management and menstrual cycle regularity.",
     imgSrc: "/images/products/eve226.webp",
-    href: "/products/productInside",
+    href: "/products/estromira",
   },
   {
     title: "Miazen™",
     text: "Promotes menstrual comfort and relieves PMS-related symptoms.",
     imgSrc: "/images/products/miazen.webp",
-    href: "/products/productInside",
+    href: "/products/estromira",
   },
   {
     title: "5-LOXIN®",
     text: "Delivers fast-acting joint comfort and osteoarthritis relief.",
     imgSrc: "/images/products/5loxin.webp",
-    href: "/products/productInside",
+    href: "/products/estromira",
   },
 ];
 

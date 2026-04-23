@@ -174,7 +174,7 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
                       <p className='text-white/60 font-normal leading-[124%] tracking-[-2%] text-body [@media(min-width:1920px)]:text-bodyBase'>
                         {item.description}
                       </p>
-                      <div className='relative w-full aspect-square overflow-hidden'>
+                      <div className='relative w-full aspect-square overflow-hidden rounded-lg'>
                         <img 
                           src={item.image} 
                           alt={item.title} 

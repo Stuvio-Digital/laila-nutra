@@ -9,16 +9,16 @@ import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import WellnessCalendar from "./WellnessCalendar";
 
 const inlineListItems = [
-  { imgSrc: '/images/products/slimvance.webp', title: 'Slimvance®', text: 'Clinically proven weight loss (12 lbs in 16 weeks)', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/5loxin.webp', title: '5-LOXIN®', text: 'Fast-acting osteoarthritis relief', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/nutricog.webp', title: 'Nutricog®', text: 'Clinically validated memory enhancer', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/estromira.webp', title: 'EstroMira®', text: '73% reduction in menopausal hot flashes', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/eve226.webp', title: 'Eve226™', text: 'PMS and cycle regulation', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/miazen.webp', title: 'Miazen™', text: 'Menstrual comfort and PMS relief', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/ostibind.webp', title: 'Ostibind®', text: 'Improves calcium binding and bone density', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/aqualox.webp', title: 'AquaLox®', text: 'DOMS and arthritis recovery', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/aflapin.webp', title: 'Aflapin®', text: 'Rapid anti-inflammatory support', listLink: "/products/productInside" },
-  { imgSrc: '/images/products/curq60.webp', title: 'CurQ60®', text: 'Clinically validated curcumin anti-inflammatory', listLink: "/products/productInside" }
+  { imgSrc: '/images/products/slimvance.webp', title: 'Slimvance®', text: 'Clinically proven weight loss (12 lbs in 16 weeks)', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/5loxin.webp', title: '5-LOXIN®', text: 'Fast-acting osteoarthritis relief', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/nutricog.webp', title: 'Nutricog®', text: 'Clinically validated memory enhancer', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/estromira.webp', title: 'EstroMira®', text: '73% reduction in menopausal hot flashes', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/eve226.webp', title: 'Eve226™', text: 'PMS and cycle regulation', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/miazen.webp', title: 'Miazen™', text: 'Menstrual comfort and PMS relief', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/ostibind.webp', title: 'Ostibind®', text: 'Improves calcium binding and bone density', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/aqualox.webp', title: 'AquaLox®', text: 'DOMS and arthritis recovery', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/aflapin.webp', title: 'Aflapin®', text: 'Rapid anti-inflammatory support', listLink: "/products/estromira" },
+  { imgSrc: '/images/products/curq60.webp', title: 'CurQ60®', text: 'Clinically validated curcumin anti-inflammatory', listLink: "/products/estromira" }
 ]
 
 const carouselItems = [

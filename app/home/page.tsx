@@ -2,26 +2,13 @@
 import React from "react";
 import Banner from "@/components/Banner";
 import Wellness from "./Wellness";
-import InlineListingSection from "@/layout/InlineListingSection";
-import CarouselSection from "@/layout/CarouselSection";
 import HealthSolutions from "./HealthSolutions";
+import CarouselSection from "@/layout/CarouselSection";
+import BlockLineFeatureSection from "@/layout/BlockLineFeatureSection";
 import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import WellnessCalendar from "./WellnessCalendar";
 
-const inlineListItems = [
-  { imgSrc: '/images/products/slimvance.webp', title: 'Slimvance®', text: 'Clinically proven weight loss (12 lbs in 16 weeks)', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/5loxin.webp', title: '5-LOXIN®', text: 'Fast-acting osteoarthritis relief', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/nutricog.webp', title: 'Nutricog®', text: 'Clinically validated memory enhancer', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/estromira.webp', title: 'EstroMira®', text: '73% reduction in menopausal hot flashes', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/eve226.webp', title: 'Eve226™', text: 'PMS and cycle regulation', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/miazen.webp', title: 'Miazen™', text: 'Menstrual comfort and PMS relief', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/ostibind.webp', title: 'Ostibind®', text: 'Improves calcium binding and bone density', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/aqualox.webp', title: 'AquaLox®', text: 'DOMS and arthritis recovery', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/aflapin.webp', title: 'Aflapin®', text: 'Rapid anti-inflammatory support', listLink: "/products/estromira" },
-  { imgSrc: '/images/products/curq60.webp', title: 'CurQ60®', text: 'Clinically validated curcumin anti-inflammatory', listLink: "/products/estromira" }
-]
-
-const carouselItems = [
+const globalWellnessItems = [
   { imgSrc: '/images/home/green.webp', title: 'Ethical Sourcing & Green Chemistry', text: 'Adopting Green Extraction-CO₂ & solvent-free.' },
   { imgSrc: '/images/home/renewable.webp', title: 'Renewable Energy & Waste Reduction', text: 'Clean energy integrated across all 6 GMP plants.' },
   { imgSrc: '/images/home/empowering.webp', title: 'Empowering Farmers & Communities', text: 'Supporting health equity with accessible nutraceuticals.' },
@@ -35,6 +22,65 @@ const overlayBannerItems = [
   { iconSrc: '/icons/shield.svg', text: 'IP protection with 80+ US and 120+ Indian patents' }
 ];
 
+const clinicallyTestedItems = [
+  {
+    imgSrc: "/images/research-innovations/efficacy.webp",
+    title: "Efficacy",
+  },
+  {
+    imgSrc: "/images/research-innovations/safety.webp",
+    title: "Safety",
+  },
+  {
+    imgSrc: "/images/research-innovations/bioavailability.webp",
+    title: "Bioavailability",
+  },
+  {
+    imgSrc: "/images/research-innovations/consumer-response.webp",
+    title: "Consumer response over time",
+  }
+]
+
+const blockLineFeatureItems = [
+  {
+    icon: "/icons/psychiatry.svg",
+    description: "Sourcing from verified farms and responsible cultivators"
+  },
+  {
+    icon: "/icons/handshake.svg",
+    description: "Close relationships with agricultural partners"
+  },
+  {
+    icon: "/icons/genetics.svg",
+    description: "Botanical identity confirmed through DNA/phyto-marker testing"
+  },
+  {
+    icon: "/icons/barcode_scanner.svg",
+    description: "Batch-wise traceability from harvest to final extract"
+  },
+  {
+    icon: "/icons/book.svg",
+    description: "Origin documentation for every raw material"
+  },
+  {
+    icon: "/icons/agriculture.svg",
+    description: "Sustainable harvesting methods for long-term supply"
+  },
+  {
+    icon: "/icons/license_black.svg",
+    description: "Eliminating adulteration through multi-level authentication"
+  },
+  {
+    icon: "/icons/where_to_vote.svg",
+    description: "Geo-specific selection of botanicals for higher active content"
+  },
+  {
+    icon: "/icons/barcode_reader.svg",
+    description: "Digital batch records available for partner validation"
+  }
+]
+
+
 const Home: React.FC = () => {
   return (
     <main className="@container relative w-full min-h-screen overflow-hidden">
@@ -44,17 +90,17 @@ const Home: React.FC = () => {
         subCopy="For 50 years, Laila Nutra has transformed India’s botanical heritage into patented, clinically proven health solutions trusted in 25+ countries."
       />
       <Wellness />
-      <InlineListingSection
-        heading={"Patented. Clinically Validated. \n Market-Proven."}
-        ctaContent="View Our Products"
-        ctaHref="/products"
-        textColor="textSecondary"
-        inlineListItems={inlineListItems}
-        inlineListStructure="col-span-2"
-        inlineListDetailsStructure="col-span-4 sm:col-span-9 lg:col-span-4 sm:ml-6"
-        inlineListImgStructure="col-span-2 sm:col-span-3 lg:col-span-2"
-      />
       <HealthSolutions />
+      <CarouselSection
+        heading={"Clinically Tested \n For Efficacy"}
+        text="We believe an ingredient is only as strong as its evidence. That’s why our clinical studies are designed with independent partners, controlled environments, and measurable endpoints. Every claim we make is tied to data, not extrapolation."
+        bgColor="white"
+        cardsColor="backgroundSecondary"
+        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
+        textColor="textSecondary"
+        carouselItems={clinicallyTestedItems}
+      />
+      <BlockLineFeatureSection heading={"Clean. Ethically Sourced. \n Traceable."} text="Trace our ingredients from soil to shelf for proven authenticity, safety and efficacy." featureItems={blockLineFeatureItems} />
       <OverlayBannerSection
         heading={"From \n Idea to Global Launch- \n End-to-End Service"}
         text="Laila Nutra CDMO is the next-generation innovation engine, combining formulation expertise, advanced technology platforms, and regulatory readiness. From concept to commercial launch, we enable brands to scale faster, safer, and smarter."
@@ -77,7 +123,7 @@ const Home: React.FC = () => {
         classNameTextStructure="col-span-4 sm:col-span-12 lg:col-span-3 lg:col-start-10"
         bgColor={"backgroundSecondary"}
         textColor="textSecondary"
-        carouselItems={carouselItems}
+        carouselItems={globalWellnessItems}
       />
       <WellnessCalendar />
     </main>

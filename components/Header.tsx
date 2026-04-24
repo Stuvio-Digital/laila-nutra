@@ -174,10 +174,10 @@ const Header: React.FC = () =>{
               </li>
               
               {[
-                { name: 'Products', href: '/products' },
+                // { name: 'Products', href: '/products' },
                 { name: 'Health Solutions', href: '/health-solutions' },
                 { name: 'CDMO', href: '/cdmo' },
-                { name: 'Research & Innovations', href: '/research-innovations' },
+                // { name: 'Research & Innovations', href: '/research-innovations' },
                 { name: 'Contact Us', href: '/contact-us' }
               ].map((link) => (
                 <li key={link.name}>

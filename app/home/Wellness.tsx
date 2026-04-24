@@ -18,7 +18,7 @@ const Wellness: React.FC = () => {
       </FadeUp>
       <div className="col-start-2 col-span-3 md:col-start-3 md:col-span-2 md:row-span-8 order-3 md:order-2">
         <FadeUp as="h3" delay={0.2} className="text-heading2 tracking-[-4%] text-black leading-[110%] font-medium mb-7.5 hidden md:block">
-          Science of Wellness <br /> Since 1974
+          Science of Wellness <br /> Since 1976
         </FadeUp>
         <FadeUp as='div' className="aspect-585/780 overflow-hidden w-full">
           <img
@@ -35,7 +35,7 @@ const Wellness: React.FC = () => {
             facilities built. And more. We transform India’s botanical richness
             into trusted wellness solutions worldwide.
           </p>
-          <CTA ctaContent="Discover Our Journey" href="/our-story-purpose" />
+          {/* <CTA ctaContent="Discover Our Journey" href="/our-story-purpose" /> */}
         </FadeUp>
       </div>
       <FadeUp as='div' className="col-span-3 md:col-start-2 md:col-span-1 aspect-square order-4 overflow-hidden">

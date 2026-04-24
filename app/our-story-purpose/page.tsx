@@ -1,17 +1,9 @@
 "use client";
 import React from "react";
 import Banner from "@/components/Banner";
-import InlineListingSection from "@/layout/InlineListingSection";
 import ThreeImageSection from "@/layout/ThreeImageSection";
 import InlineImageSection from "@/layout/InlineImageSection";
 import ImageGridSection from "@/layout/ImageGridSection";
-
-const inlineListItems = [
-  { imgSrc: '/images/our-story-purpose/chebrolu-srinivas.webp', title: 'Dr. Chebrolu Srinivas', text: 'Founder' },
-  { imgSrc: '/images/our-story-purpose/sv-venu-gopala-raju.webp', title: 'Dr.S.V. Venu Gopala Raju', text: 'Managing Director' },
-  { imgSrc: '/images/our-story-purpose/k-anji-reddy.webp', title: 'Dr. K. Anji Reddy', text: 'Medical Director' },
-  { imgSrc: '/images/our-story-purpose/k-santhaiah.webp', title: 'Dr. K.Santhaiah', text: 'Medical Superintendent' },
-]
 
 const threeImageSectionItems = [
   {
@@ -50,16 +42,6 @@ const page: React.FC = () => {
         title="Our Impact"
 
         text="Through decades of research and innovation, we are helping people access clean, proven and purposeful nutraceutical solutions.Today, we power leading health brands and address the most pressing health challenges from women’s health to cognition and immunity."
-      />
-      <InlineListingSection
-        heading={"Meet Our Experts"}
-        text="Our team of scientists and visionaries bring decades of R&D expertise to push the boundaries of formulation science and clinical validation."
-        bgColor="backgroundSecondary"
-        textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]"
-        textColor="textSecondary"
-        inlineListItems={inlineListItems}
-        inlineListStructure="col-span-4 md:col-span-2"
-        inlineListDetailsStructure="col-span-3 sm:col-span-9 lg:col-span-4 ml-6" inlineListImgStructure="col-span-1 sm:col-span-3 lg:col-span-2"
       />
       <ThreeImageSection
         heading={"The Future Of \n Better Living"}

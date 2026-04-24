@@ -149,8 +149,8 @@ const ContactPage: React.FC = () => {
       </Link>
       {/* LEFT */}
       <FadeUp className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5" delay={0.2}>
-        <h3 className="text-white text-heading1 font-semibold leading-[124%] tracking-[-2%]">
-          Let's Connect <br /> With Us
+        <h3 className="text-white text-heading2 [@media(min-width:1536px)]:text-heading1 font-semibold leading-[124%] tracking-[-2%]">
+          Ready to Build <br /> something together. <br /> Connect with us.
         </h3>
 
         {/* <div className="hidden flex-col gap-7.5 md:flex">

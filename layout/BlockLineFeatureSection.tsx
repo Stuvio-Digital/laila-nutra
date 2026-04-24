@@ -27,24 +27,22 @@ const BlockLineFeatureSection: React.FC<BlockLineFeatureSectionProps> = ({ headi
   const pathname = usePathname();
 
   useGSAP(() => {
-    if (pathname === "/research-innovations") {
-      const mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 768px)", () => {
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          pin: headingRef.current,
-          start: "top top",
-          end: () => {
-            const offset = window.innerWidth >= 1024 ? 120 : 100;
-            return `${((featureRef?.current?.offsetHeight || 0) - offset) || 0}px ${headingRef.current?.offsetHeight || 0}px`;
-          },
-          pinSpacing: false,
-        });
+    mm.add("(min-width: 768px)", () => {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        pin: headingRef.current,
+        start: "top top",
+        end: () => {
+          const offset = window.innerWidth >= 1024 ? 120 : 100;
+          return `${((featureRef?.current?.offsetHeight || 0) - offset) || 0}px ${headingRef.current?.offsetHeight || 0}px`;
+        },
+        pinSpacing: false,
       });
+    });
 
-      return () => mm.revert();
-    }
+    return () => mm.revert();
   }, { scope: sectionRef });
 
   return (

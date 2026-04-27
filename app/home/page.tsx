@@ -117,7 +117,7 @@ const Home: React.FC = () => {
       <CarouselSection
         heading={"Green Innovation for \n Global Wellness"}
         text="For us, wellness is more than science  it’s about protecting the planet and empowering communities"
-        ctaContent="See Our Impact"
+        ctaContent="Our Impact"
         ctaHref="/sustainability-responsibility"
         textMaxWidth="max-w-142 lg:max-w-none"
         classNameTextStructure="col-span-4 sm:col-span-12 lg:col-span-3 lg:col-start-10"

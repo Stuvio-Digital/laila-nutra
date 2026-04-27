@@ -35,7 +35,7 @@ const Wellness: React.FC = () => {
             facilities built. And more. We transform India’s botanical richness
             into trusted wellness solutions worldwide.
           </p>
-          {/* <CTA ctaContent="Discover Our Journey" href="/our-story-purpose" /> */}
+          <CTA ctaContent="Our Journey" href="/our-story-purpose" />
         </FadeUp>
       </div>
       <FadeUp as='div' className="col-span-3 md:col-start-2 md:col-span-1 aspect-square order-4 overflow-hidden">

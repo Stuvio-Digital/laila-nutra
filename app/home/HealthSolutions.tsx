@@ -8,42 +8,37 @@ const healthData = [
   {
     title: "Women’s Health",
     image: "/images/home/womens-health.webp",
-    chips: ["EstroMira™", "Eve226™", "Miazen™"]
+    chips: ["Xeya™"]
   },
   {
     title: "Joint & Bone Health",
     image: "/images/home/joints-bone-health.webp",
-    chips: ["Ostibind®", "5-LOXIN®", "TamaFlex®", "AquaLox®", "Aflapin®", "CurQ60®"]
+    chips: ["AprèsFlex®", "Kinexa®", "TamaFlex®"]
   },
   {
     title: "Cognition & Memory",
     image: "/images/home/metabolic-health-obesity.webp",
-    chips: ["Nutricog®", "BacoZest®"]
+    chips: ["Nutricog®"]
   },
   {
     title: "Gut Health",
     image: "/images/home/male-vitality.webp",
-    chips: ["Digexin®", "Motivia®"]
+    chips: ["Digexin®"]
   },
   {
-    title: "Energy, Muscle & Endurance",
-    image: "/images/home/joints-bone-health.webp",
-    chips: ["CinDura®", "Myotor®", "MaxiNOs®"]
-  },
-  {
-    title: "Metabolic Health & Obesity",
+    title: "Metabolic Health & Weight",
     image: "/images/home/womens-health.webp",
-    chips: ["Slimvance®", "Meratrim®", "CardiaSlim®", "Lowat®", "SuperCitrimax®", "TheoLim®"]
+    chips: ["4Liver®", "Slendacor®"]
   },
   {
-    title: "Immunity & Respiratory Health",
+    title: "Immunity  & Restorative Sleep",
     image: "/images/home/metabolic-health-obesity.webp",
-    chips: ["Immzita®", "Fytojas®", "MaxShield®", "Alviolife®"]
+    chips: ["Spectramune® ", "Serezin®"]
   },
   {
     title: "Male Vitality",
     image: "/images/home/male-vitality.webp",
-    chips: ["Tesnor®", "Libiza®"]
+    chips: ["Tesnor®"]
   },
   {
     title: "Anti-Aging & Longevity",

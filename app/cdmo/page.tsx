@@ -8,6 +8,7 @@ import FeatureImageGridSection from "@/layout/FeatureImageGridSection";
 import BlockLineFeatureSection from "@/layout/BlockLineFeatureSection";
 import FeatureGridSection from "@/layout/FeatureGridSection";
 import InlineImageSection from "@/layout/InlineImageSection";
+import BlackSection from "@/layout/BlackSection";
 import Step from "./Step";
 
 const solidDosageItems = [
@@ -117,7 +118,7 @@ const overlayBannerItems = [
   { iconSrc: '/icons/approval_delegation.svg', iconAlt: "Approval Delegation", text: 'CTD/eCTD Dossier Creation, GRAS and Novel Food approvals' }
 ];
 
-const featureGridItem = [
+const partnerSectionData = [
   {
     title: "Partners in Co-Creating your Next Big Product",
     description: "With over 50 years of nutraceutical leadership, we stand as a trusted CDMO partner for the world’s leading health and wellness brands. We bring the credibility of five decades of discovery and the agility of a next-generation innovation lab.",
@@ -140,6 +141,34 @@ const featureGridItem = [
       {
         icon: "/icons/distance.svg",
         title: "Presence across 25+ countries"
+      }
+    ]
+  }
+]
+
+const globalGradeManufacturingItems = [
+  {
+    title: "Global-Grade Manufacturing",
+    description: "In order to consistently deliver to global brand partners and markets, we follow strict standards - GMP, FSSAI and ISO. Every stage of the process is logged, reviewed and cross-verified.",
+    image: "/images/cdmo/partners.webp",
+    orderClassFeature: "lg:order-2",
+    orderClassImage: "lg:order-1",
+    featureItems: [
+      {
+        icon: "/icons/emergency_share_grey.svg",
+        title: "Controlled Temperatures"
+      },
+      {
+        icon: "/icons/science-grey.svg",
+        title: "Optimised Extraction"
+      },
+      {
+        icon: "/icons/precision_manufacturing_grey.svg",
+        title: "Batch-level Monitoring"
+      },
+      {
+        icon: "/icons/checklist_rtl_grey.svg",
+        title: "⁠Zero-compromise Hygiene Protocols"
       }
     ]
   }
@@ -183,6 +212,34 @@ const technologyInnovationFeatures = [
   }
 ]
 
+const qualityCertificationsData = [
+  {
+    title: "Raw Material Authentication",
+    description: "Verified through botanical and chemical fingerprinting.",
+    image: "/images/quality-certifications/raw-material-authentication.webp"
+  },
+  {
+    title: "In-Process Quality Checks",
+    description: "Continuous monitoring during extraction and formulation.",
+    image: "/images/quality-certifications/in-process-quality-checks.webp"
+  },
+  {
+    title: "Microbiological & Heavy Metal Screening",
+    description: "Ensures absolute purity and safety.",
+    image: "/images/quality-certifications/microbiological-heavy-metal-screening.webp"
+  },
+  {
+    title: "Clinical Validation",
+    description: "Proven efficacy through documented studies and trials.",
+    image: "/images/quality-certifications/clinical-validation.webp"
+  },
+  {
+    title: "Batch Certification",
+    description: "Every batch is traceable, tested, and certified before export.",
+    image: "/images/quality-certifications/batch-certification.webp"
+  }
+];
+
 const page: React.FC = () => {
   return (
     <main className="relative w-full min-h-screen overflow-x-hidden">
@@ -191,7 +248,7 @@ const page: React.FC = () => {
         title={"End-To-End \n CDMO Service \n For Your Success"}
         subCopy="From concept to commercial manufacturing, we at Laila Nutra offer an end-to-end innovation ecosystem for our clients’ success."
       />
-      <FeatureImageGridSection featureGridItem={featureGridItem} />
+      <FeatureImageGridSection featureGridItem={partnerSectionData} />
       <Step/>
       <InlineListingSection
         heading={"Various Formulation \n Expertise"}
@@ -211,6 +268,22 @@ const page: React.FC = () => {
         textColor="textSecondary"
         carouselItems={carouselItems}
       />
+      <FeatureGridSection
+        heading={"Technology & Innovation"}
+        text={"We continuously invest in next-generation delivery technologies that enhance bioavailability, stability and absorption of your products."}
+        textColor="textSecondary"
+        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
+        bgColor="backgroundSecondary"
+        features={technologyInnovationFeatures}
+      />
+      <BlackSection 
+        heading={"Testing Process"} 
+        text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety." 
+        textColor="text-white70" 
+        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
+        data={qualityCertificationsData}
+      />
+      <FeatureImageGridSection featureGridItem={globalGradeManufacturingItems} />
       <OverlayBannerSection
         heading={"Our Commitment: \n Quality Assurance"}
         text="The foundation of every product we co-create is built on data, verified by science and validated by regulation to meet the highest international standards."
@@ -226,14 +299,6 @@ const page: React.FC = () => {
         heading={"Proof & Protect Always"}
         text={"We build your product on scientific credibility and protect it too. Our in-house IPR team has secured 80+ US patents and 120+ Indian patents, ensuring brand exclusivity."}
         featureItems={blockLineFeatureItems}
-      />
-      <FeatureGridSection
-        heading={"Technology & Innovation"}
-        text={"We continuously invest in next-generation delivery technologies that enhance bioavailability, stability and absorption of your products."}
-        textColor="textSecondary"
-        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
-        bgColor="backgroundSecondary"
-        features={technologyInnovationFeatures}
       />
       <InlineImageSection
         imgSrc="/images/cdmo/wellness-with-conscience.webp"

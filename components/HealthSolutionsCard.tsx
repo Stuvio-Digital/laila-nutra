@@ -8,7 +8,9 @@ export interface CarouselItem {
   title: string;
   text?: string;
   imgSrc: string;
-  href?: string;
+  href: string;
+  commonName?: string;
+  healthBenefit?: string;
 }
 
 interface HealthSolutionsCardProps {

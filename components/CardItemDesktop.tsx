@@ -21,7 +21,7 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
       }
 
       if (detailContentRef.current) {
-        gsap.to(detailContentRef.current, { justifyContent: "between", duration: 0.4, ease: "power2.out", flexGrow: 1, flexShrink: 1, flex: 1 , height: "auto", paddingBottom: "40px"});
+        gsap.to(detailContentRef.current, { justifyContent: "around", duration: 0.4, ease: "power2.out", flexGrow: 1, flex: 1 , height: "auto", paddingBottom: "40px"});
       }
       
       if (imageContainerRef.current) {
@@ -59,10 +59,9 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
   return (
     <Link
       ref={cardRef}
-      href={"#"}
+      href={item.href}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      // href={item.href || "#"}
       className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} hidden [@media(min-width:1241px)]:flex flex-col justify-between relative overflow-hidden ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full @6xl:col-span-3" : "w-70 md:w-[33vw] @6xl:w-[25vw] xl:w-[calc(25vw-46px)]"}`}
     >
       <div className="flex flex-col w-full items-start px-3.5 sm:px-5 lg:px-6 pt-6 mb-4 2xl:mb-6 relative z-10">
@@ -93,16 +92,16 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
         <div 
           ref={contentRef} 
           style={{ height: 0, opacity: 0 }}
-          className={`w-full flex flex-col shrink-0 overflow-hidden ${cardsColor ? `bg-${cardsColor}` : "bg-white"}`}
+          className={`w-full flex flex-col overflow-hidden ${cardsColor ? `bg-${cardsColor}` : "bg-white"}`}
         >
           <div className="pt-4 xl:pt-6 2xl:pt-10 flex flex-col w-full">
             <div className='py-3.5 md:py-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
               <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full'>Common Name</p>
-              <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>Asparagus Racemosus Extract</p>
+              <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>{item.commonName || "Common Name Placeholder"}</p>
             </div>
             <div className='pt-3.5 md:pt-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
               <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full'>Health Benefit</p>
-              <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>Aids in hormonal balance and women’s wellness across every life stage</p>
+              <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>{item.healthBenefit || "Health Benefit Placeholder"}</p>
             </div>
           </div>
         </div>

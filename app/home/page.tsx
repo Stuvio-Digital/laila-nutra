@@ -125,7 +125,7 @@ const Home: React.FC = () => {
         textColor="textSecondary"
         carouselItems={globalWellnessItems}
       />
-      <WellnessCalendar />
+      {/* <WellnessCalendar /> */}
     </main>
   );
 };

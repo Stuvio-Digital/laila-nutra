@@ -46,6 +46,7 @@
 
   --text-bodyBase: clamp(1rem, 0.951rem + 0.22vw, 1.125rem) /*18px, 16px*/;
   --text-body: clamp(0.875rem, 0.826rem + 0.22vw, 1rem) /*16px, 14px*/;
+  --text-body2: clamp(0.75rem, 0.701rem + 0.22vw, 0.875rem) /*14px, 12px*/;
   --text-text20: 20px;
   --text-text18: 18px;
   --text-text16: 16px;

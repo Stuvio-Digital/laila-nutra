@@ -21,13 +21,7 @@ const bannerCarouselItems = [
     text: "Promotes menstrual comfort and relieves PMS-related symptoms.",
     imgSrc: "/images/products/miazen.webp",
     href: "/products/estromira",
-  },
-  {
-    title: "5-LOXIN®",
-    text: "Delivers fast-acting joint comfort and osteoarthritis relief.",
-    imgSrc: "/images/products/5loxin.webp",
-    href: "/products/estromira",
-  },
+  }
 ];
 
 const page: React.FC = () => {
@@ -41,12 +35,8 @@ const page: React.FC = () => {
       <BannerCarouselSection
         heading="Women’s Health"
         text="Hormonal imbalances affect millions of women, disrupting their everyday life. Our clinically backed bioactives nurture balance, vitality and comfort to her across every life stage."
-        headingColor="white"
-        textMaxWidth="max-w-142 lg:max-w-none"
-        textColor="white"
-        classNameTextStructure="col-span-4 sm:col-span-12 lg:col-span-3 lg:col-start-10 mt-auto lg:mt-0"
-        bgImageSrc="/images/health-solutions/women-health.webp"
-        bgImageAlt="Women’s Health"
+        textMaxWidth="max-w-[87%] ml-auto"
+        textColor="textSecondary"
         bannerCarouselItems={bannerCarouselItems}
       />
     </main>

@@ -1,7 +1,8 @@
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
+import CardItemDesktop from './CardItemDesktop';
+import CardItemMedium from './CardItemMedium';
 
 export interface CarouselItem {
   title: string;
@@ -10,12 +11,12 @@ export interface CarouselItem {
   href?: string;
 }
 
-interface CardCarouselProps {
+interface HealthSolutionsCardProps {
   items?: CarouselItem[];
   cardsColor?: string;
 }
 
-const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) => {
+const HealthSolutionsCard: React.FC<HealthSolutionsCardProps> = ({ items = [], cardsColor }) =>  {
   const displayItems = items;
   const isFixedGrid = displayItems.length === 4;
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -27,18 +28,14 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
     if (scrollRef.current) {
       const container = scrollRef.current;
       const { scrollLeft, clientWidth } = container;
-      const cards = Array.from(container.children) as HTMLElement[];
+      const cards = (Array.from(container.children) as HTMLElement[]).filter(c => c.offsetParent !== null);
 
       setCanScrollLeft(scrollLeft > 5); // 5px tolerance for partial scroll
 
       if (cards.length > 0) {
         const lastCard = cards[cards.length - 1];
-        // Track the actual pixel boundary of the last card rather than full container scrollWidth
         const lastCardRightEdge = lastCard.offsetLeft + lastCard.offsetWidth;
-
-        // Show buttons only if cards fundamentally overflow the container width
         setShowButtons(lastCardRightEdge > clientWidth + 5);
-        // Disable right button if the last card's rect is already fully inside the visible viewport
         setCanScrollRight(lastCardRightEdge > scrollLeft + clientWidth + 5);
       } else {
         setCanScrollLeft(false);
@@ -61,7 +58,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
       const container = scrollRef.current;
       const currentScroll = container.scrollLeft;
 
-      const cards = Array.from(container.children) as HTMLElement[];
+      const cards = (Array.from(container.children) as HTMLElement[]).filter(c => c.offsetParent !== null);
       const paddingLeft = cards.length > 0 ? cards[0].offsetLeft : 0;
 
       let newScrollPosition = currentScroll;
@@ -86,7 +83,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
   };
 
   return (
-    <FadeUp className="col-span-4 flex flex-col gap-y-7.5 lg:gap-y-10">
+    <FadeUp className="col-span-4 sm:col-span-12 flex flex-col gap-y-7.5 lg:gap-y-10">
       <div
         ref={scrollRef}
         onScroll={checkScroll}
@@ -94,57 +91,12 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
 
       // [@media(min-width:1920px)]:flex
       >
-        {displayItems.map((item, index) => {
-          const cardClass = `group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex flex-col justify-between relative ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-70 md:w-[33vw] @4xl:w-[25vw] @6xl:w-[calc(25vw-46px)]"}`;
-
-          const cardInner = (
-            <>
-              {/* [@media(min-width:1920px)]:w-87.5 */}
-              <div className="flex flex-col w-full items-start gap-y-3 px-3.5 sm:px-5 lg:px-6 pt-6">
-                <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">
-                  {item.title.split("\n").map((line, i) => (
-                    <React.Fragment key={i}>
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </p>
-                {
-                  item.text && (
-                    <p className="text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-normal text-textSecondary text-wrap lg:max-w-[90%]">
-                      {item.text}
-                    </p>
-                  )
-                }
-              </div>
-              <div className={`w-full h-auto flex justify-center items-end ${item.text ? "pb-[11%] [@media(min-width:1920px)]:pb-[16%]" : "pb-[18%] [@media(min-width:1280px)]:pb-[20%]"} px-5 md:px-6 grow`}>
-                <div className="w-[90%] md:w-[80%] [@media(min-width:1920px)]:w-[75%] aspect-square rounded-full relative overflow-hidden">
-                  <img
-                    src={item.imgSrc}
-                    alt={item.title}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-              </div>
-              {item.href && (
-                <div className="absolute bottom-7 right-6 h-8 w-8 overflow-hidden rounded-sm flex items-center justify-center">
-                  <img src="/icons/link_arrow.svg" alt="Link Arrow" className="absolute w-full h-full transform group-hover:transition-transform group-hover:duration-500 group-hover:ease-in-out group-hover:translate-x-full group-hover:-translate-y-full" />
-                  <img src="/icons/link_arrow.svg" alt="" className="absolute w-full h-full transform -translate-x-full translate-y-full group-hover:transition-transform group-hover:duration-500 group-hover:ease-in-out group-hover:translate-x-0 group-hover:translate-y-0" />
-                </div>
-              )}
-            </>
-          );
-
-          return item.href ? (
-            <Link key={index} href={item.href} className={cardClass}>
-              {cardInner}
-            </Link>
-          ) : (
-            <div key={index} className={cardClass}>
-              {cardInner}
-            </div>
-          );
-        })}
+        {displayItems.map((item, index) => (
+          <React.Fragment key={index}>
+            <CardItemDesktop item={item} index={index} isFixedGrid={isFixedGrid} cardsColor={cardsColor} />
+            <CardItemMedium item={item} index={index} isFixedGrid={isFixedGrid} cardsColor={cardsColor} />
+          </React.Fragment>
+        ))}
       </div>
 
       {showButtons && (
@@ -169,4 +121,4 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ items = [], cardsColor }) =
   );
 }
 
-export default CardCarousel;
+export default HealthSolutionsCard;

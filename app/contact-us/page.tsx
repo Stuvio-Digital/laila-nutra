@@ -148,9 +148,9 @@ const ContactPage: React.FC = () => {
         />
       </Link>
       {/* LEFT */}
-      <FadeUp className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-5" delay={0.2}>
+      <FadeUp className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-6" delay={0.2}>
         <h3 className="text-white text-heading2 [@media(min-width:1536px)]:text-heading1 font-semibold leading-[124%] tracking-[-2%]">
-          Ready to Build <br /> something together. <br /> Connect with us.
+          Ready to Build <br /> something together.
         </h3>
 
         {/* <div className="hidden flex-col gap-7.5 md:flex">
@@ -182,10 +182,10 @@ const ContactPage: React.FC = () => {
       </FadeUp>
 
       {/* RIGHT */}
-      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-7 @6xl:max-w-[80%] [@media(min-width:1920px)]:max-w-[70%] w-full @6xl:ml-auto mt-10 md:mt-0" delay={0.4}>
-        <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 lg:p-[30px] xl:p-10">
-
-          <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2">
+      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-6 col-start-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
+        <div className="bg-white rounded-xl">
+          <h3 className="text-black text-subHeading1 font-medium leading-[124%] tracking-[-2%] py-6 border-b border-borderColor mb-10 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10">Connect With Us</h3>
+          <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 pb-10">
 
             {/* Name */}
             <div className="flex flex-col gap-1.5 col-span-1">

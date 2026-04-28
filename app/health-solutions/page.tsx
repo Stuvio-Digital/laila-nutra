@@ -2,33 +2,7 @@
 import React from "react";
 import Banner from "@/components/Banner";
 import BannerCarouselSection from "@/layout/BannerCarouselSection";
-
-const bannerCarouselItems = [
-  {
-    title: "EstroMira™",
-    text: "Aids in hormonal balance and women’s wellness across every life stage.",
-    imgSrc: "/images/products/estromira.webp",
-    href: "/products/estromira",
-  },
-  {
-    title: "Eve226™",
-    text: "Supports PMS management and menstrual cycle regularity.",
-    imgSrc: "/images/products/eve226.webp",
-    href: "/products/estromira",
-  },
-  {
-    title: "Miazen™",
-    text: "Promotes menstrual comfort and relieves PMS-related symptoms.",
-    imgSrc: "/images/products/miazen.webp",
-    href: "/products/estromira",
-  },
-  {
-    title: "5-LOXIN®",
-    text: "Delivers fast-acting joint comfort and osteoarthritis relief.",
-    imgSrc: "/images/products/5loxin.webp",
-    href: "/products/estromira",
-  },
-];
+import { healthSections } from "@/data/healthSolutionsData";
 
 const page: React.FC = () => {
   return (
@@ -38,17 +12,16 @@ const page: React.FC = () => {
         title={"Innovation-Led \n Wellness"}
         subCopy="We deliver effective, scalable nutraceutical solutions across wellness categories to change the landscape of health and nutrition worldwide."
       />
-      <BannerCarouselSection
-        heading="Women’s Health"
-        text="Hormonal imbalances affect millions of women, disrupting their everyday life. Our clinically backed bioactives nurture balance, vitality and comfort to her across every life stage."
-        headingColor="white"
-        textMaxWidth="max-w-142 lg:max-w-none"
-        textColor="white"
-        classNameTextStructure="col-span-4 sm:col-span-12 lg:col-span-3 lg:col-start-10 mt-auto lg:mt-0"
-        bgImageSrc="/images/health-solutions/women-health.webp"
-        bgImageAlt="Women’s Health"
-        bannerCarouselItems={bannerCarouselItems}
-      />
+      {healthSections.map((section, index) => (
+        <BannerCarouselSection
+          key={index}
+          heading={section.heading}
+          text={section.text}
+          textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]"
+          textColor="textSecondary"
+          bannerCarouselItems={section.bannerCarouselItems}
+        />
+      ))}
     </main>
   );
 };

@@ -53,16 +53,16 @@ const page: React.FC = () => {
       <Banner
         imgSrc="/images/our-story-purpose/our-story-purpose-banner.webp"
         title={"Our Story & \n Purpose"}
-        subCopy="Enriching Lives Since 1974"
+        subCopy="Enriching Lives Since 1976"
       />
       <ImageGridSection
         heading={"Merging Legacy With \n Pioneering Spirit"}
-        text="For 50 years, we’ve balanced the credibility of experience with the curiosity of innovation. What began in 1974 as a dream to bring Ayurveda to the global stage has evolved into a powerhouse of scientifically proven health solutions trusted worldwide."
+        text="For 50 years, we’ve balanced the credibility of experience with the curiosity of innovation. What began in 1976 as a dream to bring Ayurveda to the global stage has evolved into a powerhouse of scientifically proven health solutions trusted worldwide."
         imgSmall="/images/our-story-purpose/legacy-small.webp"
         imgBig="/images/our-story-purpose/legacy-big.webp"
       />
-      <BlackSection 
-        heading={"Our Purpose"} 
+      <BlackSection
+        heading={"Our Purpose"}
         data={ourPurposeData}
       />
       <InlineImageSection

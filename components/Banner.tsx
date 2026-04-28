@@ -1,14 +1,17 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import CTA from './CTA';
 
 interface bannerProps {
   imgSrc: string;
   title: string;
   subCopy?: string;
+  ctaContent?: string
+  ctaHref?: string
 }
 
-const Banner: React.FC<bannerProps> = ({ imgSrc, title, subCopy }) => {
+const Banner: React.FC<bannerProps> = ({ imgSrc, title, subCopy, ctaContent, ctaHref }) => {
   return (
     <section className="@container h-dvh w-full relative overflow-hidden">
       <img
@@ -26,13 +29,20 @@ const Banner: React.FC<bannerProps> = ({ imgSrc, title, subCopy }) => {
             </React.Fragment>
           ))}
         </h1>
-        {subCopy &&
-          <p
+        <div>
+          {subCopy &&
+            <p
             className={`lg:pe-10 col-span-4 @4xl:col-span-2 max-w-[90%]  xl:max-w-142 2xl:max-w-[80%] text-bodyBase [@media(min-width:1920px)]:text-subHeading2 text-wrap font-light leading-[124%] tracking-[-2%] text-white`}
           >
             {subCopy}
           </p>
-        }
+          }
+          {
+            ctaContent && ctaHref && (
+              <CTA ctaContent={ctaContent} href={ctaHref} />
+            )
+          }
+        </div>
       </div>
       <Link
         href="/"

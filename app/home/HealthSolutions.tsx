@@ -140,7 +140,7 @@ const HealthSolutions: React.FC = () => {
 
   return (
     <section className='@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 bg-black'>
-      <SectionHeader heading={"Solutions for Today’s \n Health Needs"} text="From women’s health to longevity, our clinically validated ingredients address today’s most pressing health needs." textColor="textSecondary" textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]" headingColor="white" className='col-span-4 sm:col-span-12' ctaContent='Know More' ctaHref='/health-solutions' />
+      <SectionHeader heading={"Solutions for Today’s \n Health Needs"} text="From women’s health to longevity, our clinically validated ingredients address today’s most pressing health needs." textColor="textSecondary" textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]" headingColor="white" className='col-span-4 sm:col-span-12' ctaContent='View Solutions' ctaHref='/health-solutions' />
       <div className='col-span-4 sm:col-span-12 w-full h-fit px-4 sm:px-6 lg:px-10'>
         <div className='grid grid-cols-4 sm:grid-cols-12 gap-y-0 md:gap-y-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 h-fit md:py-10 px-0 sm:px-6 lg:px-10 md:bg-backgroundBlack md:items-center'>
           

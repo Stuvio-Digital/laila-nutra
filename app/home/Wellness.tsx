@@ -7,7 +7,7 @@ const Wellness: React.FC = () => {
   return (
     <section className="h-fit w-full px-4 sm:px-6 lg:px-10 py-15 lg:py-20 grid grid-cols-4 auto-rows-min gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-7 md:gap-y-0">
       <FadeUp as="h3" className="col-span-4 text-heading2 tracking-[-4%] text-black leading-[110%] font-medium block md:hidden order-1">
-        Science of Wellness <br /> Since 1974
+        Science of Wellness <br /> Since 1976
       </FadeUp>
       <FadeUp as='div' className="aspect-380/285 col-span-3 md:col-span-2 md:max-w-[70%] overflow-hidden md:row-span-3 order-2 md:order-1">
         <img
@@ -35,7 +35,7 @@ const Wellness: React.FC = () => {
             facilities built. And more. We transform India’s botanical richness
             into trusted wellness solutions worldwide.
           </p>
-          <CTA ctaContent="Our Journey" href="/our-story-purpose" />
+          <CTA ctaContent="Know More" href="/our-story-purpose" />
         </FadeUp>
       </div>
       <FadeUp as='div' className="col-span-3 md:col-start-2 md:col-span-1 aspect-square order-4 overflow-hidden">

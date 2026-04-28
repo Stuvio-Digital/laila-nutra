@@ -29,10 +29,10 @@ const Banner: React.FC<bannerProps> = ({ imgSrc, title, subCopy, ctaContent, cta
             </React.Fragment>
           ))}
         </h1>
-        <div>
+        <div className='col-span-4 @4xl:col-span-2 max-w-[90%] xl:max-w-142 2xl:max-w-[80%]'>
           {subCopy &&
             <p
-            className={`lg:pe-10 col-span-4 @4xl:col-span-2 max-w-[90%]  xl:max-w-142 2xl:max-w-[80%] text-bodyBase [@media(min-width:1920px)]:text-subHeading2 text-wrap font-light leading-[124%] tracking-[-2%] text-white`}
+            className={`lg:pe-10 text-bodyBase [@media(min-width:1920px)]:text-subHeading2 text-wrap font-light leading-[124%] tracking-[-2%] text-white`}
           >
             {subCopy}
           </p>

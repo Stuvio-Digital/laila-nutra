@@ -33,19 +33,26 @@ const certificationsData = [
   {
     id: 5,
     image: "/images/home/halal.png",
-    alt: "Halal Certified",
-    title: "Halal & Kosher Certified",
-    description: "Compliant with diverse global dietary standards."
+    alt: "Kosher Certified",
+    title: "Kosher Certified",
+    description: "Meets strict kosher guidelines for quality and purity assurance."
   },
   {
     id: 6,
+    image: "/images/home/halal-1.png",
+    alt: "Halal Certified",
+    title: "Halal Certified",
+    description: "Compliant with Islamic dietary standards for global acceptability."
+  },
+  {
+    id: 7,
     image: "/images/home/non-gmo.png",
     alt: "Non-GMO Project Verified",
     title: "Non-GMO & Allergen-Free",
     description: "Committed to clean, safe formulations for every consumer."
   },
   {
-    id: 7,
+    id: 8,
     image: "/images/home/eu.png",
     alt: "EU Compliant",
     title: "EU Compliance",
@@ -59,7 +66,7 @@ const Certified: React.FC = () => {
       <SectionHeader heading={"Globally Certified and \n Recognised"} text="Our facilities are certified by leading international bodies to ensure consistency, safety and efficacy in every solution." textColor="textSecondary" textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]" />
       <div className="grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 gap-y-6 sm:gap-y-7 md:gap-y-10 lg:gap-y-15 items-stretch">
         {certificationsData.map((item) => (
-          <div key={item.id} className='bg-white col-span-4 sm:col-span-6 md:col-span-4 @6xl:col-span-3 w-full aspect-square flex flex-col justify-between p-6 sm:p-5 lg:p-6 gap-y-10'>
+          <div key={item.id} className='bg-white col-span-4 sm:col-span-6 md:col-span-4 @6xl:col-span-3 w-full sm:aspect-square aspect-4/3 flex flex-col justify-between p-6 sm:p-5 lg:p-6 sm:gap-y-10'>
             <div className='w-20 h-auto max-h-20 2xl:max-h-25 2xl:w-25  overflow-hidden'>
               <img src={item.image} alt={item.alt} className='w-auto h-full m-auto' />
             </div>

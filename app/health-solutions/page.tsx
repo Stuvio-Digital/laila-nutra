@@ -17,7 +17,7 @@ const page: React.FC = () => {
           key={index}
           heading={section.heading}
           text={section.text}
-          textMaxWidth="max-w-[87%] lg:ml-auto"
+          textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]"
           textColor="textSecondary"
           bannerCarouselItems={section.bannerCarouselItems}
         />

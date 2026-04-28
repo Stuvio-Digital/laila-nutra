@@ -113,7 +113,7 @@ const page: React.FC = () => {
         heading={"Testing & Validation \n Process"} 
         text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety." 
         textColor="text-white70" 
-        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
+        textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]"
         data={qualityCertificationsData}
       />
       <OverlayBannerSection

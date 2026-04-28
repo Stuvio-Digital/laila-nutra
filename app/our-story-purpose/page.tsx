@@ -4,6 +4,7 @@ import Banner from "@/components/Banner";
 import ThreeImageSection from "@/layout/ThreeImageSection";
 import InlineImageSection from "@/layout/InlineImageSection";
 import ImageGridSection from "@/layout/ImageGridSection";
+import BlackSection from "@/layout/BlackSection";
 
 const threeImageSectionItems = [
   {
@@ -23,6 +24,29 @@ const threeImageSectionItems = [
   },
 ];
 
+const ourPurposeData = [
+  {
+    title: "Bridge Heritage & Science",
+    description: "Carry forward Ayurveda’s authenticity while pioneering global nutraceutical research.",
+    image: "/images/our-story-purpose/bridge-heritage-science.webp"
+  },
+  {
+    title: "Innovate Relentlessly",
+    description: "Deliver patented, clinically validated actives that set benchmarks for efficacy and trust.",
+    image: "/images/our-story-purpose/innovate-relentlessly.webp"
+  },
+  {
+    title: "Empower Global Wellness",
+    description: "Create safe, transparent and traceable solutions for healthier lives everywhere.",
+    image: "/images/our-story-purpose/empower-global-wellness.webp"
+  },
+  {
+    title: "Build on Trust & Legacy",
+    description: "Use 50 years of credibility to inspire the next 50 years of transformation.",
+    image: "/images/our-story-purpose/build-trust-legacy.webp"
+  },
+];
+
 const page: React.FC = () => {
   return (
     <main className="relative w-full min-h-screen overflow-hidden">
@@ -36,6 +60,10 @@ const page: React.FC = () => {
         text="For 50 years, we’ve balanced the credibility of experience with the curiosity of innovation. What began in 1974 as a dream to bring Ayurveda to the global stage has evolved into a powerhouse of scientifically proven health solutions trusted worldwide."
         imgSmall="/images/our-story-purpose/legacy-small.webp"
         imgBig="/images/our-story-purpose/legacy-big.webp"
+      />
+      <BlackSection 
+        heading={"Our Purpose"} 
+        data={ourPurposeData}
       />
       <InlineImageSection
         imgSrc="/images/our-story-purpose/our-impact.webp"

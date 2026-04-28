@@ -17,22 +17,22 @@ const healthData = [
   },
   {
     title: "Cognition & Memory",
-    image: "/images/home/metabolic-health-obesity.webp",
+    image: "/images/home/cognition-memory.webp",
     chips: ["Nutricog®"]
   },
   {
     title: "Gut Health",
-    image: "/images/home/male-vitality.webp",
+    image: "/images/home/gut-health.webp",
     chips: ["Digexin®"]
   },
   {
     title: "Metabolic Health & Weight",
-    image: "/images/home/womens-health.webp",
+    image: "/images/home/metabolic-health-obesity.webp",
     chips: ["4Liver®", "Slendacor®"]
   },
   {
     title: "Immunity  & Restorative Sleep",
-    image: "/images/home/metabolic-health-obesity.webp",
+    image: "/images/home/immunity-restorative-sleep.webp",
     chips: ["Spectramune® ", "Serezin®"]
   },
   {
@@ -42,7 +42,7 @@ const healthData = [
   },
   {
     title: "Anti-Aging & Longevity",
-    image: "/images/home/womens-health.webp",
+    image: "/images/home/anti-aging-longevity.webp",
     chips: ["NAD Booster"]
   }
 ];

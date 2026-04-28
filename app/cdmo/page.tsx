@@ -245,8 +245,8 @@ const page: React.FC = () => {
     <main className="relative w-full min-h-screen overflow-x-hidden">
       <Banner
         imgSrc="/images/cdmo/cdmo-banner.webp"
-        title={"End-To-End \n CDMO Service \n For Your Success"}
-        subCopy="From concept to commercial manufacturing, we at Laila Nutra offer an end-to-end innovation ecosystem for our clients’ success."
+        title={"CDMO Ecosystem Built on \n Research & Innovation"}
+        subCopy="From early discovery to global manufacturing, we integrate science, innovation, and expertise to deliver scalable, high-performance solutions."
       />
       <FeatureImageGridSection featureGridItem={partnerSectionData} />
       <Step/>

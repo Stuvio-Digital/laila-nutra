@@ -1,38 +1,10 @@
 "use client";
 import React from "react";
 import Banner from "@/components/Banner";
-import WhiteCardCarouselSection from "@/layout/WhiteCardCarouselSection";
 import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import ThreeImageSection from "@/layout/ThreeImageSection";
 import Awards from "./Awards";
 import BlackSection from "@/layout/BlackSection";
-
-const whiteCardCarouselItems = [
-  {
-    title: "US FDA Registered",
-    text: "Meeting U.S. regulatory and manufacturing standards."
-  },
-  {
-    title: "cGMP (Good Manufacturing Practices)",
-    text: "Ensuring quality and safety from raw material to finished product."
-  },
-  {
-    title: "FSSC 22000 Certified",
-    text: "Guaranteeing food safety management at every step."
-  },
-  {
-    title: "ISO 9001:2015 Certified",
-    text: "Delivering consistent quality across processes."
-  },
-  {
-    title: "Halal & Kosher Certified",
-    text: "Compliant with diverse global dietary standards."
-  },
-  {
-    title: "Non-GMO & Allergen-Free",
-    text: "Committed to clean, safe formulations for every consumer."
-  },
-];
 
 const overlayBannerItems = [
   { iconSrc: '/icons/emergency_share.svg', iconAlt: "Emergency Share", text: 'Ethically grown botanicals, traced from farm to formulation.' },
@@ -100,14 +72,6 @@ const page: React.FC = () => {
         heading={"Uncompromising Quality. \n Assured Excellence."}
         text="Our ingredients and solutions meet the world’s most stringent quality and safety standards because wellness deserves nothing less."
         threeImageSectionItems={threeImageSectionItems}
-      />
-      <WhiteCardCarouselSection
-        heading={"Globally Certified and \n Recognised"}
-        text="Our facilities are certified by leading international bodies to ensure consistency, safety and efficacy in every solution."
-        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
-        headingColor="black"
-        textColor="textSecondary"
-        whiteCardCarouselItems={whiteCardCarouselItems}
       />
       <BlackSection 
         heading={"Testing & Validation \n Process"} 

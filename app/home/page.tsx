@@ -7,6 +7,7 @@ import CarouselSection from "@/layout/CarouselSection";
 import BlockLineFeatureSection from "@/layout/BlockLineFeatureSection";
 import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import WellnessCalendar from "./WellnessCalendar";
+import Certified from "./Certified";
 
 const globalWellnessItems = [
   { imgSrc: '/images/home/green.webp', title: 'Ethical Sourcing & Green Chemistry', text: 'Adopting Green Extraction-CO₂ & solvent-free.' },
@@ -101,6 +102,7 @@ const Home: React.FC = () => {
         carouselItems={clinicallyTestedItems}
       />
       <BlockLineFeatureSection heading={"Clean. Ethically Sourced. \n Traceable."} text="Trace our ingredients from soil to shelf for proven authenticity, safety and efficacy." featureItems={blockLineFeatureItems} />
+      <Certified />
       <OverlayBannerSection
         heading={"From \n Idea to Global Launch- \n End-to-End Service"}
         text="Laila Nutra CDMO is the next-generation innovation engine, combining formulation expertise, advanced technology platforms, and regulatory readiness. From concept to commercial launch, we enable brands to scale faster, safer, and smarter."

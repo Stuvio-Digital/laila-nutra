@@ -36,12 +36,12 @@ const solidDosageItems = [
 
 const functionalDosageItems = [
   {
-    imgSrc: "/images/cdmo/tablets.webp",
+    imgSrc: "/images/cdmo/powders.webp",
     title: "Powders & Beverages",
     text: "High solubility for stability and superior dispersibility",
   },
   {
-    imgSrc: "/images/cdmo/capsules.webp",
+    imgSrc: "/images/cdmo/gummies.webp",
     title: "Gummies",
     text: "Multi-flavour, sugar-free, and fortified",
   }
@@ -49,17 +49,17 @@ const functionalDosageItems = [
 
 const liquidAndTopicalItems = [
   {
-    imgSrc: "/images/cdmo/effervescent-tablets.webp",
+    imgSrc: "/images/cdmo/cream.webp",
     title: "Creams, Emulsions, and Ointments",
     text: "Smooth, stable topical applications developed for targeted delivery and superior skin compatibility.",
   },
   {
-    imgSrc: "/images/cdmo/mouth-orally-tablets.webp",
+    imgSrc: "/images/cdmo/syrups.webp",
     title: "Syrups, Suspensions, Shots",
     text: "Ready-to-consume formats engineered for efficacy and palatability.",
   },
   {
-    imgSrc: "/images/cdmo/tablets.webp",
+    imgSrc: "/images/cdmo/sprays.webp",
     title: "Nasal Sprays & Ear Drops (AYUSH-compliant)",
     text: "Scientifically formulated and compliant with traditional wellness systems.",
   }
@@ -98,15 +98,15 @@ const carouselItems = [
     title: "Lami Tubes (multiple shapes & volumes)",
   },
   {
-    imgSrc: "/images/cdmo/strip-alu-packs.webp",
+    imgSrc: "/images/cdmo/stick-pack.webp",
     title: "Stick Packs, Sachets, Pouches",
   },
   {
-    imgSrc: "/images/cdmo/bottles.webp",
+    imgSrc: "/images/cdmo/pillow-pack.webp",
     title: "Canisters & Pillow Packs for effervescents and granules",
   },
   {
-    imgSrc: "/images/cdmo/lami-tubes.webp",
+    imgSrc: "/images/cdmo/gummy-pack.webp",
     title: "Eco-friendly Packaging & Gummy Pouches",
   }
 ]

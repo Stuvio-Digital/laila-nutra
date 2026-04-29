@@ -74,7 +74,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     ],
   },
   {
-    heading: "Metabolic Health & Weight",
+    heading: "Metabolic Health \n & Weight",
     text: "With lifestyle-related conditions rising, maintaining metabolic balance is vital. This range helps manage weight, improve lipid profiles and regulate metabolism naturally.",
     bannerCarouselItems: [
       {

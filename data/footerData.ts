@@ -36,7 +36,7 @@ const insightsLinks: NavLink[] = [
 
 export const navSections: NavSection[] = [
   {
-    title: 'Company Overview',
+    title: 'Company',
     links: companyLinks,
     colClass: 'col-span-4 sm:col-span-6 md:col-span-4 lg:col-start-1 @6xl:col-start-4 @6xl:col-span-3',
   },
@@ -46,7 +46,7 @@ export const navSections: NavSection[] = [
     colClass: 'col-span-4 sm:col-span-6 md:col-span-4 @6xl:col-span-3',
   },
   {
-    title: 'Insights & Contact',
+    title: 'Get in Touch',
     links: insightsLinks,
     colClass: 'col-span-4 sm:col-span-6 md:col-span-4 @6xl:col-span-3',
   },

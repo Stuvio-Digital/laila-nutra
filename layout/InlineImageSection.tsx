@@ -9,9 +9,10 @@ interface InlineImageSectionProps {
   text: string;
   className?: string;
   ctaContent?: string;
+  ctaHref?: string;
 }
 
-const InlineImageSection: React.FC<InlineImageSectionProps> = ({ imgSrc, title, text, className, ctaContent }) => {
+const InlineImageSection: React.FC<InlineImageSectionProps> = ({ imgSrc, title, text, className, ctaContent, ctaHref }) => {
   return (
     <section className={`@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-7 md:gap-y-7.5 lg:gap-y-10 px-4 sm:px-6 lg:px-10 ${className}`}>
       <FadeUp as="h3" className='text-heading2 leading-[90%] tracking-[-2%] lg:tracking-[-4%] font-medium col-span-4 md:col-span-2'>
@@ -27,7 +28,7 @@ const InlineImageSection: React.FC<InlineImageSectionProps> = ({ imgSrc, title, 
         <p className='text-textSecondary text-bodyBase [@media(min-width:1920px)]:text-subHeading2 font-normal leading-[124%] tracking-[-2%] max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]'>
           {text}
         </p>
-        {ctaContent && <CTA ctaContent={ctaContent}/>}
+        {ctaContent && ctaHref && <CTA ctaContent={ctaContent} href={ctaHref}/>}
       </FadeUp>
     </section>
   )

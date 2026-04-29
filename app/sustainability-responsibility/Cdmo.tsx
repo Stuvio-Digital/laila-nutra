@@ -33,27 +33,27 @@ const sustainabilityEfforts = [
 
 const responsibilityPillars = [
   {
-    imgSrc: "/icons/lab_research.svg",
+    imgSrc: "/icons/public.svg",
     title: "Global Compliance",
     text: "IFollowing FSSAI, AYUSH, US FDA, EFSA, and ASEAN standards for safety and trust.",
   },
   {
-    imgSrc: "/icons/packaging.svg",
+    imgSrc: "/icons/verified_user.svg",
     title: "IPR Integrity",
     text: "Protecting innovation with 80+ US and 120+ Indian patents.",
   },
   {
-    imgSrc: "/icons/eco.svg",
+    imgSrc: "/icons/approval_delegation.svg",
     title: "Safe Hands Promise",
     text: "Rigorous in-house and CRO-supported validation for efficacy and consumer safety.",
   },
   {
-    imgSrc: "/icons/warehouse.svg",
+    imgSrc: "/icons/trending_up.svg",
     title: "Partner-Centric Growth",
     text: "Acting as an extension of your team, blending innovation with ethical responsibility.",
   },
   {
-    imgSrc: "/icons/water_ec.svg",
+    imgSrc: "/icons/psychology.svg",
     title: "Knowledge Sharing",
     text: "Contributing to research publications, thought leadership, and global nutraceutical discussions.",
   }
@@ -76,7 +76,7 @@ const Cdmo: React.FC = () => {
   const displayedItems = categories.find(cat => cat.name === activeCategory)?.items || [];
 
   return (
-    <section className='@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5'>
+    <section id="cdmo-sustainability" className='@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5'>
       <SectionHeader
         className='col-span-4 sm:col-span-12 mb-10'
         heading={'CDMO Sustainability & \n Responsibility'}

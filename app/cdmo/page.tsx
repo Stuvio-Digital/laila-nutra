@@ -150,7 +150,7 @@ const globalGradeManufacturingItems = [
   {
     title: "Global-Grade Manufacturing",
     description: "In order to consistently deliver to global brand partners and markets, we follow strict standards - GMP, FSSAI and ISO. Every stage of the process is logged, reviewed and cross-verified.",
-    image: "/images/cdmo/partners.webp",
+    image: "/images/cdmo/global-grade.webp",
     orderClassFeature: "lg:order-2",
     orderClassImage: "lg:order-1",
     featureItems: [
@@ -304,6 +304,8 @@ const page: React.FC = () => {
         imgSrc="/images/cdmo/wellness-with-conscience.webp"
         title={"Wellness With \n Conscience"}
         text="For us sustainability isn’t an afterthought. It’s built into our blueprint. With 5 decades of legacy, we design every process, formulation and partnership with sustainability and responsibility at its core."
+        ctaContent="CDMO Sustainability"
+        ctaHref="/sustainability-responsibility/#cdmo-sustainability"
       />
     </main>
   );

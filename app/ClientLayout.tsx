@@ -16,7 +16,22 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
-    window.scrollTo(0, 0);
+
+    const navEntries = performance.getEntriesByType("navigation");
+    const navType =
+      navEntries.length > 0
+        ? (navEntries[0] as PerformanceNavigationTiming).type
+        : undefined;
+
+    if (navType === "reload" || navType === "back_forward") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   useEffect(() => {

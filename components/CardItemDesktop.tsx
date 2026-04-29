@@ -21,7 +21,7 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
       }
 
       if (detailContentRef.current) {
-        gsap.to(detailContentRef.current, { justifyContent: "around", duration: 0.4, ease: "power2.out", flexGrow: 1, flex: 1 , height: "auto", paddingBottom: "40px"});
+        gsap.to(detailContentRef.current, { justifyContent: "space-evenly", duration: 0.4, ease: "power2.out", flexGrow: 1, flex: 1 , height: "auto", paddingBottom: "40px"});
       }
       
       if (imageContainerRef.current) {

@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
 
       <div className='border-t border-blue col-span-4 sm:col-span-12 py-4 sm:py-5 md:py-6 flex flex-col sm:flex-row justify-between sm:items-center gap-4'>
         <div className='flex gap-4 pl-4 sm:pl-6 lg:pl-10'>
-          {[{ label: 'Disclaimer', href: '#' }, { label: 'Sitemap', href: '#' }].map(({ label, href }) => (
+          {[{ label: 'Sitemap', href: '#' }].map(({ label, href }) => (
             <Link key={label} href={href} className='text-sm text-textSecondary hover:text-blue transition-colors duration-300 leading-[110%] tracking-[-1%]'>
               {label}
             </Link>

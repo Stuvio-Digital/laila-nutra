@@ -29,8 +29,8 @@ const aboutLinks: NavLink[] = [
 ];
 
 const insightsLinks: NavLink[] = [
-  { label: 'Blog / Wellness Articles', href: '#' },
-  { label: 'How-to Guides', href: '#' },
+  // { label: 'Blog / Wellness Articles', href: '#' },
+  // { label: 'How-to Guides', href: '#' },
   { label: 'Contact Us', href: '/contact-us' },
 ];
 

@@ -4,15 +4,24 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINK_CLASS, LINKS_HEADING_CLASS, navSections } from '@/data/footerData';
 import FadeUp from './FadeUp';
+import { useFooter } from '@/context/FooterContext';
 
 const Footer: React.FC = () => {
+  const { footerContent } = useFooter();
+  const pathname = usePathname();
+
+  const heading = footerContent?.heading || "Let's Co-Create the \n Future of Wellness";
+  const text = footerContent?.description || 'Partner with Laila Nutra for clinically validated ingredients, breakthrough formulations, and sustainable innovation.';
+  const ctaContent = footerContent?.buttonText || 'Contact Us';
+  const ctaHref = footerContent?.buttonLink || '/contact-us';
+
   return (
     <footer className='@container h-fit w-full grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5'>
-      {(usePathname() !== "/contact-us") && <SectionHeader
-        heading={"Let's Co-Create the \n Future of Wellness"}
-        text='Partner with Laila Nutra for clinically validated ingredients, breakthrough formulations, and sustainable innovation.'
-        ctaContent='Contact Us'
-        ctaHref='/contact-us'
+      {(pathname !== "/contact-us") && <SectionHeader
+        heading={heading}
+        text={text}
+        ctaContent={ctaContent}
+        ctaHref={ctaHref}
         headingColor='white'
         textColor='text-white'
         classNameTextStructure='col-span-4 sm:col-span-12 lg:col-span-6'

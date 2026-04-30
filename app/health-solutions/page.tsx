@@ -3,8 +3,21 @@ import React from "react";
 import Banner from "@/components/Banner";
 import BannerCarouselSection from "@/layout/BannerCarouselSection";
 import { healthSections } from "@/data/healthSolutionsData";
+import { useFooter } from "@/context/FooterContext";
 
 const page: React.FC = () => {
+  const { setFooterContent } = useFooter();
+  
+  React.useEffect(() => {
+    setFooterContent({
+      heading: "Targeted Solutions. \n Backed by Science",
+      description: "A portfolio of clinically supported ingredients designed for real-world health outcomes.",
+      buttonText: "Contact Us",
+      buttonLink: "/contact-us"
+    });
+    return () => setFooterContent(null);
+  }, [setFooterContent]);
+  
   return (
     <main className="relative w-full min-h-screen overflow-hidden">
       <Banner

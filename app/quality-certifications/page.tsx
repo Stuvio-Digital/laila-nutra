@@ -60,7 +60,21 @@ const qualityCertificationsData = [
 ];
 
 
+import { useFooter } from "@/context/FooterContext";
+
 const page: React.FC = () => {
+  const { setFooterContent } = useFooter();
+
+  React.useEffect(() => {
+    setFooterContent({
+      heading: "Uncompromising Quality. \n Global Standards",
+      description: "Every product is backed by stringent quality systems and internationally recognized certifications.",
+      buttonText: "Contact Us",
+      buttonLink: "/contact-us"
+    });
+    return () => setFooterContent(null);
+  }, [setFooterContent]);
+
   return (
     <main className="relative w-full min-h-screen overflow-hidden">
       <Banner

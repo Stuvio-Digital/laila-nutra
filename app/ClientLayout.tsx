@@ -2,8 +2,9 @@
 import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { ReactLenis } from "lenis/react";
-import Header from "@/components/Header";
+import Header from "@/components/HeaderNew";
 import Footer from "@/components/Footer";
+import { FooterProvider } from "@/context/FooterContext";
 
 interface ClientLayoutProps {
   children: React.ReactNode;
@@ -103,10 +104,12 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   }, []);
 
   return (
-    <ReactLenis root>
-      <Header/>
-      {children}
-      <Footer/>
-    </ReactLenis>
+    <FooterProvider>
+      <ReactLenis root>
+        <Header />
+        {children}
+        <Footer />
+      </ReactLenis>
+    </FooterProvider>
   );
 }

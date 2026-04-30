@@ -4,6 +4,8 @@ import Banner from "@/components/Banner";
 import InlineListingSection from "@/layout/InlineListingSection";
 import CarouselSection from "@/layout/CarouselSection";
 import Cdmo from "./Cdmo";
+import { useFooter } from "@/context/FooterContext";
+
 
 const inlineListItems = [
   {
@@ -51,7 +53,20 @@ const carouselItems = [
   }
 ]
 
+
 const page: React.FC = () => {
+  const { setFooterContent } = useFooter();
+
+  React.useEffect(() => {
+    setFooterContent({
+      heading: "Responsibility in Every Step",
+      description: "We embed sustainability across sourcing, processes, and partnerships to create lasting impact.",
+      buttonText: "Contact Us",
+      buttonLink: "/contact-us"
+    });
+    return () => setFooterContent(null);
+  }, [setFooterContent]);
+
   return (
     <main className="relative w-full min-h-screen overflow-hidden">
       <Banner

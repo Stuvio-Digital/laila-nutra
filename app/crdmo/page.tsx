@@ -10,6 +10,7 @@ import FeatureGridSection from "@/layout/FeatureGridSection";
 import InlineImageSection from "@/layout/InlineImageSection";
 import BlackSection from "@/layout/BlackSection";
 import Step from "./Step";
+import { useFooter } from "@/context/FooterContext";
 
 const solidDosageItems = [
   {
@@ -241,6 +242,18 @@ const qualityCertificationsData = [
 ];
 
 const page: React.FC = () => {
+  const { setFooterContent } = useFooter();
+  
+  React.useEffect(() => {
+    setFooterContent({
+      heading: "Transforming Healthcare with \n a Strong Partnership",
+      description: "Whether you’re at the idea stage or looking to scale in other markets, our global understanding and 50 years of experience helps you at every step of the way.",
+      buttonText: "Partner With Us",
+      buttonLink: "/contact-us"
+    });
+    return () => setFooterContent(null);
+  }, [setFooterContent]);
+
   return (
     <main className="relative w-full min-h-screen overflow-x-hidden">
       <Banner

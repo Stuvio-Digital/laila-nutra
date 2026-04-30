@@ -162,7 +162,9 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
                 </div>
 
                 {/* Mobile Accordion Content */}
-                <div className={`md:hidden ${index === activeIndex ? 'block' : 'hidden'}`}>
+                <div 
+                  className={`md:hidden grid transition-all duration-500 ease-in-out ${index === activeIndex ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                >
                   <div className='overflow-hidden'>
                     <div 
                       className='flex flex-col gap-y-6 pb-6 pt-4'
@@ -171,10 +173,10 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
                         transition: "clip-path 0.5s ease-in-out"
                       }}
                     >
-                      <p className='text-white/60 font-normal leading-[124%] tracking-[-2%] text-body [@media(min-width:1920px)]:text-bodyBase'>
+                      <p className='text-white/60 font-normal leading-[124%] tracking-[-2%] text-bodyBase'>
                         {item.description}
                       </p>
-                      <div className='relative w-full aspect-square overflow-hidden rounded-lg'>
+                      <div className='relative w-full aspect-square overflow-hidden'>
                         <img 
                           src={item.image} 
                           alt={item.title} 
@@ -186,12 +188,13 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
                 </div>
 
                 {/* Desktop Description */}
-                <div className={`md:block hidden overflow-hidden ${index === activeIndex ? 'mt-2.5 h-auto' : 'h-0'}`}>
+                <div className={`md:grid hidden overflow-hidden transition-all duration-500 ease-in-out ${index === activeIndex ? 'mt-2.5 grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                   <div 
                     ref={el => { descriptionRefs.current[index] = el; }}
+                    className="overflow-hidden"
                     style={{ clipPath: "inset(0% 0% 100% 0%)", opacity: 0 }}
                   >
-                    <p className='text-white/60 font-normal leading-[124%] tracking-[-2%] text-body [@media(min-width:1920px)]:text-bodyBase'>
+                    <p className='text-white/60 font-normal leading-[124%] tracking-[-2%] text-bodyBase'>
                       {item.description}
                     </p>
                   </div>

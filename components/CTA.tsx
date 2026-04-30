@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 interface CTAProps {
-  ctaContent: string;
+  ctaContent: React.ReactNode;
   href?: string;
   target?: string;
   className?: string;

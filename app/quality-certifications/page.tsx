@@ -5,6 +5,7 @@ import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import ThreeImageSection from "@/layout/ThreeImageSection";
 import Awards from "./Awards";
 import BlackSection from "@/layout/BlackSection";
+import Certified from "@/layout/Certified";
 
 const overlayBannerItems = [
   { iconSrc: '/icons/emergency_share.svg', iconAlt: "Emergency Share", text: 'Ethically grown botanicals, traced from farm to formulation.' },
@@ -87,6 +88,7 @@ const page: React.FC = () => {
         text="Our ingredients and solutions meet the world’s most stringent quality and safety standards because wellness deserves nothing less."
         threeImageSectionItems={threeImageSectionItems}
       />
+      <Certified />
       <BlackSection 
         heading={"Testing & Validation \n Process"} 
         text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety." 
@@ -107,7 +109,7 @@ const page: React.FC = () => {
         bgImageAlt="State of the Art Facilities"
         overlayBannerItems={overlayBannerItems}
       />
-      <Awards />
+      {/* <Awards /> */}
     </main>
   );
 };

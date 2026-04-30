@@ -60,6 +60,7 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
     <Link
       ref={cardRef}
       href={item.href || "#"}
+      target='_blank'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} hidden [@media(min-width:1241px)]:flex flex-col justify-between relative overflow-hidden ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full @6xl:col-span-3" : "w-70 md:w-[33vw] @6xl:w-[25vw] xl:w-[calc(25vw-46px)]"}`}

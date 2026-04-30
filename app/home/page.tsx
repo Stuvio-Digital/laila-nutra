@@ -109,7 +109,7 @@ const Home: React.FC = () => {
         heading={"From \n Idea to Global Launch- \n End-to-End Service"}
         text="Laila Nutra CDMO is the next-generation innovation engine, combining formulation expertise, advanced technology platforms, and regulatory readiness. From concept to commercial launch, we enable brands to scale faster, safer, and smarter."
         ctaContent="Know More"
-        ctaHref="/cdmo"
+        ctaHref="/crdmo"
         headingColor="white"
         textMaxWidth="max-w-142 lg:max-w-none"
         textColor="white"

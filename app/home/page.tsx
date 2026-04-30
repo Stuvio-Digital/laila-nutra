@@ -7,7 +7,7 @@ import CarouselSection from "@/layout/CarouselSection";
 import BlockLineFeatureSection from "@/layout/BlockLineFeatureSection";
 import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import WellnessCalendar from "./WellnessCalendar";
-import Certified from "./Certified";
+import Certified from "../../layout/Certified";
 
 const globalWellnessItems = [
   { imgSrc: '/images/home/green.webp', title: 'Ethical Sourcing & Green Chemistry', text: 'Adopting Green Extraction-CO₂ & solvent-free.' },

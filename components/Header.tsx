@@ -176,7 +176,7 @@ const Header: React.FC = () =>{
               {[
                 // { name: 'Products', href: '/products' },
                 { name: 'Health Solutions', href: '/health-solutions' },
-                { name: 'CDMO', href: '/cdmo' },
+                { name: 'CRDMO', href: '/crdmo' },
                 // { name: 'Research & Innovations', href: '/research-innovations' },
                 { name: 'Contact Us', href: '/contact-us' }
               ].map((link) => (

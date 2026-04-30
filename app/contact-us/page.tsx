@@ -182,7 +182,7 @@ const ContactPage: React.FC = () => {
       </FadeUp>
 
       {/* RIGHT */}
-      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-6 col-start-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
+      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
         <div className="bg-white rounded-xl">
           <h3 className="text-black text-subHeading1 font-medium leading-[124%] tracking-[-2%] py-6 border-b border-borderColor mb-10 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10">Connect With Us</h3>
           <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 pb-10">

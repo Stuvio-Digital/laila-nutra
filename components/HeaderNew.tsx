@@ -217,11 +217,7 @@ const Header = forwardRef<HTMLElement, any>((props, ref) => {
             <Link
               href="/contact-us"
               onClick={(e) => handleLinkClick(e, "/contact-us")}
-              className={`flex relative z-50 px-3.5 py-2.5 lg:px-4 lg:py-3 w-fit items-center justify-center rounded-full text-body leading-[120%] border cursor-pointer transition-all duration-300 ${
-                isWhiteBackground
-                  ? "text-blue border-blue hover:bg-blue hover:text-white bg-white"
-                  : "text-white border-white hover:bg-white hover:text-blue bg-transparent"
-              }`}
+              className={`flex relative z-50 px-3.5 py-2.5 lg:px-4 lg:py-3 w-fit items-center justify-center rounded-full text-body leading-[120%] cursor-pointer transition-all duration-300 text-white bg-blue `}
             >
               Contact Us
             </Link>

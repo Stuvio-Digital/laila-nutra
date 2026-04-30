@@ -32,8 +32,4 @@ export const navItems: NavItem[] = [
     title: "CRDMO",
     href: "/crdmo"
   },
-  {
-    title: "Contact Us",
-    href: "/contact-us"
-  }
 ];

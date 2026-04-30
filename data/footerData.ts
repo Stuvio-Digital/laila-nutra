@@ -18,7 +18,7 @@ interface NavSection {
 const companyLinks: NavLink[] = [
   // { label: 'Products', href: '/products' },
   // { label: 'Research & Innovation', href: '/research-innovations' },
-  { label: 'CDMO', href: '/cdmo' },
+  { label: 'CRDMO', href: '/crdmo' },
   { label: 'Health Solutions', href: '/health-solutions' },
 ];
 

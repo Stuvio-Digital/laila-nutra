@@ -5,6 +5,7 @@ import ThreeImageSection from "@/layout/ThreeImageSection";
 import InlineImageSection from "@/layout/InlineImageSection";
 import ImageGridSection from "@/layout/ImageGridSection";
 import BlackSection from "@/layout/BlackSection";
+import { useFooter } from "@/context/FooterContext";
 
 const threeImageSectionItems = [
   {
@@ -48,6 +49,18 @@ const ourPurposeData = [
 ];
 
 const page: React.FC = () => {
+  const { setFooterContent } = useFooter();
+
+  React.useEffect(() => {
+    setFooterContent({
+      heading: "Built on Purpose. \n Driven by Science",
+      description: "Our journey is rooted in innovation, integrity, and a long-standing commitment to advancing global wellness.",
+      buttonText: "Contact Us",
+      buttonLink: "/contact-us"
+    });
+    return () => setFooterContent(null);
+  }, [setFooterContent]);
+
   return (
     <main className="relative w-full min-h-screen overflow-hidden">
       <Banner

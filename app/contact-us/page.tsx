@@ -1,188 +1,44 @@
 "use client";
 import React from 'react';
-import NextLink from 'next/link';
-import { useForm } from 'react-hook-form';
-import Link from 'next/link';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import {
-  Mail,
-  Phone,
-  Globe,
-  MapPin,
-  Clock,
   ChevronDown,
   CheckSquare,
   Square,
 } from 'lucide-react';
 import FadeUp from '@/components/FadeUp';
-
-// ─── CTA Component ───────────────────────────────────────────────────────────
-
-interface CTAProps {
-  ctaContent: React.ReactNode;
-  href?: string;
-  target?: string;
-  className?: string;
-  as?: 'link' | 'button';
-  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
-}
-
-const CTA: React.FC<CTAProps> = ({
-  ctaContent,
-  href,
-  target,
-  className = '',
-  as = 'link',
-  onClick,
-  type = 'button',
-  disabled = false,
-}) => {
-  const commonClasses = `cursor-pointer text-body tracking-[-1%] text-normal text-white px-4 md:px-4.5 lg:px-5.5 py-2.5 md:py-3 w-fit rounded-full bg-blue text-center flex justify-center items-center ${className}`;
-
-  if (as === 'button') {
-    return (
-      <button type={type} className={commonClasses} onClick={onClick} disabled={disabled}>
-        {ctaContent}
-      </button>
-    );
-  }
-
-  return (
-    <NextLink href={href || '#'} className={commonClasses} target={target} onClick={onClick}>
-      {ctaContent}
-    </NextLink>
-  );
-};
-
-// ─── Zod Schema ──────────────────────────────────────────────────────────────
-
-const contactSchema = z.object({
-  name: z.string().min(1, 'Name is required').min(2, 'Name must be at least 2 characters long'),
-  phone: z
-    .string()
-    .min(1, 'Phone number is required')
-    .regex(/^\d{10}$/, 'Phone number must be exactly 10 digits'),
-  email: z.string().min(1, 'Email is required').email('Enter a valid email address'),
-  companyName: z.string().min(1, 'Company name is required'),
-  supportType: z.enum(['Product', 'General Enquiry'], {
-    error: 'Please select a support type',
-  }),
-  message: z.string().optional(),
-  terms: z.literal(true, {
-    error: 'You must agree to the terms and conditions',
-  }),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
-// ─── Contact Info Items ───────────────────────────────────────────────────────
-
-const contactItems = [
-  { icon: Mail, label: 'Email', value: 'bharath.b@lailanutra.com', href: 'mailto:bharath.b@lailanutra.com' },
-  { icon: Phone, label: 'Phone', value: '+91-8331893714', href: 'tel:+918331893714' },
-  { icon: Globe, label: 'LinkedIn', value: 'lailanutra', href: 'https://www.linkedin.com/company/lailanutra.com/posts/?feedView=all' },
-  { icon: MapPin, label: 'Location', value: 'Vijayawada, India', href: null },
-  { icon: Clock, label: 'Working Hours', value: 'Mon – Sat: 9:00 am – 6:00 pm', href: null },
-];
-
-// ─── Shared field classes ─────────────────────────────────────────────────────
+import CTA from '@/components/CTA';
+import { useContactForm } from '@/hooks/useContactForm';
 
 const baseField =
   'w-full bg-transparent border border-transparent rounded-sm px-3 @4xl:px-4 py-2.5 @4xl:py-3 contact-input text-gray-900 placeholder:text-gray-400 placeholder:text-body transition-all duration-200 outline outline-textSecondary/50 focus:outline-blue';
 
-// ─── Page ────────────────────────────────────────────────────────────────────
-
 const ContactPage: React.FC = () => {
-  const [submitState, setSubmitState] = React.useState<"idle" | "loading" | "success">("idle");
   const {
-    register,
-    handleSubmit,
-    setValue,
-    watch,
-    formState: { errors, isSubmitting, touchedFields, isSubmitted },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-    mode: 'all',
-    reValidateMode: 'onChange',
-    defaultValues: { name: '', phone: '', email: '', message: '' },
-  });
+    form: {
+      register,
+      handleSubmit,
+      setValue,
+      watch,
+      formState: { errors, touchedFields, isSubmitted },
+    },
+    submitState,
+    onSubmit,
+    onError
+  } = useContactForm();
 
   const termsChecked = watch('terms');
 
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      setSubmitState("loading");
-
-      console.log('Form submitted:', data);
-      await new Promise((r) => setTimeout(r, 800));
-
-      setSubmitState("success");
-
-      setTimeout(() => {
-        setSubmitState("idle");
-      }, 300);
-    } catch (e) {
-      setSubmitState("idle");
-    }
-  };
-
-  const onError = (errors: any) => {
-    const firstError = Object.keys(errors)[0];
-    const el = document.querySelector(`[name="${firstError}"]`);
-    el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-
   return (
-    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-28 sm:pt-30 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 my-auto">
-      <Link
-        href="/"
-        className="aspect-84/40 sm:aspect-104/60 max-w-26 absolute left-4 sm:left-1/2 sm:-translate-x-1/2 z-30 top-6"
-      >
-        <img
-          src="/images/common/laila-logo-color.png"
-          alt="Laila Nutra Logo"
-          className="w-auto h-full sm:mx-auto"
-        />
-      </Link>
+    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-30 sm:pt-40 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 my-auto">
       {/* LEFT */}
       <FadeUp className="flex flex-col gap-10 lg:gap-15 col-span-4 sm:col-span-12 md:col-span-6" delay={0.2}>
         <h3 className="text-white text-heading2 [@media(min-width:1536px)]:text-heading1 font-semibold leading-[124%] tracking-[-2%]">
           Ready to Build <br /> something together.
         </h3>
-
-        {/* <div className="hidden flex-col gap-7.5 md:flex">
-          {contactItems.map(({ icon: Icon, label, value, href }) => (
-            <div key={label} className="flex items-start gap-3">
-              <div className="shrink-0 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
-                <Icon size={18} className="text-white" strokeWidth={1.8} />
-              </div>
-              <div className="flex flex-col gap-0.5">
-                <span className="text-white text-text18 tracking-[-2%] font-medium">
-                  {label}
-                </span>
-                {href ? (
-                  <a
-                    href={href}
-                    target={href.startsWith('http') ? '_blank' : undefined}
-                    rel="noreferrer"
-                    className="text-text16 text-white/60 hover:text-white transition-colors duration-200 break-all"
-                  >
-                    {value}
-                  </a>
-                ) : (
-                  <span className="text-text16 text-white/64">{value}</span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div> */}
       </FadeUp>
 
       {/* RIGHT */}
-      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-6 col-start-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
+      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
         <div className="bg-white rounded-xl">
           <h3 className="text-black text-subHeading1 font-medium leading-[124%] tracking-[-2%] py-6 border-b border-borderColor mb-10 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10">Connect With Us</h3>
           <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 pb-10">
@@ -306,32 +162,6 @@ const ContactPage: React.FC = () => {
         </div>
 
       </FadeUp>
-      {/* <div className="grid grid-cols-4 sm:grid-cols-12 gap-7.5 md:hidden col-span-4 sm:col-span-12 mt-10">
-        {contactItems.map(({ icon: Icon, label, value, href }) => (
-          <div key={label} className="flex items-start gap-3 col-span-4 sm:col-span-6">
-            <div className="shrink-0 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
-              <Icon size={18} className="text-white" strokeWidth={1.8} />
-            </div>
-            <div className="flex flex-col gap-0.5">
-              <span className="text-white text-text18 tracking-[-2%] font-medium">
-                {label}
-              </span>
-              {href ? (
-                <a
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel="noreferrer"
-                  className="text-text16 text-white/64 hover:text-white transition-colors duration-200 break-all"
-                >
-                  {value}
-                </a>
-              ) : (
-                <span className="text-text16 text-white/64">{value}</span>
-              )}
-            </div>
-          </div>
-        ))}
-      </div> */}
     </main>
   );
 };

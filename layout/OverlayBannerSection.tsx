@@ -25,7 +25,7 @@ interface OverlayBannerSectionProps {
 
 const OverlayBannerSection: React.FC<OverlayBannerSectionProps> = ({ heading, text, ctaContent, ctaHref, classNameTextStructure, headingColor, textColor, textMaxWidth, bgImageSrc, bgImageAlt, overlayBannerItems = [] }) => {
   return (
-    <section className='@container h-fit xl:h-[90vh] bg-black/10  w-full relative overflow-hidden pt-15 lg:pt-20 flex flex-col justify-between gap-y-50 xl:gap-y-0'>
+    <section className='@container h-fit xl:h-[98vh] bg-black/10  w-full relative overflow-hidden pt-15 lg:pt-20 flex flex-col justify-between gap-y-50 xl:gap-y-0'>
       <img src={bgImageSrc} alt={bgImageAlt || heading} className='absolute inset-0 w-full h-full object-cover object-center -z-10' />
       <SectionHeader heading={heading} text={text} ctaContent={ctaContent} ctaHref={ctaHref} classNameTextStructure={classNameTextStructure} headingColor={headingColor} textColor={textColor} textMaxWidth={textMaxWidth} />
       {overlayBannerItems.length > 0 && (

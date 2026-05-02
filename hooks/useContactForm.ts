@@ -16,6 +16,7 @@ export const useContactForm = () => {
       phone: '',
       email: '',
       companyName: '',
+      supportType: '' as any,
       message: '',
       terms: false as any,
     },
@@ -24,15 +25,29 @@ export const useContactForm = () => {
   const onSubmit = async (data: ContactFormData) => {
     try {
       setSubmitState("loading");
-      console.log('Form submitted:', data);
-      await new Promise((r) => setTimeout(r, 800));
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send message');
+      }
+
       setSubmitState("success");
       setTimeout(() => {
         setSubmitState("idle");
         form.reset();
       }, 2000);
-    } catch (e) {
+    } catch (e: any) {
+      console.error('Form Submission Error:', e);
       setSubmitState("idle");
+      alert(e.message || "Failed to send message. Please try again later.");
     }
   };
 

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { usePathname } from 'next/navigation';
 import FadeUp from '@/components/FadeUp';
+import CTA from '@/components/CTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,10 +17,13 @@ interface FeatureItem {
 interface BlockLineFeatureSectionProps {
   heading: string;
   text: string;
+  ctaHref?: string;
+  ctaContent?: string;
+  target?: string;
   featureItems: FeatureItem[];
 }
 
-const BlockLineFeatureSection: React.FC<BlockLineFeatureSectionProps> = ({ heading, text, featureItems }) => {
+const BlockLineFeatureSection: React.FC<BlockLineFeatureSectionProps> = ({ heading, text, ctaHref, ctaContent, target, featureItems }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const featureRef = useRef<HTMLDivElement>(null);
@@ -27,7 +31,7 @@ const BlockLineFeatureSection: React.FC<BlockLineFeatureSectionProps> = ({ headi
   const pathname = usePathname();
 
   useGSAP(() => {
-    if (pathname === "/") {
+    if (pathname === "/research-innovations") {
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
@@ -59,6 +63,7 @@ const BlockLineFeatureSection: React.FC<BlockLineFeatureSectionProps> = ({ headi
           ))}
         </FadeUp>
         <FadeUp as='p' className='max-w-[90%] md:max-w-[80%] text-textSecondary text-bodyBase [@media(min-width:1920px)]:text-subHeading2 font-normal leading-[124%] tracking-[-2%]'>{text}</FadeUp>
+        {ctaContent && ctaHref && <CTA href={ctaHref} ctaContent={ctaContent} target={target} />}
       </div>
       <div ref={featureRef} className='col-span-4 sm:col-span-12 md:col-span-6 flex flex-col pb-15 pt-10 md:pt-15 lg:pb-20 lg:pt-20'>
         {featureItems.map((item, index) => (

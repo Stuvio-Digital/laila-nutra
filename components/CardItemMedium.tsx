@@ -8,7 +8,7 @@ const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index
     <Link
       href={item.href || "#"}
       target='_blank'
-      className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex [@media(min-width:1241px)]:hidden flex-col justify-between relative overflow-hidden px-3.5 sm:px-5 lg:px-6 pt-6 pb-10 gap-y-4 @4xl:gap-y-6 w-[86vw] sm:w-[45vw] lg:w-[40vw] @6xl:w-[calc(33vw-46px)]`}
+      className={`group shrink-0 aspect-278/370 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex [@media(min-width:1241px)]:hidden flex-col justify-between relative overflow-hidden px-3.5 sm:px-5 lg:px-6 pt-6 pb-10 gap-y-4 @4xl:gap-y-6 w-[86vw] sm:w-[45vw] lg:w-[40vw] @6xl:w-[calc(33vw-46px)]`}
     >
       <div className="flex flex-col w-full items-start mb-4 xl:mb-6 relative z-10">
         <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">
@@ -20,7 +20,7 @@ const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index
           ))}
         </p>
       </div>
-      <div className="w-auto max-w-[50%] md:max-w-[70%] flex-1 grow h-auto aspect-square rounded-full relative overflow-hidden origin-top mx-auto">
+      <div className="w-[30%] md:w-[40%] lg:w-[50%] flex-1 grow h-auto aspect-square rounded-full relative overflow-hidden origin-top m-auto">
         <img
           src={item.imgSrc}
           alt={item.title}
@@ -33,8 +33,8 @@ const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index
           <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>{item.commonName || "Common Name Placeholder"}</p>
         </div>
         <div className='pt-3.5 md:py-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
-          <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full'>Health Benefit</p>
-          <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>{item.healthBenefit || "Health Benefit Placeholder"}</p>
+          <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap'>Health Benefit</p>
+          <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap'>{item.healthBenefit || "Health Benefit Placeholder"}</p>
         </div>
       </div>
       {item.href && (

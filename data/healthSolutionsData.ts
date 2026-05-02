@@ -104,7 +104,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     ],
   },
   {
-    heading: "Metabolic Health \n & Weight",
+    heading: "Metabolic Health \n & Weight Management",
     text: "With lifestyle-related conditions rising, maintaining metabolic balance is vital. This range helps manage weight, improve lipid profiles and regulate metabolism naturally.",
     bannerCarouselItems: [
       {
@@ -170,7 +170,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     ],
   },
   {
-    heading: "Sleep & Recovery",
+    heading: "Sleep & Stress ",
     text: "Sleep deprivation and poor recovery are increasingly common. Our innovative solutions promote deeper sleep, reduce stress, and improve next-day alertness and performance.",
     bannerCarouselItems: [
       {
@@ -184,7 +184,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     ],
   },
   {
-    heading: "Anti-Aging & Longevity",
+    heading: "Healthy Aging & Longevity",
     text: "With stress, pollution and poor sleep accelerating aging, the need for cellular renewal has never been greater. Our solution revitalises cells and supports graceful aging.",
     bannerCarouselItems: [
       {

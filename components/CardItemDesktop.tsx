@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { CarouselItem } from './HealthSolutionsCard';
 
-const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: CarouselItem, index: number, isFixedGrid: boolean, cardsColor?: string }) => {
+const CardItemDesktop = ({ item, index, cardsColor }: { item: CarouselItem, index: number, cardsColor?: string }) => {
   const cardRef = useRef<HTMLAnchorElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,7 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
       
       if (imageContainerRef.current) {
         const is2XL = window.matchMedia("(min-width: 1536px)").matches;
-        gsap.to(imageContainerRef.current, { maxWidth: is2XL ? "45%" : "37%", duration: 0.4, ease: "power2.out" });
+        gsap.to(imageContainerRef.current, { maxWidth: is2XL ? "37%" : "37%", duration: 0.4, ease: "power2.out" });
       }
   
       if (contentRef.current) {
@@ -63,7 +63,7 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
       target='_blank'
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} hidden [@media(min-width:1241px)]:flex flex-col justify-between relative overflow-hidden ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full @6xl:col-span-3" : "w-70 md:w-[33vw] @6xl:w-[25vw] xl:w-[calc(25vw-46px)]"}`}
+      className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} hidden [@media(min-width:1241px)]:flex flex-col justify-between relative overflow-hidden  w-70 md:w-[33vw] @6xl:w-[25vw] xl:w-[calc(25vw-46px)]`}
     >
       <div className="flex flex-col w-full items-start px-3.5 sm:px-5 lg:px-6 pt-6 mb-4 2xl:mb-6 relative z-10">
         <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">
@@ -83,7 +83,7 @@ const CardItemDesktop = ({ item, index, isFixedGrid, cardsColor }: { item: Carou
         }
       </div>
       <div ref={detailContentRef} className={`w-full h-fit flex flex-col justify-between items-center px-5 md:px-6 relative z-10 pb-[16%]`}>
-        <div ref={imageContainerRef} className="w-auto max-w-[80%] 2xl:max-w-[75%] h-auto aspect-square rounded-full relative overflow-hidden origin-top mx-auto">
+        <div ref={imageContainerRef} className="w-auto max-w-[80%] 2xl:max-w-[70%] h-auto aspect-square rounded-full relative overflow-hidden origin-top mx-auto">
           <img
             src={item.imgSrc}
             alt={item.title}

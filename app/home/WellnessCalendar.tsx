@@ -2,70 +2,40 @@
 import React from 'react';
 import SectionHeader from '@/components/SectionHeader';
 import FadeUp from '@/components/FadeUp';
+import CTA from '@/components/CTA';
 
 const calendarEvents = [
   {
-    date: "24 January",
-    title: "International Day of Education",
-    description: "On this International Day of Education, we celebrate the power of learning and clarity — powered by Bacognize®, enhancing focus and retention naturally.",
-    imgSrc: "/images/home/womens-day.webp",
-    imgAlt: "International Day of Education",
-    benefits: "Clinically validated cognitive enhancer for memory & focus.",
-    products: ["Bacognize® (Bacopamonnieri)"],
+    date: "08 March, 2026",
+    title: "International Women's Day",
+    description: "This International Women’s Day, we celebrate women who balance strength with grace every single day. With science-backed ingredients like EstroMira™ for hormonal balance and Boswellin® for joint and mobility support, Laila Nutra contributes to solutions designed to support women’s health and vitality across life stages. Supporting women’s wellness through science-led nutrition.",
+    link:"https://www.instagram.com/reel/DVnFs0ajNRp/",
+    imgSrc: "/images/wellness-calendar/women-day.webp",
+    imgAlt: "International Womens Day",
   },
   {
-    date: "04 February",
-    title: "World Cancer Day",
-    description: "This World Cancer Day, Laila Nutra reaffirms its commitment to preventive wellness through Curcumin C3 Complex® — protecting cells, preserving vitality.",
-    imgSrc: "/images/home/water-day.webp",
-    imgAlt: "World Cancer Day",
-    benefits: "Gold standard anti-inflammatory and antioxidant formulation supporting cellular health.",
-    products: ["Curcumin C3 Complex® + BioPerine®"],
-  },
-  {
-    date: "11 February",
-    title: "International Day of Women and Girls in Science",
-    description: "Celebrating women in science and the science for women — EstroMira™ exemplifies evidence-based innovation for women’s health.",
-    imgSrc: "/images/home/nurse-day.webp",
-    imgAlt: "International Day of Women and Girls in Science",
-    benefits: "Science-backed phytoestrogen complex supporting hormonal balance and vitality.",
-    products: ["EstroMira™"],
-  },
-  {
-    date: "08 March",
-    title: "International Women’s Day",
-    description: "To every caregiver - thank you for healing the world. Laila Nutra salutes your strength with the science of recovery.",
-    imgSrc: "/images/home/nurse-day.webp",
-    imgAlt: "International Women’s Day",
-    benefits: "Combines hormonal balance with joint & mobility support — empowering women across life stages.",
-    products: ["EstroMira™ + Boswellin®"],
-  },
-  {
-    date: "22 March",
+    date: "22 March, 2026",
     title: "World Water Day",
-    description: "On World Water Day, we celebrate hydration and innovation — HydroCurc™ delivers Curcumin’s power where water flows.",
-    imgSrc: "/images/home/nurse-day.webp",
-    imgAlt: "nurse-day",
-    benefits: "Water-dispersible curcumin with enhanced bioavailability.",
-    products: ["HydroCurc™ (Curcumin dispersion tech)"],
+    description: "Every drop matters — not just for life, but for the future of health and innovation. As water continues to be a critical resource across industries, responsible usage and sustainable practices become more important than ever. This World Water Day, we reaffirm the need to protect what sustains us all.",
+    link:"https://www.instagram.com/reel/DWLT0X-uNu6/",
+    imgSrc: "/images/wellness-calendar/water-day.webp",
+    imgAlt: "World Water Day",
   },
   {
-    date: "22 March",
-    title: "World Water Day",
-    description: "On World Water Day, we celebrate hydration and innovation — HydroCurc™ delivers Curcumin’s power where water flows.",
-    imgSrc: "/images/home/nurse-day.webp",
-    imgAlt: "nurse-day",
-    benefits: "Water-dispersible curcumin with enhanced bioavailability.",
-    products: ["HydroCurc™"],
-  },
-  {
-    date: "07 April",
+    date: "07 April, 2026",
     title: "World Health Day",
-    description: "Health is harmony. On World Health Day, Laila Nutra celebrates the synergy of nature and science for everyday wellness.",
-    imgSrc: "/images/home/nurse-day.webp",
+    description: "Health is no longer just about treatment. It’s about prevention, resilience, and long-term well-being. This World Health Day, we reaffirm our commitment to advancing wellness through innovation and evidence-based nutrition.",
+    link:"https://www.instagram.com/reel/DW0Td6nk61G/",
+    imgSrc: "/images/wellness-calendar/health-day.webp",
     imgAlt: "World Health Day",
-    benefits: "Comprehensive preventive wellness system.",
-    products: ["Laila Holistic Portfolio (Curcumin C3)", "Boswellin®", "Livinol®"],
+  },
+  {
+    date: "22 April, 2026",
+    title: "Earth Day",
+    description: "This Earth Day, we highlight our commitment to sustainably sourced botanicals and responsible manufacturing practices. Because innovation should move forward without leaving a footprint behind.",
+    link:"https://www.instagram.com/reel/DXbqDqok9i3/",
+    imgSrc: "/images/wellness-calendar/earth-day.webp",
+    imgAlt: "Earth Day",
   },
 ];
 
@@ -75,34 +45,30 @@ const WellnessCalendar: React.FC = () => {
       <SectionHeader
         className='col-span-4'
         heading={"The Wellness Calendar"}
-        ctaContent="View all"
-        ctaHref="#"
       />
       {calendarEvents.map((event, index) => (
         <FadeUp key={index} className='col-span-4 h-fit w-full grid grid-cols-4 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 mb-6 md:mb-7.5 lg:mb-10 pt-6 border-t border-borderColor px-4 sm:px-6 lg:px-10'>
-          <div className='col-span-4 sm:col-span-3 lg:col-span-2 md:max-w-[80%]'>
-            <p className='mb-6 md:mb-7.5 lg:mb-10 text-heading3 text-blue leading-[110%] tracking-[-3%] font-medium'>
-              {event.date}
-            </p>
-            <p className='mb-3 md:mb-4 text-subHeading2 text-black [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium'>
-              {event.title}
-            </p>
+          <div className='col-span-4 sm:col-span-2 md:max-w-[80%] flex flex-col gap-y-4 md:gap-y-5'>
+            <div className='flex gap-12 items-start justify-between'>
+              <div className='flex flex-col gap-y-4 md:gap-y-5'>
+                <p className='text-heading3 text-blue leading-[100%] tracking-[-3%] font-medium'>
+                  {event.date}
+                </p>
+                <p className='text-subHeading2 text-black [@media(min-width:1920px)]:text-subHeading1 leading-[100%] tracking-[-2%] font-medium'>
+                  {event.title}
+                </p>
+              </div>
+              <CTA ctaContent="View Post" href={event.link} target='_blank' className='sm:hidden block' />
+            </div>
             <p className='text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-normal text-textSecondary text-wrap max-w-[90%] lg:max-w-[80%]'>
               {event.description}
             </p>
+            <CTA ctaContent="View Post" href={event.link} target='_blank' className='sm:block hidden' />
           </div>
-          <div className='col-span-4 sm:col-span-2 sm:col-start-1 lg:col-start-3 lg:col-span-1 w-full aspect-278/208 relative overflow-hidden'>
-            <img src={event.imgSrc} alt={event.imgAlt} className='w-full h-full object-cover object-center' />
-          </div>
-          <div className='col-span-4 sm:col-span-2 lg:col-span-1 lg:col-start-4 w-full max-w-[90%]'>
-            <p className='text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-normal text-textSecondary text-wrap mb-4'>
-              {event.benefits}
-            </p>
-            {event.products.map((product, pIndex) => (
-              <p key={pIndex} className='text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-medium text-black text-wrap py-3.5 sm:py-4 md:py-5 lg:py-6 border-t border-borderColor'>
-                {product}
-              </p>
-            ))}
+          <div className='col-span-4 sm:col-span-2 w-full relative overflow-hidden aspect-580/330'>
+            <img src={event.imgSrc} alt={event.imgAlt} className='w-full h-full object-cover object-center absolute top-0 left-0 z-10' />
+            <div className='h-full w-full bg-black/30 backdrop-blur-md absolute top-0 left-0 z-20'/>
+            <img src={event.imgSrc} alt={event.imgAlt} className='h-full w-auto object-conatin object-center absolute top-0 left-1/2 -translate-x-1/2 z-30' />
           </div>
         </FadeUp>
       ))}

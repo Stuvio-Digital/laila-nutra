@@ -22,8 +22,8 @@ const threeImageSectionItems = [
   },
   {
     imgSrc: "/images/quality-certifications/purity.webp",
-    title: "Purity",
-    description: "Rigorous multi-stage testing ensures each batch meets international standards."
+    title: "Extract Freshness",
+    description: "Carefully controlled processes ensure every extract retains its natural potency and freshness."
   },
   {
     imgSrc: "/images/quality-certifications/integrity.webp",

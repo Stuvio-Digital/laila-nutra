@@ -8,6 +8,8 @@ import BlockLineFeatureSection from "@/layout/BlockLineFeatureSection";
 import OverlayBannerSection from "@/layout/OverlayBannerSection";
 import WellnessCalendar from "./WellnessCalendar";
 import Certified from "../../layout/Certified";
+import InlineFeatureSection from "@/layout/InlineFeatureSection";
+import Events from "./Events";
 
 const globalWellnessItems = [
   { imgSrc: '/images/home/green.webp', title: 'Ethical Sourcing & Green Chemistry', text: 'Adopting Green Extraction-CO₂ & solvent-free.' },
@@ -25,12 +27,12 @@ const overlayBannerItems = [
 
 const clinicallyTestedItems = [
   {
-    imgSrc: "/images/research-innovations/efficacy.webp",
-    title: "Efficacy",
-  },
-  {
     imgSrc: "/images/research-innovations/safety.webp",
     title: "Safety",
+  },
+  {
+    imgSrc: "/images/research-innovations/efficacy.webp",
+    title: "Efficacy",
   },
   {
     imgSrc: "/images/research-innovations/bioavailability.webp",
@@ -53,7 +55,7 @@ const blockLineFeatureItems = [
   },
   {
     icon: "/icons/genetics.svg",
-    description: "Botanical identity confirmed through DNA/phyto-marker testing"
+    description: "Botanical identity confirmed through DNA/Phyto - marker Fingerprinting"
   },
   {
     icon: "/icons/barcode_scanner.svg",
@@ -81,6 +83,25 @@ const blockLineFeatureItems = [
   }
 ]
 
+const eleonorItems = [
+  {
+    icon: "/icons/vital_signs.svg",
+    description: "Converts crystalline actives into amorphous, high-performance forms"
+  },
+  {
+    icon: "/icons/fertile.svg",
+    description: "Enhances bioavailability by up to 3–20x"
+  },
+  {
+    icon: "/icons/digital_wellbeing.svg",
+    description: "Improves dispersibility and absorption in the body"
+  },
+  {
+    icon: "/icons/cardiology.svg",
+    description: "Improves disClean-label, solvent-free processpersibility and absorption in the body"
+  },
+]
+
 
 const Home: React.FC = () => {
   return (
@@ -95,19 +116,20 @@ const Home: React.FC = () => {
       <Wellness />
       <HealthSolutions />
       <CarouselSection
-        heading={"Clinically Tested \n For Efficacy"}
-        text="We believe an ingredient is only as strong as its evidence. That’s why our clinical studies are designed with independent partners, controlled environments, and measurable endpoints. Every claim we make is tied to data, not extrapolation."
+        heading={"Clinically Validate \n For Efficacy"}
+        text="We believe an ingredient is only as strong as its evidence. That’s why our clinical studies are designed with independent partners, controlled environments, and measurable endpoints. Every claim we make is read Data Backed, not extrapolation."
         bgColor="white"
         cardsColor="backgroundSecondary"
-        textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
+        textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]"
         textColor="textSecondary"
         carouselItems={clinicallyTestedItems}
       />
-      <BlockLineFeatureSection heading={"Clean. Ethically Sourced. \n Traceable."} text="Trace our ingredients from soil to shelf for proven authenticity, safety and efficacy." featureItems={blockLineFeatureItems} />
+      <InlineFeatureSection featureItems={blockLineFeatureItems}/>
       <Certified />
+      <BlockLineFeatureSection heading={"Bioavailability Enhancement \n Technology"} text="Powered by Eleonor LEO-HB® Technology, this proprietary solid dispersion process transforms poorly soluble actives into highly bioavailable, water-dispersible formats for faster absorption and enhanced efficacy." ctaContent="Know More" ctaHref="https://leohb.com/" target="_blank" featureItems={eleonorItems} />
       <OverlayBannerSection
         heading={"From \n Idea to Global Launch- \n End-to-End Service"}
-        text="Laila Nutra CDMO is the next-generation innovation engine, combining formulation expertise, advanced technology platforms, and regulatory readiness. From concept to commercial launch, we enable brands to scale faster, safer, and smarter."
+        text="Laila Nutra CRDMO is the next-generation innovation engine, combining formulation expertise, advanced technology platforms, and regulatory readiness. From concept to commercial launch, we enable brands to scale faster, safer, and smarter."
         ctaContent="Know More"
         ctaHref="/crdmo"
         headingColor="white"
@@ -129,7 +151,8 @@ const Home: React.FC = () => {
         textColor="textSecondary"
         carouselItems={globalWellnessItems}
       />
-      {/* <WellnessCalendar /> */}
+      <WellnessCalendar />  
+      <Events />
     </main>
   );
 };

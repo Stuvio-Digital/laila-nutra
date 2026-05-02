@@ -3,12 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import { CarouselItem } from './HealthSolutionsCard';
 
-const CardItemMedium = ({ item, index, isFixedGrid, cardsColor }: { item: CarouselItem, index: number, isFixedGrid: boolean, cardsColor?: string }) => {
+const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index: number, cardsColor?: string }) => {
   return (
     <Link
       href={item.href || "#"}
       target='_blank'
-      className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex [@media(min-width:1241px)]:hidden flex-col justify-between relative overflow-hidden px-3.5 sm:px-5 lg:px-6 pt-6 pb-10 gap-y-4 @4xl:gap-y-6 ${isFixedGrid ? "w-75 sm:w-87.5 @6xl:w-full" : "w-[86vw] sm:w-[45vw] lg:w-[40vw] @6xl:w-[calc(33vw-46px)]"}`}
+      className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex [@media(min-width:1241px)]:hidden flex-col justify-between relative overflow-hidden px-3.5 sm:px-5 lg:px-6 pt-6 pb-10 gap-y-4 @4xl:gap-y-6 w-[86vw] sm:w-[45vw] lg:w-[40vw] @6xl:w-[calc(33vw-46px)]`}
     >
       <div className="flex flex-col w-full items-start mb-4 xl:mb-6 relative z-10">
         <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">

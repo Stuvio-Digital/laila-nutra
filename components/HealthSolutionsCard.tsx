@@ -20,7 +20,7 @@ interface HealthSolutionsCardProps {
 
 const HealthSolutionsCard: React.FC<HealthSolutionsCardProps> = ({ items = [], cardsColor }) =>  {
   const displayItems = items;
-  const isFixedGrid = displayItems.length === 4;
+  // const isFixedGrid = displayItems.length === 4;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -89,14 +89,12 @@ const HealthSolutionsCard: React.FC<HealthSolutionsCardProps> = ({ items = [], c
       <div
         ref={scrollRef}
         onScroll={checkScroll}
-        className={`justify-start items-stretch whitespace-nowrap min-w-full overflow-x-auto no-scrollbar px-4 sm:px-6 lg:px-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 snap-mandatory relative scroll-smooth ${isFixedGrid ? "flex @6xl:grid @6xl:grid-cols-4" : "flex"}`}
-
-      // [@media(min-width:1920px)]:flex
+        className={`justify-start items-stretch whitespace-nowrap min-w-full overflow-x-auto no-scrollbar px-4 sm:px-6 lg:px-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 snap-mandatory relative scroll-smooth flex`}
       >
         {displayItems.map((item, index) => (
           <React.Fragment key={index}>
-            <CardItemDesktop item={item} index={index} isFixedGrid={isFixedGrid} cardsColor={cardsColor} />
-            <CardItemMedium item={item} index={index} isFixedGrid={isFixedGrid} cardsColor={cardsColor} />
+            <CardItemDesktop item={item} index={index} cardsColor={cardsColor} />
+            <CardItemMedium item={item} index={index} cardsColor={cardsColor} />
           </React.Fragment>
         ))}
       </div>

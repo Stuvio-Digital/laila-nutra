@@ -13,12 +13,12 @@ const healthData = [
   {
     title: "Joint & Bone Health",
     image: "/images/home/joints-bone-health.webp",
-    chips: ["AprèsFlex®", "Kinexa®", "TamaFlex®"]
+    chips: ["AprèsFlex®", "Kinexa®", "5-LOXIN", "Flexir®"]
   },
   {
     title: "Cognition & Memory",
     image: "/images/home/cognition-memory.webp",
-    chips: ["Nutricog®"]
+    chips: ["Nutricog®", "Synapsa®"]
   },
   {
     title: "Gut Health",
@@ -26,19 +26,34 @@ const healthData = [
     chips: ["Digexin®"]
   },
   {
+    title: "Energy, Muscles & Endurance",
+    image: "/images/home/energy-muscle-endurance.webp",
+    chips: ["Strengthera®"]
+  },
+  {
     title: "Metabolic Health & Weight",
     image: "/images/home/metabolic-health-obesity.webp",
-    chips: ["4Liver®", "Slendacor®"]
+    chips: ["Slendacor®"]
   },
   {
-    title: "Immunity  & Restorative Sleep",
+    title: "Liver",
+    image: "/images/home/liver.webp",
+    chips: ["4Liver®"]
+  },
+  {
+    title: "Immunity & Respiratory Health",
     image: "/images/home/immunity-restorative-sleep.webp",
-    chips: ["Spectramune® ", "Serezin®"]
+    chips: ["AlvioLife®", "Spectramune® "]
   },
   {
-    title: "Male Vitality",
+    title: "Men's Health",
     image: "/images/home/male-vitality.webp",
-    chips: ["Tesnor®"]
+    chips: ["Tesnor®", "TestFACTOR®"]
+  },
+  {
+    title: "Sleep",
+    image: "/images/home/sleep.webp",
+    chips: ["Serezin®"]
   },
   {
     title: "Anti-Aging & Longevity",
@@ -166,7 +181,7 @@ const HealthSolutions: React.FC = () => {
               </svg>
             </div>
             
-            <ul className='flex flex-col gap-y-5 sm:gap-y-6 lg:gap-y-8 [@media(min-width:1536px)]:gap-y-10 pl-4 sm:pl-6 lg:pl-7 sm:max-w-[90%] md:max-w-[80%]'>
+            <ul className='flex flex-col gap-y-5 sm:gap-y-6 lg:gap-y-7 [@media(min-width:1536px)]:gap-y-10 pl-4 sm:pl-5 sm:max-w-[90%] md:max-w-[80%]'>
               {healthData.map((item, index) => (
                 <li 
                   key={index}
@@ -174,11 +189,11 @@ const HealthSolutions: React.FC = () => {
                   onClick={() => setActiveIndex(index)}
                   className={`cursor-pointer transition-colors duration-300 ${
                     activeIndex === index 
-                    ? 'text-text18 lg:text-heading3 font-medium leading-[124%] tracking-[-2%] text-white' 
-                    : 'text-text16 lg:text-subHeading1 font-medium leading-[124%] tracking-[-2%] text-textSecondary hover:text-white/60'
+                    ? 'text-text18 lg:text-heading3 font-medium leading-[100%] tracking-[-2%] text-white' 
+                    : 'text-text16 lg:text-subHeading1 font-medium leading-[100%] tracking-[-2%] text-textSecondary hover:text-white/60'
                   }`}
                 >
-                  {index === 8 ? (
+                  {index === 10 ? (
                     <>
                       <span className='md:hidden'>Anti-Aging & <br/> Longevity</span>
                       <span className='hidden md:block'>Anti-Aging & Longevity</span>

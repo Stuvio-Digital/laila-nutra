@@ -36,12 +36,20 @@ export const healthSections: BannerCarouselSectionData[] = [
         healthBenefit: "Supports joint structure, strength, and mobility."
       },
       {
-        title: "TamaFlex®",
-        text: "Combines tamarind and turmeric for joint comfort.",
+        title: "5-LOXIN®",
+        text: "Clinically studied Boswellia extract for rapid joint comfort and mobility support.",
         imgSrc: "/images/products/tamaflex.webp",
-        href: "https://nxt-usa.com/what_is_tamaflex/",
-        commonName: "Tamarind & Turmeric Extract Blend",
-        healthBenefit: "Supports joint comfort, flexibility, and mobility."
+        href: "https://www.plthealth.com/product-catalog/5-loxin",
+        commonName: "Boswellia serrata (Indian Frankincense) Extract",
+        healthBenefit: "Reduce joint pain and inflammation, improves flexibility and physical function."
+      },
+      {
+        title: "Flexir®",
+        text: "Fast-acting joint health complex for mobility and comfort.",
+        imgSrc: "/images/products/flexir.webp",
+        href: "https://www.plthealth.com/product-catalog/flexir",
+        commonName: "Terminalia chebula, Turmeric & Boswellia Extract Blend",
+        healthBenefit: "Supports joint comfort, reduces stiffness, and improves flexibility with clinically proven results in as little as 14 days."
       },
     ],
   },
@@ -57,6 +65,14 @@ export const healthSections: BannerCarouselSectionData[] = [
         commonName: "Haritaki & Boswellia Extract Blend",
         healthBenefit: "Supports memory, focus, learning, and overall cognitive function."
       },
+      {
+        title: "Synapsa®",
+        text: "Clinically studied Bacopa extract for memory, focus, and cognitive performance.",
+        imgSrc: "/images/products/synapsa.webp",
+        href: "https://www.plthealth.com/product-catalog/synapsa",
+        commonName: "Bacopa monnieri (Brahmi) Extract",
+        healthBenefit: "Supports memory, learning, attention, and faster information processing for overall brain performance."
+      },
     ],
   },
   {
@@ -70,6 +86,20 @@ export const healthSections: BannerCarouselSectionData[] = [
         href: "https://nxt-usa.com/what_is_digexin/",
         commonName: "Okra & Ashwagandha Extract Blend",
         healthBenefit: "Supports in regular digestion, reduces discomfort, and supports the gut–brain connection."
+      },
+    ],
+  },
+  {
+    heading: "Energy, Muscles & Endurance",
+    text: "From long work hours to active lifestyles, today’s pace demands strength that lasts. We ensure that building strength, enhancing stamina, and supporting quicker muscle recovery.",
+    bannerCarouselItems: [
+      {
+        title: "Strengthera®",
+        text: "Clinically studied botanical complex for muscle strength, endurance, and vitality.",
+        imgSrc: "/images/products/Strengthera.webp",
+        href: "https://www.plthealth.com/product-catalog/strengthera",
+        commonName: "Sphaeranthus indicus & Mangifera indica Extract Blend",
+        healthBenefit: "Supports muscle strength, improves endurance, and enhances physical performance and mobility."
       },
     ],
   },
@@ -96,7 +126,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     ],
   },
   {
-    heading: "Immunity & Restorative Sleep",
+    heading: "Immunity & Respiratory Sleep",
     text: "Urban living, pollution and infections keep testing human immunity. Our bioactives build natural defense, enhance respiratory strength and keep wellness strong.",
     bannerCarouselItems: [
       {
@@ -108,17 +138,17 @@ export const healthSections: BannerCarouselSectionData[] = [
         healthBenefit: "Supports full-spectrum immune function, strengthening the body’s defense and resilience."
       },
       {
-        title: "Serezin®",
-        text: "Supports deeper sleep & recovery",
-        imgSrc: "/images/products/serezin.webp",
-        href: "https://www.plthealth.com/product-catalog/serezin",
-        commonName: "Boswellia & Ginger Extract Blend",
-        healthBenefit: "Improves sleep quality, reduces nighttime discomfort, and promotes better recovery and next-day alertness."
+        title: "AlvioLife®",
+        text: "Clinically studied botanical blend for respiratory health and performance.",
+        imgSrc: "/images/products/alviolife.webp",
+        href: "https://www.plthealth.com/product-catalog/alviolife",
+        commonName: "Boswellia serrata & Aegle marmelos Extract Blend",
+        healthBenefit: "Supports lung function, breathing capacity, and improves respiratory wellness & immunity."
       },
     ],
   },
   {
-    heading: "Male Vitality",
+    heading: "Men's Health",
     text: "Declining testosterone, rising stress and fatigue are affecting men’s health. Our patents resolve that by ensuring testosterone balance, performance and vitality.",
     bannerCarouselItems: [
       {
@@ -128,6 +158,28 @@ export const healthSections: BannerCarouselSectionData[] = [
         href: "https://www.saanroo.com/ingredients/tesnor",
         commonName: "Cocoa Bean & Pomegranate Peel Extract Blend",
         healthBenefit: "Supports healthy testosterone, muscle strength, and male vitality."
+      },
+      {
+        title: "TestFACTOR®",
+        text: "Clinically studied botanical blend for testosterone and vitality support.",
+        imgSrc: "/images/products/testfactor.webp",
+        href: "https://www.plthealth.com/product-catalog/testfactor",
+        commonName: "Sphaeranthus indicus & Mangifera indica Extract Blend",
+        healthBenefit: "Supports healthy testosteron, libido, energy and muscle performance"
+      },
+    ],
+  },
+  {
+    heading: "Sleep & Recovery",
+    text: "Sleep deprivation and poor recovery are increasingly common. Our innovative solutions promote deeper sleep, reduce stress, and improve next-day alertness and performance.",
+    bannerCarouselItems: [
+      {
+        title: "Serezin®",
+        text: "Supports deeper sleep & recovery",
+        imgSrc: "/images/products/serezin.webp",
+        href: "https://www.plthealth.com/product-catalog/serezin",
+        commonName: "Boswellia & Ginger Extract Blend",
+        healthBenefit: "Improves sleep quality, reduces nighttime discomfort, and promotes better recovery and next-day alertness."
       },
     ],
   },

@@ -3,6 +3,7 @@ import React from 'react';
 import SectionHeader from '@/components/SectionHeader';
 import FadeUp from '@/components/FadeUp';
 import CTA from '@/components/CTA';
+import Link from 'next/link';
 
 const calendarEvents = [
   {
@@ -49,8 +50,8 @@ const WellnessCalendar: React.FC = () => {
       {calendarEvents.map((event, index) => (
         <FadeUp key={index} className='col-span-4 h-fit w-full grid grid-cols-4 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 mb-6 md:mb-7.5 lg:mb-10 pt-6 border-t border-borderColor px-4 sm:px-6 lg:px-10'>
           <div className='col-span-4 sm:col-span-2 md:max-w-[80%] flex flex-col gap-y-4 md:gap-y-5'>
-            <div className='flex gap-12 items-start justify-between'>
-              <div className='flex flex-col gap-y-4 md:gap-y-5'>
+            <div className='flex gap-7 items-start justify-between'>
+              <div className='flex flex-col gap-y-4 md:gap-y-5 w-[60%]'>
                 <p className='text-heading3 text-blue leading-[100%] tracking-[-3%] font-medium'>
                   {event.date}
                 </p>
@@ -65,11 +66,11 @@ const WellnessCalendar: React.FC = () => {
             </p>
             <CTA ctaContent="View Post" href={event.link} target='_blank' className='sm:block hidden' />
           </div>
-          <div className='col-span-4 sm:col-span-2 w-full relative overflow-hidden aspect-580/330'>
+          <Link href={event.link} target='_blank' className='col-span-4 sm:col-span-2 w-full relative overflow-hidden aspect-580/330'>
             <img src={event.imgSrc} alt={event.imgAlt} className='w-full h-full object-cover object-center absolute top-0 left-0 z-10' />
             <div className='h-full w-full bg-black/30 backdrop-blur-md absolute top-0 left-0 z-20'/>
             <img src={event.imgSrc} alt={event.imgAlt} className='h-full w-auto object-conatin object-center absolute top-0 left-1/2 -translate-x-1/2 z-30' />
-          </div>
+          </Link>
         </FadeUp>
       ))}
     </section>

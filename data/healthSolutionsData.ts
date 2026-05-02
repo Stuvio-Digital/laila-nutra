@@ -126,7 +126,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     ],
   },
   {
-    heading: "Immunity & Respiratory Sleep",
+    heading: "Immunity and Respiratory Health ",
     text: "Urban living, pollution and infections keep testing human immunity. Our bioactives build natural defense, enhance respiratory strength and keep wellness strong.",
     bannerCarouselItems: [
       {

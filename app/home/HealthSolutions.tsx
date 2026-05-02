@@ -31,12 +31,12 @@ const healthData = [
     chips: ["Strengthera®"]
   },
   {
-    title: "Metabolic Health & Weight",
+    title: "Metabolic Health & Weight Management",
     image: "/images/home/metabolic-health-obesity.webp",
     chips: ["Slendacor®"]
   },
   {
-    title: "Liver",
+    title: "Liver Health",
     image: "/images/home/liver.webp",
     chips: ["4Liver®"]
   },
@@ -51,12 +51,12 @@ const healthData = [
     chips: ["Tesnor®", "TestFACTOR®"]
   },
   {
-    title: "Sleep",
+    title: "Stress and Sleep ",
     image: "/images/home/sleep.webp",
     chips: ["Serezin®"]
   },
   {
-    title: "Anti-Aging & Longevity",
+    title: "Healthy Aging & Longevity",
     image: "/images/home/anti-aging-longevity.webp",
     chips: ["NAD Booster"]
   }

@@ -26,7 +26,7 @@ const Events: React.FC = () => {
             <CTA ctaContent="View More" href={"https://www.vitafoods.eu.com/en/home.html"} target='_blank' className='sm:hidden block' />
           </div>
           <p className='text-body [@media(min-width:1920px)]:text-bodyBase leading-[124%] tracking-[-2%] font-normal text-textSecondary text-wrap max-w-[90%] lg:max-w-[80%]'>
-            Laila Nutra is all set to be at Vitafoods Europe 2026 — bringing science-led nutraceutical innovation to a global stage. <br /> <br />From clinically validated ingredients to end-to-end CDMO solutions, we’re ready to connect, collaborate, and create what’s next for the industry.
+            Laila Nutra is all set to be at Vitafoods Europe 2026, bringing science-led nutraceutical innovation to a global stage. <br /> <br />From clinically validated ingredients to end-to-end CDMO solutions, we’re ready to connect, collaborate, and create what’s next for the industry.
           </p>
           <CTA ctaContent="View More" href={"https://www.vitafoods.eu.com/en/home.html"} target='_blank' className='sm:block hidden' />
         </div>

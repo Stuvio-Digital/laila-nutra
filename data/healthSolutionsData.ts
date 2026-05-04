@@ -279,6 +279,13 @@ export const healthSections: BannerCarouselSectionData[] = [
         commonName: "Sphaeranthus indicus & Garcinia mangostana Extract",
         healthBenefit: "Supports in reducing body weight and hip size while promoting healthy cholesterol and blood sugar levels."
       },
+      {
+        title: "CardiaSlim®",
+        text: "Clinically studied botanical blend for weight management and metabolic health.",
+        imgSrc: "/images/products/cardiaslim.webp",
+        commonName: "Sphaeranthus indicus & Garcinia mangostana Extract Blend",
+        healthBenefit: "Supports fat loss, improves body composition, and promotes healthy lipid levels."
+      },
     ],
   },
 ];

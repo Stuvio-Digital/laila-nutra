@@ -7,20 +7,12 @@ import Link from 'next/link';
 
 const calendarEvents = [
   {
-    date: "08 March, 2026",
-    title: "International Women's Day",
-    description: "This International Women’s Day, we celebrate women who balance strength with grace every single day. With science-backed ingredients like EstroMira™ for hormonal balance and Boswellin® for joint and mobility support, Laila Nutra contributes to solutions designed to support women’s health and vitality across life stages. Supporting women’s wellness through science-led nutrition.",
-    link:"https://www.instagram.com/reel/DVnFs0ajNRp/",
-    imgSrc: "/images/wellness-calendar/women-day.webp",
-    imgAlt: "International Womens Day",
-  },
-  {
-    date: "22 March, 2026",
-    title: "World Water Day",
-    description: "Every drop matters — not just for life, but for the future of health and innovation. As water continues to be a critical resource across industries, responsible usage and sustainable practices become more important than ever. This World Water Day, we reaffirm the need to protect what sustains us all.",
-    link:"https://www.instagram.com/reel/DWLT0X-uNu6/",
-    imgSrc: "/images/wellness-calendar/water-day.webp",
-    imgAlt: "World Water Day",
+    date: "22 April, 2026",
+    title: "Earth Day",
+    description: "This Earth Day, we highlight our commitment to sustainably sourced botanicals and responsible manufacturing practices. Because innovation should move forward without leaving a footprint behind.",
+    link:"https://www.instagram.com/reel/DXbqDqok9i3/",
+    imgSrc: "/images/wellness-calendar/earth-day.webp",
+    imgAlt: "Earth Day",
   },
   {
     date: "07 April, 2026",
@@ -31,14 +23,23 @@ const calendarEvents = [
     imgAlt: "World Health Day",
   },
   {
-    date: "22 April, 2026",
-    title: "Earth Day",
-    description: "This Earth Day, we highlight our commitment to sustainably sourced botanicals and responsible manufacturing practices. Because innovation should move forward without leaving a footprint behind.",
-    link:"https://www.instagram.com/reel/DXbqDqok9i3/",
-    imgSrc: "/images/wellness-calendar/earth-day.webp",
-    imgAlt: "Earth Day",
+    date: "22 March, 2026",
+    title: "World Water Day",
+    description: "Every drop matters — not just for life, but for the future of health and innovation. As water continues to be a critical resource across industries, responsible usage and sustainable practices become more important than ever. This World Water Day, we reaffirm the need to protect what sustains us all.",
+    link:"https://www.instagram.com/reel/DWLT0X-uNu6/",
+    imgSrc: "/images/wellness-calendar/water-day.webp",
+    imgAlt: "World Water Day",
+  },
+  {
+    date: "08 March, 2026",
+    title: "International Women's Day",
+    description: "This International Women’s Day, we celebrate women who balance strength with grace every single day. With science-backed ingredients like EstroMira™ for hormonal balance and Boswellin® for joint and mobility support, Laila Nutra contributes to solutions designed to support women’s health and vitality across life stages. Supporting women’s wellness through science-led nutrition.",
+    link:"https://www.instagram.com/reel/DVnFs0ajNRp/",
+    imgSrc: "/images/wellness-calendar/women-day.webp",
+    imgAlt: "International Womens Day",
   },
 ];
+
 
 const WellnessCalendar: React.FC = () => {
   return (

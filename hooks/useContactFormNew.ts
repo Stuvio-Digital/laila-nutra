@@ -2,13 +2,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, ContactFormData } from "@/schemas/contactSchema";
+import { contactSchemaNew, ContactFormDataNew } from "@/schemas/contactSchemaNew";
 
-export const useContactForm = () => {
+export const useContactFormNew = () => {
   const [submitState, setSubmitState] = useState<"idle" | "loading" | "success">("idle");
 
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+  const form = useForm<ContactFormDataNew>({
+    resolver: zodResolver(contactSchemaNew),
     mode: 'all',
     reValidateMode: 'onChange',
     defaultValues: {
@@ -26,11 +26,11 @@ export const useContactForm = () => {
     },
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormDataNew) => {
     try {
       setSubmitState("loading");
       
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact-new', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -90,7 +90,7 @@ export async function POST(request: Request) {
               </div>
             </div>
             <div class="footer">
-              <p>Submitted via Laila Nutra Contact Form</p>
+              <p>Submitted via Laila Nutra Contact Form New</p>
               <p>Received on ${new Date().toLocaleString('en-IN')}</p>
             </div>
           </div>

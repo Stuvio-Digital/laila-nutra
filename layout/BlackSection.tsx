@@ -146,7 +146,7 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
                 />
 
                 <div className='flex items-center justify-between'>
-                  <p className={`text-subHeading1 font-normal leading-[124%] tracking-[-2%] transition-colors duration-500 ${index === activeIndex ? 'text-white' : 'text-white/20 group-hover:text-white/40'}`}>
+                  <p className={`text-subHeading1 font-normal leading-[124%] tracking-[-2%] transition-colors duration-500 ${index === activeIndex ? 'text-white' : 'text-textSecondary group-hover:text-white/70'}`}>
                     {item.title}
                   </p>
                   

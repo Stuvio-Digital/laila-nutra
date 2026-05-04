@@ -18,7 +18,7 @@ const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index
           ))}
         </p>
       </div>
-      <div className="w-[30%] md:w-[40%] lg:w-[50%] flex-1 grow h-auto aspect-square rounded-full relative overflow-hidden origin-top m-auto">
+      <div className="w-[40%] md:w-[50%] lg:w-[60%] flex-1 flex justify-center items-center grow h-auto aspect-square rounded-full relative overflow-hidden origin-top m-auto">
         <img
           src={item.imgSrc}
           alt={item.title}
@@ -26,10 +26,10 @@ const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index
         />
       </div>
       <div className="pt-4 xl:pt-6 2xl:pt-10 flex flex-col flex-1 grow w-full">
-        <div className='py-3.5 md:py-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
+        {/* <div className='py-3.5 md:py-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
           <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full'>Common Name</p>
           <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>{item.commonName || "Common Name Placeholder"}</p>
-        </div>
+        </div> */}
         <div className='pt-3.5 md:py-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
           <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap'>Health Benefit</p>
           <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap'>{item.healthBenefit || "Health Benefit Placeholder"}</p>

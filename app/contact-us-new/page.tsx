@@ -7,7 +7,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import FadeUp from '@/components/FadeUp';
 import CTA from '@/components/CTA';
-import { useContactForm } from '@/hooks/useContactForm';
+import { useContactFormNew } from '@/hooks/useContactFormNew';
 import { countryCodes } from '@/data/countryCodes';
 
 const baseField =
@@ -22,7 +22,7 @@ const areaOfInterestSubText: Record<string, string> = {
   'General / Other Inquiry': 'We’ll make sure your message reaches the right person',
 };
 
-const ContactPage: React.FC = () => {
+const ContactPageNew: React.FC = () => {
   const {
     form: {
       register,
@@ -34,7 +34,7 @@ const ContactPage: React.FC = () => {
     onSubmit,
     onError,
     resetSubmitState
-  } = useContactForm();
+  } = useContactFormNew();
 
   const relationshipType = watch('relationshipType');
   const areaOfInterest = watch('areaOfInterest');
@@ -293,4 +293,4 @@ const ContactPage: React.FC = () => {
   );
 };
 
-export default ContactPage;
+export default ContactPageNew;

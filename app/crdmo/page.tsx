@@ -107,7 +107,7 @@ const carouselItems = [
     title: "Canisters & Pillow Packs for effervescents and granules",
   },
   {
-    imgSrc: "/images/cdmo/gummy-pack.webp",
+    imgSrc: "/images/cdmo/gummies.webp",
     title: "Eco-friendly Packaging & Gummy Pouches",
   }
 ]

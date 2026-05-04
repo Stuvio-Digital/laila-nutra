@@ -32,7 +32,7 @@ const Wellness: React.FC = () => {
         <FadeUp className='flex flex-col gap-y-5 md:gap-y-6'>
           <p className="text-bodyBase leading-[124%] text-textSecondary my-auto h-fit row-span-3 max-w-[80%]">
             10,000 plant actives researched. 70+ patents achieved. 6 GMP-certified
-            facilities built. And more. We transform India’s botanical richness
+            facilities. We transform India’s botanical richness
             into trusted wellness solutions worldwide.
           </p>
           <CTA ctaContent="Know More" href="/our-story-purpose" />

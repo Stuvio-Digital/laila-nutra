@@ -47,7 +47,7 @@ const CardItemDesktop = ({ item, index, cardsColor }: { item: CarouselItem, inde
   
       if (imageContainerRef.current) {
         const is2XL = window.matchMedia("(min-width: 1536px)").matches;
-        gsap.to(imageContainerRef.current, { maxWidth: is2XL ? "75%" : "80%", duration: 0.4, ease: "power2.out" });
+        gsap.to(imageContainerRef.current, { maxWidth: is2XL ? "80%" : "85%", duration: 0.4, ease: "power2.out" });
       }
 
       if (contentRef.current) {
@@ -78,7 +78,7 @@ const CardItemDesktop = ({ item, index, cardsColor }: { item: CarouselItem, inde
         }
       </div>
       <div ref={detailContentRef} className={`w-full h-fit flex flex-col justify-between items-center px-5 md:px-6 relative z-10 pb-[16%]`}>
-        <div ref={imageContainerRef} className="w-auto max-w-[80%] 2xl:max-w-[70%] h-auto aspect-square rounded-full relative overflow-hidden origin-top mx-auto">
+        <div ref={imageContainerRef} className="w-auto max-w-[85%] 2xl:max-w-[80%] h-auto aspect-square rounded-full relative overflow-hidden origin-top mx-auto">
           <img
             src={item.imgSrc}
             alt={item.title}
@@ -91,10 +91,10 @@ const CardItemDesktop = ({ item, index, cardsColor }: { item: CarouselItem, inde
           className={`w-full flex flex-col overflow-hidden ${cardsColor ? `bg-${cardsColor}` : "bg-white"}`}
         >
           <div className="pt-4 xl:pt-6 2xl:pt-10 flex flex-col w-full">
-            <div className='py-3.5 md:py-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
+            {/* <div className='py-3.5 md:py-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
               <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full'>Common Name</p>
               <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>{item.commonName || "Common Name Placeholder"}</p>
-            </div>
+            </div> */}
             <div className='pt-3.5 md:pt-4 border-t border-borderColor flex flex-col gap-y-2 md:gap-y-3'>
               <p className='text-body2 leading-[124%] tracking-[-1%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full'>Health Benefit</p>
               <p className='text-body leading-[124%] tracking-[-1%] font-normal text-textSecondary text-wrap max-w-[80%] lg:max-w-full'>{item.healthBenefit || "Health Benefit Placeholder"}</p>

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const contactSchema = z.object({
+export const contactSchemaNew = z.object({
   fullName: z.string().min(1, 'Full name is required'),
   businessEmail: z.string().min(1, 'Business email is required').email('Enter a valid email address'),
   company: z.string().min(1, 'Company / Organisation is required'),
@@ -35,5 +35,4 @@ export const contactSchema = z.object({
   message: z.string().optional(),
 });
 
-export type ContactFormData = z.infer<typeof contactSchema>;
-
+export type ContactFormDataNew = z.infer<typeof contactSchemaNew>;

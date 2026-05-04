@@ -60,10 +60,21 @@ const certificationsData = [
   },
 ];
 
-const Certified: React.FC = () => {
+interface CertifiedProps {
+  showCta?: boolean;
+}
+
+const Certified: React.FC<CertifiedProps> = ({ showCta = true }) => {
   return (
     <section className='@container w-full h-fit py-15 lg:py-20 bg-backgroundSecondary'>
-      <SectionHeader heading={"Globally Certified and \n Recognised"} text="Our facilities are certified by leading international bodies to ensure consistency, safety and efficacy in every solution." textColor="textSecondary" textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]" ctaContent='Know More' ctaHref='/quality-certifications' />
+      <SectionHeader 
+        heading={"Globally Certified and \n Recognised"} 
+        text="Our facilities are certified by leading international bodies to ensure consistency, safety and efficacy in every solution." 
+        textColor="textSecondary" 
+        textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]" 
+        ctaContent={showCta ? 'Know More' : undefined} 
+        ctaHref={showCta ? '/quality-certifications' : undefined} 
+      />
       <div className="grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 gap-y-6 sm:gap-y-7 md:gap-y-10 lg:gap-y-15 items-stretch">
         {certificationsData.map((item) => (
           <div key={item.id} className='bg-white col-span-4 sm:col-span-6 md:col-span-4 @6xl:col-span-3 w-full sm:aspect-square aspect-4/3 flex flex-col justify-between p-6 sm:p-5 lg:p-6 sm:gap-y-10'>

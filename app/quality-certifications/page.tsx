@@ -88,7 +88,7 @@ const page: React.FC = () => {
         text="Our ingredients and solutions meet the world’s most stringent quality and safety standards because wellness deserves nothing less."
         threeImageSectionItems={threeImageSectionItems}
       />
-      <Certified />
+      <Certified showCta={false} />
       <BlackSection 
         heading={"Testing & Validation \n Process"} 
         text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety." 

@@ -15,11 +15,11 @@ export const healthSections: BannerCarouselSectionData[] = [
       },
       {
         title: "Estromira®",
-        text: "Clinically demonstrated to help reduce menopausal discomfort with a naturally occurring phytoestrogen extract from hops.",
+        text: "Clinically demonstrated to help reduce menopausal discomfort with a naturally occurring phytoestrogen",
         imgSrc: "/images/products/estromira.webp",
         // href: "https://nxt-usa.com/estromira/",
         commonName: "Hops extract",
-        healthBenefit: "Reduce menopausal discomfort with a naturally occurring phytoestrogen extract from hops."
+        healthBenefit: "Supports in reducing menopausal discomfort with a naturally occurring phytoestrogen."
       },
     ],
   },
@@ -97,11 +97,11 @@ export const healthSections: BannerCarouselSectionData[] = [
       },
       {
         title: "BacoZest™",
-        text: "clinically proven cognitive enhancer used to improve memory, learning & attention",
+        text: "Clinically proven cognitive enhancer used to improve memory, learning & attention",
         imgSrc: "/images/products/bacozest.webp",
         // href: "https://www.plthealth.com/product-catalog/synapsa",
         commonName: "Bacopa monnieri extract (Brahmi)",
-        healthBenefit: "Supports memory, learning, attention, and and emotional balance in children, adults, and seniors."
+        healthBenefit: "Supports memory, learning, attention, & emotional balance in children, adults, and seniors."
       },
     ],
   },
@@ -168,7 +168,7 @@ export const healthSections: BannerCarouselSectionData[] = [
       },
       {
         title: "Meratrim®",
-        text: "Clinically patented botanical blend used to support healthy weight management and metabolic health.",
+        text: "Clinically proven botanical blend used to support healthy weight management and metabolic health.",
         imgSrc: "/images/products/meratrim.webp",
         commonName: "Sphaeranthus indicus & Garcinia mangostana Extract Blend",
         healthBenefit: "Supports in reducing body weight and hip size while promoting healthy cholesterol and blood sugar levels."
@@ -219,7 +219,7 @@ export const healthSections: BannerCarouselSectionData[] = [
   },
   {
     heading: "Men's Health",
-    text: "Declining testosterone, rising stress and fatigue are affecting men’s health. Our patents resolve that by ensuring testosterone balance, performance and vitality.",
+    text: "Declining testosterone, rising stress and fatigue are affecting men’s health. Our products resolve that by ensuring testosterone balance, performance and vitality.",
     bannerCarouselItems: [
       {
         title: "Tesnor® ",

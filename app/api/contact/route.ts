@@ -4,14 +4,40 @@ import { sendGraphEmail } from '@/utils/graphMail';
 export async function POST(request: Request) {
   try {
     const formData = await request.json();
-    const { name, email, phone, companyName, supportType, message } = formData;
+    const { 
+      fullName, 
+      businessEmail, 
+      company, 
+      jobTitle, 
+      relationshipType, 
+      areaOfInterest, 
+      region, 
+      phoneCode,
+      phone,
+      batchNumber, 
+      message 
+    } = formData;
 
-    if (!name || !email || !phone || !companyName || !supportType) {
+    if (!fullName || !businessEmail || !company || !relationshipType || !areaOfInterest || !region || !phone) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
     }
+
+    // Routing Logic
+    let routeTo = "General Inbox / Admin";
+    if (areaOfInterest === 'Proprietary Ingredient Sourcing') {
+      routeTo = `Regional Sales Lead (${region})`;
+    } else if (areaOfInterest === 'CDMO & Contract Manufacturing' || areaOfInterest === 'R&D & Co-Development') {
+      routeTo = "Business Development Team";
+    } else if (areaOfInterest === 'Quality Assurance (QA)' || areaOfInterest === 'Regulatory & Compliance') {
+      routeTo = "Technical & Regulatory Affairs";
+    }
+
+    // High Priority Lead Flag
+    const isHighPriority = relationshipType === 'New Partnership Inquiry' && 
+                          (areaOfInterest === 'CDMO & Contract Manufacturing' || areaOfInterest === 'R&D & Co-Development');
 
     const htmlContent = `
         <!DOCTYPE html>
@@ -20,210 +46,95 @@ export async function POST(request: Request) {
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <style>
-            body { 
-              font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-              line-height: 1.6; 
-              color: #222;
-              margin: 0;
-              padding: 0;
-              background-color: #f5f5f5;
-            }
-            .email-container { 
-              max-width: 650px; 
-              margin: 0 auto; 
-              background-color: #ffffff;
-              box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-              border-radius: 8px;
-              overflow: hidden;
-            }
-            .header { 
-              background: linear-gradient(107deg, #80B9E6 -20.85%, #99C7EB 48.97%, #CAE16D 118.78%);
-              color: white; 
-              padding: 40px 32px;
-              text-align: left;
-            }
-            .header h1 { 
-              margin: 0; 
-              font-size: 28px;
-              font-weight: 600;
-              letter-spacing: -0.5px;
-            }
-            .header p {
-              margin: 8px 0 0 0;
-              font-size: 15px;
-              opacity: 0.95;
-            }
-            .content { 
-              padding: 32px 32px;
-            }
-            .section {
-              margin-bottom: 32px;
-            }
-            .section-title {
-              font-size: 18px;
-              font-weight: 600;
-              color: #0080C7;
-              margin: 0 0 16px 0;
-              padding-bottom: 8px;
-              border-bottom: 2px solid #0080C7;
-            }
-            .field-row { 
-              display: table;
-              width: 100%;
-              margin-bottom: 12px;
-              border-bottom: 1px solid #EBEBEB;
-              padding-bottom: 12px;
-            }
-            .field-row:last-child {
-              border-bottom: none;
-              margin-bottom: 0;
-              padding-bottom: 0;
-            }
-            .label { 
-              display: table-cell;
-              font-weight: 600; 
-              color: #616161;
-              font-size: 14px;
-              width: 40%;
-              padding-right: 16px;
-              vertical-align: top;
-              text-transform: uppercase;
-            }
-            .value { 
-              display: table-cell;
-              color: #222;
-              font-size: 15px;
-              word-wrap: break-word;
-            }
-            .value a {
-              color: #0080C7;
-              text-decoration: none;
-            }
-            .message-box {
-              background-color: #f9f9f9;
-              border-left: 4px solid #0080C7;
-              padding: 16px;
-              margin-top: 8px;
-              border-radius: 4px;
-            }
-            .message-box p {
-              margin: 0;
-              color: #222;
-              font-size: 14px;
-              line-height: 1.6;
-              white-space: pre-wrap;
-            }
-            .footer {
-              background-color: #f9f9f9;
-              padding: 24px;
-              text-align: center;
-              border-top: 1px solid #EBEBEB;
-            }
-            .footer p {
-              margin: 0;
-              font-size: 13px;
-              color: #616161;
-            }
-            @media only screen and (max-width: 600px) {
-              .field-row { display: block; }
-              .label, .value { display: block; width: 100%; padding-right: 0; }
-              .label { margin-bottom: 4px; }
-            }
+            body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #222; margin: 0; padding: 0; background-color: #f5f5f5; }
+            .email-container { max-width: 650px; margin: 20px auto; background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+            .header { background: ${isHighPriority ? 'linear-gradient(107deg, #FF4B2B -20.85%, #FF416C 118.78%)' : 'linear-gradient(107deg, #80B9E6 -20.85%, #99C7EB 48.97%, #CAE16D 118.78%)'}; color: white; padding: 40px 32px; }
+            .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
+            .priority-badge { display: inline-block; background-color: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-top: 10px; border: 1px solid white; }
+            .content { padding: 32px; }
+            .section { margin-bottom: 32px; }
+            .section-title { font-size: 16px; font-weight: 700; color: #0080C7; margin: 0 0 16px 0; padding-bottom: 8px; border-bottom: 2px solid #0080C7; text-transform: uppercase; }
+            .field-row { display: flex; border-bottom: 1px solid #EBEBEB; padding: 12px 0; }
+            .label { font-weight: 600; color: #616161; font-size: 13px; width: 35%; flex-shrink: 0; }
+            .value { color: #222; font-size: 14px; flex-grow: 1; }
+            .message-box { background-color: #f9f9f9; border-left: 4px solid #0080C7; padding: 16px; margin-top: 8px; border-radius: 4px; font-size: 14px; white-space: pre-wrap; }
+            .footer { background-color: #f9f9f9; padding: 24px; text-align: center; border-top: 1px solid #EBEBEB; font-size: 12px; color: #999; }
           </style>
         </head>
         <body>
           <div class="email-container">
             <div class="header">
-              <h1>New Contact Enquiry</h1>
-              <p>Subject: ${supportType}</p>
+              <h1>New ${areaOfInterest} Enquiry</h1>
+              ${isHighPriority ? '<div class="priority-badge">HIGH PRIORITY LEAD</div>' : ''}
+              <p style="margin: 5px 0 0 0; opacity: 0.9;">Routed to: ${routeTo}</p>
             </div>
             <div class="content">
               <div class="section">
-                <h2 class="section-title">Sender Details</h2>
-                <div class="field-row"><div class="label">Full Name:</div><div class="value">${name}</div></div>
-                <div class="field-row"><div class="label">Email Address:</div><div class="value"><a href="mailto:${email}">${email}</a></div></div>
-                <div class="field-row"><div class="label">Phone Number:</div><div class="value"><a href="tel:${phone}">${phone}</a></div></div>
-                <div class="field-row"><div class="label">Company:</div><div class="value">${companyName}</div></div>
+                <div class="section-title">Sender Details</div>
+                <div class="field-row"><div class="label">Full Name:</div><div class="value">${fullName}</div></div>
+                <div class="field-row"><div class="label">Email:</div><div class="value"><a href="mailto:${businessEmail}">${businessEmail}</a></div></div>
+                <div class="field-row"><div class="label">Phone:</div><div class="value">${phoneCode} ${phone}</div></div>
+                <div class="field-row"><div class="label">Company:</div><div class="value">${company}</div></div>
+                <div class="field-row"><div class="label">Job Title:</div><div class="value">${jobTitle || 'N/A'}</div></div>
               </div>
               <div class="section">
-                <h2 class="section-title">Enquiry Information</h2>
-                <div class="field-row"><div class="label">Service Type:</div><div class="value">${supportType}</div></div>
-                <div class="label">Message:</div>
-                <div class="message-box"><p>${message || 'No message provided.'}</p></div>
+                <div class="section-title">Inquiry Details</div>
+                <div class="field-row"><div class="label">Relationship:</div><div class="value">${relationshipType}</div></div>
+                <div class="field-row"><div class="label">Interest:</div><div class="value">${areaOfInterest}</div></div>
+                <div class="field-row"><div class="label">Region:</div><div class="value">${region}</div></div>
+                ${batchNumber ? `<div class="field-row"><div class="label">Batch/Request:</div><div class="value">${batchNumber}</div></div>` : ''}
+              </div>
+              <div class="section">
+                <div class="section-title">Message</div>
+                <div class="message-box">${message || 'No message provided.'}</div>
               </div>
             </div>
             <div class="footer">
-              <p>This Enquiry was submitted via Laila Nutra Contact Form</p>
-              <p style="margin-top: 8px; color: #999; font-size: 12px;">Received on ${new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+              <p>Submitted via Laila Nutra Contact Form</p>
+              <p>Received on ${new Date().toLocaleString('en-IN')}</p>
             </div>
           </div>
         </body>
         </html>
     `;
 
-    // Send main Enquiry email to internal team
     const recipients = [
       process.env.AZURE_SENDER_EMAIL!,
-      'parakh@stuvio.co',
-      'jigar@stuvio.co'
+      // 'parakh@stuvio.co',
+      // 'jigar@stuvio.co'
     ];
 
     await sendGraphEmail({
       to: recipients,
-      replyTo: email,
-      subject: `New ${supportType} Enquiry: ${name}`,
+      replyTo: businessEmail,
+      subject: `${isHighPriority ? '[URGENT] ' : ''}New ${areaOfInterest} Enquiry: ${fullName} (${company})`,
       html: htmlContent,
     });
 
-    // Confirmation email to the user
+    // Confirmation email to user
     try {
       await sendGraphEmail({
-        to: email,
-        subject: 'Thank You for Reaching Out to Laila Nutra',
+        to: businessEmail,
+        subject: 'We’ve received your enquiry – Laila Nutra',
         html: `
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <style>
-              body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #222; margin: 0; padding: 0; background-color: #f5f5f5; }
-              .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; margin-top: 20px; }
-              .header { background: linear-gradient(107deg, #80B9E6 -20.85%, #99C7EB 48.97%, #CAE16D 118.78%); color: white; padding: 32px 24px; }
-              .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
-              .content { padding: 32px 24px; }
-              .content p { margin: 0 0 16px 0; color: #222; font-size: 15px; }
-              .highlight-box { background-color: #f0f9ff; border-left: 4px solid #0080C7; padding: 16px; margin: 24px 0; }
-              .highlight-box p { margin: 0; color: #222; }
-              .footer { background-color: #f9f9f9; padding: 24px; text-align: center; border-top: 1px solid #EBEBEB; }
-              .footer p { margin: 0; font-size: 13px; color: #616161; }
-            </style>
-          </head>
-          <body>
-            <div class="email-container">
-              <div class="header"><h1>We've Received Your Enquiry</h1></div>
-              <div class="content">
-                <p>Dear ${name},</p>
-                <p>Thank you for reaching out to Laila Nutra. We have successfully received your enquiry regarding <strong>${supportType}</strong>.</p>
-                <div class="highlight-box">
-                  <p><strong>What happens next?</strong></p>
-                  <p style="margin-top: 8px;">Our team is reviewing your message and we will get back to you with the information you need as soon as possible.</p>
-                </div>
-                <p>We appreciate your interest in Laila Nutra.</p>
-                <p style="margin-top: 24px;">Best regards,<br><strong>Laila Nutra Team</strong></p>
-              </div>
-              <div class="footer">
-                <p>Laila Nutra</p>
-                <p style="margin-top: 4px; font-size: 12px; color: #999;">This is an automated confirmation email</p>
-              </div>
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #222;">
+            <div style="background: #0080C7; color: white; padding: 30px; text-align: center;">
+              <h1 style="margin: 0; font-size: 24px;">Thank you for reaching out</h1>
             </div>
-          </body>
-          </html>
+            <div style="padding: 30px; line-height: 1.6;">
+              <p>Dear ${fullName},</p>
+              <p>Thank you for your interest in Laila Nutra. We have received your enquiry regarding <strong>${areaOfInterest}</strong>.</p>
+              <p>Our team is reviewing your requirements and will get back to you within 1–2 business days.</p>
+              <p style="margin-top: 30px;">Best regards,<br><strong>Laila Nutra Team</strong></p>
+            </div>
+          </div>
         `
       });
     } catch (e) {
       console.log('Confirmation email failed', e);
     }
 
-    return NextResponse.json({ success: true, message: 'Message sent successfully' });
+    return NextResponse.json({ success: true, message: 'Enquiry sent successfully' });
 
   } catch (error: any) {
     console.error('Contact API Error:', error);

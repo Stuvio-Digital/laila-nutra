@@ -93,14 +93,14 @@ const ContactPage: React.FC = () => {
               )}
             </div>
 
-            {/* Support Type */}
+            {/* Service Type */}
             <div className="flex flex-col gap-1.5 col-span-2">
               <label className="contact-label text-body font-medium text-gray-700">
-                Support Type <span className="text-red-500">*</span>
+                Service Type <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <select {...register('supportType')} defaultValue="" className={`${baseField} appearance-none pr-10 cursor-pointer text-body`}>
-                  <option value="" disabled>Select support type</option>
+                  <option value="" disabled>Select service type</option>
                   <option value="Product">Product</option>
                   <option value="General Enquiry">General Enquiry</option>
                 </select>

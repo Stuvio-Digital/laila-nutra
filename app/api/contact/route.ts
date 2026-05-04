@@ -147,7 +147,7 @@ export async function POST(request: Request) {
               </div>
               <div class="section">
                 <h2 class="section-title">Enquiry Information</h2>
-                <div class="field-row"><div class="label">Support Type:</div><div class="value">${supportType}</div></div>
+                <div class="field-row"><div class="label">Service Type:</div><div class="value">${supportType}</div></div>
                 <div class="label">Message:</div>
                 <div class="message-box"><p>${message || 'No message provided.'}</p></div>
               </div>

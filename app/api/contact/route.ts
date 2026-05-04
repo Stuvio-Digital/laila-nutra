@@ -99,9 +99,9 @@ export async function POST(request: Request) {
     `;
 
     const recipients = [
-      // process.env.AZURE_SENDER_EMAIL!,
-      'parakh@stuvio.co',
-      'jigar@stuvio.co'
+      process.env.AZURE_SENDER_EMAIL!,
+      // 'parakh@stuvio.co',
+      // 'jigar@stuvio.co'
     ];
 
     await sendGraphEmail({

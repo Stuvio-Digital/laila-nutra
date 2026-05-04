@@ -63,9 +63,15 @@ export const healthSections: BannerCarouselSectionData[] = [
         title: "CurQ60®",
         text: "Highly absorbable form of curcumin that enhances overall mobility and physical wellness.",
         imgSrc: "/images/products/curq60.webp",
-        // href: "https://www.plthealth.com/product-catalog/curq60",
         commonName: "Turmeric Extract (Curcumin)",
         healthBenefit: "Supports joint pain relief, anti-inflammatory support, and faster muscle recovery."
+      },
+      {
+        title: "AquaLOX®",
+        text: "Water-soluble Boswellia extract for enhanced joint comfort and flexible formulation.",
+        imgSrc: "/images/products/aqualox.webp",
+        commonName: "Boswellia serrata (AKBA-rich) Extract",
+        healthBenefit: "Supports joint comfort, reduces inflammation, and improves mobility with fast absorption."
       },
     ],
   },
@@ -125,20 +131,26 @@ export const healthSections: BannerCarouselSectionData[] = [
         commonName: "Sphaeranthus indicus & Mangifera indica Extract Blend",
         healthBenefit: "Supports muscle strength, improves endurance, and enhances physical performance and mobility."
       },
+      {
+        title: "CinDura®",
+        text: "Clinically studied botanical blend for muscle strength and performance.",
+        imgSrc: "/images/products/cindura.webp",
+        commonName: "Garcinia mangostana & Indian Bay Leaf Extract Blend",
+        healthBenefit: "Supports muscle strength, endurance, and recovery while enhancing overall physical performance."
+      },
+      {
+        title: "Maxinos®",
+        text: "Clinically studied botanical blend for cardiovascular and vascular health.",
+        imgSrc: "/images/products/maxinos.webp",
+        commonName: "Cissus quadrangularis, Turmeric & Tulasi Extract Blend",
+        healthBenefit: "Supports healthy blood pressure, improves blood flow, and enhances endothelial function."
+      },
     ],
   },
   {
     heading: "Metabolic Health \n & Weight Management",
     text: "With lifestyle-related conditions rising, maintaining metabolic balance is vital. This range helps manage weight, improve lipid profiles and regulate metabolism naturally.",
     bannerCarouselItems: [
-      {
-        title: "4Liver®",
-        text: "Supports detox & metabolic function",
-        imgSrc: "/images/products/4liver.webp",
-        href: "https://www.saanroo.com/ingredients/4liver",
-        commonName: "Terminalia chebula & Sphaeranthus indicus Extract Blend",
-        healthBenefit: "Supports liver detoxification, metabolism, and helps in healthy liver function."
-      },
       {
         title: "Slendacor®",
         text: "Clinically proven citrus polyphenols for weight management and fat metabolism—stimulant-free.",
@@ -158,8 +170,36 @@ export const healthSections: BannerCarouselSectionData[] = [
         title: "Meratrim®",
         text: "Clinically patented botanical blend used to support healthy weight management and metabolic health.",
         imgSrc: "/images/products/meratrim.webp",
-        commonName: "Sphaeranthus indicus & Garcinia mangostana Extract",
+        commonName: "Sphaeranthus indicus & Garcinia mangostana Extract Blend",
         healthBenefit: "Supports in reducing body weight and hip size while promoting healthy cholesterol and blood sugar levels."
+      },
+      {
+        title: "Lowat®",
+        text: "Clinically studied botanical blend for weight management and metabolic support.",
+        imgSrc: "/images/products/lowat.webp",
+        commonName: "Piper betle & Dolichos biflorus Extract Blend",
+        healthBenefit: "Supports fat loss, regulates appetite, and promotes healthy metabolism."
+      },
+      {
+        title: "CardiaSlim®",
+        text: "Clinically studied botanical blend for weight management and metabolic health.",
+        imgSrc: "/images/products/cardiaslim.webp",
+        commonName: "Sphaeranthus indicus & Garcinia mangostana Extract Blend",
+        healthBenefit: "Supports fat loss, improves body composition, and promotes healthy lipid levels."
+      },
+    ],
+  },
+  {
+    heading: "Liver Health",
+    text: "Advanced botanical support designed to enhance liver detoxification, optimize metabolic function, and promote long-term liver health and overall wellness.",
+    bannerCarouselItems: [
+      {
+        title: "4Liver®",
+        text: "Supports detox & metabolic function",
+        imgSrc: "/images/products/4liver.webp",
+        href: "https://www.saanroo.com/ingredients/4liver",
+        commonName: "Terminalia chebula & Sphaeranthus indicus Extract Blend",
+        healthBenefit: "Supports liver detoxification, metabolism, and helps in healthy liver function."
       },
     ],
   },

@@ -95,8 +95,8 @@ const ContactPage: React.FC = () => {
       <FadeUp className="col-span-4 sm:col-span-12 lg:col-span-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full" delay={0.4}>
         <div className="bg-white rounded-xl overflow-hidden shadow-xl">
           <div className="px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 py-6 lg:py-8 border-b border-borderColor">
-            <p className="text-blue text-bodyBase tracking-[-1%] mb-6">Get in Touch</p>
-            <h2 className="text-black text-body leading-[124%] tracking-[-2%] mb-3">Whether you’re exploring an ingredient, scaling a formula, or entering a new market — the right conversation starts here.</h2>
+            <p className="text-blue text-bodyBase tracking-[-1%] mb-3 lg:mb-6">Get in Touch</p>
+            <h2 className="text-black text-body leading-[124%] tracking-[-2%]">Whether you’re exploring an ingredient, scaling a formula, or entering a new market — the right conversation starts here.</h2>
           </div>
           
           <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 pt-6 lg:pt-10 pb-10">

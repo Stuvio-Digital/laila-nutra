@@ -12,7 +12,15 @@ export const healthSections: BannerCarouselSectionData[] = [
         href: "https://nxt-usa.com/xeya_shatavari/",
         commonName: "Shatavari (Asparagus racemosus) Root Extract",
         healthBenefit: "Supports in hormonal balance, ovarian health, menopause related symptoms."
-      }
+      },
+      {
+        title: "Estromira®",
+        text: "Clinically demonstrated to help reduce menopausal discomfort with a naturally occurring phytoestrogen extract from hops.",
+        imgSrc: "/images/products/estromira.webp",
+        // href: "https://nxt-usa.com/estromira/",
+        commonName: "Hops extract",
+        healthBenefit: "Reduce menopausal discomfort with a naturally occurring phytoestrogen extract from hops."
+      },
     ],
   },
   {
@@ -51,6 +59,14 @@ export const healthSections: BannerCarouselSectionData[] = [
         commonName: "Terminalia chebula, Turmeric & Boswellia Extract Blend",
         healthBenefit: "Supports joint comfort, reduces stiffness, and improves flexibility with clinically proven results in as little as 14 days."
       },
+      {
+        title: "CurQ60®",
+        text: "Highly absorbable form of curcumin that enhances overall mobility and physical wellness.",
+        imgSrc: "/images/products/curq60.webp",
+        // href: "https://www.plthealth.com/product-catalog/curq60",
+        commonName: "Turmeric Extract (Curcumin)",
+        healthBenefit: "Supports joint pain relief, anti-inflammatory support, and faster muscle recovery."
+      },
     ],
   },
   {
@@ -72,6 +88,14 @@ export const healthSections: BannerCarouselSectionData[] = [
         href: "https://www.plthealth.com/product-catalog/synapsa",
         commonName: "Bacopa monnieri (Brahmi) Extract",
         healthBenefit: "Supports memory, learning, attention, and faster information processing for overall brain performance."
+      },
+      {
+        title: "BacoZest™",
+        text: "clinically proven cognitive enhancer used to improve memory, learning & attention",
+        imgSrc: "/images/products/bacozest.webp",
+        // href: "https://www.plthealth.com/product-catalog/synapsa",
+        commonName: "Bacopa monnieri extract (Brahmi)",
+        healthBenefit: "Supports memory, learning, attention, and and emotional balance in children, adults, and seniors."
       },
     ],
   },
@@ -122,6 +146,20 @@ export const healthSections: BannerCarouselSectionData[] = [
         href: "https://www.plthealth.com/product-catalog/slendacor",
         commonName: "Turmeric, Moringa & Curry Leaf Extract Blend",
         healthBenefit: "Supports fat loss, boosts metabolism, and helps improve body composition."
+      },
+      {
+        title: "Slimvance®",
+        text: "Clinically validated slimming ingredient used to aid weight loss, reduce waist and hip circumference.",
+        imgSrc: "/images/products/slimvance.webp",
+        commonName: "Turmeric, Moringa, and Curry Leaves Blend",
+        healthBenefit: "Supports weight loss, reduce waist and hip circumference, and enhance calorie burning."
+      },
+      {
+        title: "Meratrim®",
+        text: "Clinically patented botanical blend used to support healthy weight management and metabolic health.",
+        imgSrc: "/images/products/meratrim.webp",
+        commonName: "Sphaeranthus indicus & Garcinia mangostana Extract",
+        healthBenefit: "Supports in reducing body weight and hip size while promoting healthy cholesterol and blood sugar levels."
       },
     ],
   },

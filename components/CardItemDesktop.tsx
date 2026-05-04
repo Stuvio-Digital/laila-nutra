@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { CarouselItem } from './HealthSolutionsCard';
 
 const CardItemDesktop = ({ item, index, cardsColor }: { item: CarouselItem, index: number, cardsColor?: string }) => {
-  const cardRef = useRef<HTMLAnchorElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -56,15 +56,10 @@ const CardItemDesktop = ({ item, index, cardsColor }: { item: CarouselItem, inde
     }
   });
 
-  return (
-    <Link
-      ref={cardRef}
-      href={item.href || "#"}
-      target='_blank'
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={`group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} hidden [@media(min-width:1241px)]:flex flex-col justify-between relative overflow-hidden  w-70 md:w-[33vw] @6xl:w-[25vw] xl:w-[calc(25vw-46px)]`}
-    >
+  const cardClassName = `group shrink-0 aspect-278/370 [@media(min-width:1920px)]:aspect-270/350 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} hidden [@media(min-width:1241px)]:flex flex-col justify-between relative overflow-hidden  w-70 md:w-[33vw] @6xl:w-[25vw] xl:w-[calc(25vw-46px)] ${item.href ? 'cursor-pointer' : 'cursor-default'}`;
+
+  const renderContent = () => (
+    <>
       <div className="flex flex-col w-full items-start px-3.5 sm:px-5 lg:px-6 pt-6 mb-4 2xl:mb-6 relative z-10">
         <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">
           {item.title.split("\n").map((line, i) => (
@@ -113,7 +108,33 @@ const CardItemDesktop = ({ item, index, cardsColor }: { item: CarouselItem, inde
           <img src="/icons/link_arrow.svg" alt="" className="absolute w-full h-full transform -translate-x-full translate-y-full lg:group-hover:transition-transform lg:group-hover:duration-500 lg:group-hover:ease-in-out lg:group-hover:translate-x-0 lg:group-hover:translate-y-0" />
         </div>
       )}
-    </Link>
+    </>
+  );
+
+  if (item.href) {
+    return (
+      <Link
+        ref={cardRef as React.RefObject<HTMLAnchorElement>}
+        href={item.href}
+        target='_blank'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={cardClassName}
+      >
+        {renderContent()}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      ref={cardRef as React.RefObject<HTMLDivElement>}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={cardClassName}
+    >
+      {renderContent()}
+    </div>
   );
 };
 

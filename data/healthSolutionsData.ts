@@ -164,17 +164,9 @@ export const healthSections: BannerCarouselSectionData[] = [
     ],
   },
   {
-    heading: "Immunity and Respiratory Health ",
+    heading: "Immunity and \n Respiratory Health ",
     text: "Urban living, pollution and infections keep testing human immunity. Our bioactives build natural defense, enhance respiratory strength and keep wellness strong.",
     bannerCarouselItems: [
-      {
-        title: "Spectramune® ",
-        text: "Clinically demonstrated to enhance innate, cell-mediated and humoral immunity",
-        imgSrc: "/images/products/spectramune.webp",
-        href: "https://www.plthealth.com/product-catalog/spectramune",
-        commonName: "Ashwagandha & Haritaki Extract Blend",
-        healthBenefit: "Supports full-spectrum immune function, strengthening the body’s defense and resilience."
-      },
       {
         title: "AlvioLife®",
         text: "Clinically studied botanical blend for respiratory health and performance.",
@@ -232,6 +224,20 @@ export const healthSections: BannerCarouselSectionData[] = [
         href: "https://nxt-usa.com/blunad-booster/",
         commonName: "Pomegranate & Marigold Extract Blend",
         healthBenefit: "Enhance cellular energy, longevity, and metabolic function."
+      },
+      {
+        title: "Slimvance®",
+        text: "Clinically validated slimming ingredient used to aid weight loss, reduce waist and hip circumference.",
+        imgSrc: "/images/products/slimvance.webp",
+        commonName: "Turmeric, Moringa, and Curry Leaves Blend",
+        healthBenefit: "Supports weight loss, reduce waist and hip circumference, and enhance calorie burning."
+      },
+      {
+        title: "Meratrim®",
+        text: "Clinically patented botanical blend used to support healthy weight management and metabolic health.",
+        imgSrc: "/images/products/meratrim.webp",
+        commonName: "Sphaeranthus indicus & Garcinia mangostana Extract",
+        healthBenefit: "Supports in reducing body weight and hip size while promoting healthy cholesterol and blood sugar levels."
       },
     ],
   },

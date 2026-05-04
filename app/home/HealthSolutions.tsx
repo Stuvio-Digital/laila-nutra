@@ -13,7 +13,7 @@ const healthData = [
   {
     title: "Joint & Bone Health",
     image: "/images/home/joints-bone-health.webp",
-    chips: ["AprèsFlex®", "Kinexa®", "5-LOXIN", "Flexir®", "CurQ60®"]
+    chips: ["AprèsFlex®", "Kinexa®", "5-LOXIN", "Flexir®", "CurQ60®", "AquaLOX®"]
   },
   {
     title: "Cognition & Memory",
@@ -28,12 +28,12 @@ const healthData = [
   {
     title: "Energy, Muscles & Endurance",
     image: "/images/home/energy-muscle-endurance.webp",
-    chips: ["Strengthera®"]
+    chips: ["Strengthera®", "CinDura®", "Maxinos®"]
   },
   {
     title: "Metabolic Health & Weight Management",
     image: "/images/home/metabolic-health-obesity.webp",
-    chips: ["Slendacor®", "Meratrim®", "Slimvance®"]
+    chips: ["Slendacor®", "Meratrim®", "Slimvance®", "CardiaSlim®", "Lowat®"]
   },
   {
     title: "Liver Health",

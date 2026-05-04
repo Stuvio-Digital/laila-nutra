@@ -98,7 +98,7 @@ const eleonorItems = [
   },
   {
     icon: "/icons/cardiology.svg",
-    description: "Improves disClean-label, solvent-free processpersibility and absorption in the body"
+    description: "Clean-label and solvent-free process and absorption in the body"
   },
 ]
 

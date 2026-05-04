@@ -6,7 +6,7 @@ export const contactSchema = z.object({
   company: z.string().min(1, 'Company / Organisation is required'),
   jobTitle: z.string().optional(),
   relationshipType: z.enum(['New Partnership Inquiry', 'Existing Client / Partner'] as const, {
-    errorMap: () => ({ message: 'Please select one' }),
+    error: 'Please select one',
   }),
   areaOfInterest: z.enum([
     'Proprietary Ingredient Sourcing',
@@ -16,7 +16,7 @@ export const contactSchema = z.object({
     'Regulatory & Compliance',
     'General / Other Inquiry'
   ] as const, {
-    errorMap: () => ({ message: 'Please select one' }),
+    error: 'Please select one',
   }),
   region: z.enum([
     'North America (USA & Canada)',
@@ -27,12 +27,15 @@ export const contactSchema = z.object({
     'Latin America (LATAM)',
     'Other / Global'
   ] as const, {
-    errorMap: () => ({ message: 'Please select your region' }),
+    error: 'Please select one',
   }),
   phoneCode: z.string().optional(),
   phone: z.string().min(1, 'Phone number is required').regex(/^\d+$/, 'Enter a valid phone number'),
   batchNumber: z.string().optional(),
   message: z.string().optional(),
+  terms: z.boolean().refine(val => val === true, {
+    message: "You must agree to the privacy policy"
+  }),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;

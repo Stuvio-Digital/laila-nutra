@@ -3,6 +3,8 @@ import React from 'react';
 import {
   ChevronDown,
   Check,
+  Square,
+  CheckSquare,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import FadeUp from '@/components/FadeUp';
@@ -28,6 +30,7 @@ const ContactPage: React.FC = () => {
       register,
       handleSubmit,
       watch,
+      setValue,
       formState: { errors, touchedFields, isSubmitted },
     },
     submitState,
@@ -38,12 +41,13 @@ const ContactPage: React.FC = () => {
 
   const relationshipType = watch('relationshipType');
   const areaOfInterest = watch('areaOfInterest');
+  const termsChecked = watch('terms');
 
   const showBatchNumber = relationshipType === 'Existing Client / Partner' && 
                        (areaOfInterest === 'Quality Assurance (QA)' || areaOfInterest === 'Regulatory & Compliance');
 
   return (
-    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-30 sm:pt-40 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 my-auto">
+    <main className="@container relative min-h-screen w-full overflow-x-hidden footer-bg pt-30 sm:pt-40 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 px-4 sm:px-6 lg:px-10 py-12 sm:py-16 my-auto gap-y-15 lg:gap-y-20">
       {/* Success Modal */}
       <AnimatePresence>
         {submitState === "success" && (
@@ -51,7 +55,7 @@ const ContactPage: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -64,7 +68,7 @@ const ContactPage: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold text-black mb-2">Success!</h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Thank you — your enquiry has been received. Our team will be in touch shortly.
+                Thank you, your enquiry has been received. Our team will be in touch shortly.
               </p>
               <button
                 onClick={resetSubmitState}
@@ -78,21 +82,21 @@ const ContactPage: React.FC = () => {
       </AnimatePresence>
 
       {/* LEFT */}
-      <FadeUp className="flex flex-col gap-6 lg:gap-10 col-span-4 sm:col-span-12 md:col-span-6" delay={0.2}>
+      <FadeUp className="flex flex-col gap-6 lg:gap-10 col-span-4 sm:col-span-12 lg:col-span-6" delay={0.2}>
         <h1 className="text-white text-heading2 [@media(min-width:1536px)]:text-heading1 font-semibold leading-[110%] tracking-[-2%]">
           Precision Starts Here
         </h1>
-        <p className="text-white/80 text-bodyBase [@media(min-width:1536px)]:text-subHeading2 max-w-[90%] leading-[150%]">
+        <p className="text-white/80 text-body [@media(min-width:1536px)]:text-bodyBase max-w-[90%] leading-[124%]">
           From validated botanicals to turnkey CDMO solutions, Laila Nutra works at the intersection of science and scale. Reach out to our team and let’s find the right solution for your market.
         </p>
       </FadeUp>
 
       {/* RIGHT */}
-      <FadeUp className="col-span-4 sm:col-span-12 md:col-span-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
+      <FadeUp className="col-span-4 sm:col-span-12 lg:col-span-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
         <div className="bg-white rounded-xl overflow-hidden shadow-xl">
           <div className="px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 py-8 border-b border-borderColor">
-            <p className="text-blue text-xs uppercase tracking-widest font-bold mb-2">Get in Touch</p>
-            <h2 className="text-black text-subHeading1 font-medium leading-[124%] tracking-[-2%] mb-3">Whether you’re exploring an ingredient, scaling a formula, or entering a new market — the right conversation starts here.</h2>
+            <p className="text-blue text-xs tracking-[-1%] font-bold mb-6">Get in Touch</p>
+            <h2 className="text-black text-body leading-[124%] tracking-[-2%] mb-3">Whether you’re exploring an ingredient, scaling a formula, or entering a new market — the right conversation starts here.</h2>
           </div>
           
           <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="gap-y-6 md:gap-y-7.5 gap-x-4 md:gap-x-5 lg:gap-x-7.5 grid grid-cols-2 px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 py-10">
@@ -124,12 +128,12 @@ const ContactPage: React.FC = () => {
               <label className="contact-label text-body font-medium text-gray-700">
                 Phone Number <span className="text-red-500">*</span>
               </label>
-              <div className="flex gap-2">
-                <div className="relative w-28 shrink-0">
-                  <select {...register('phoneCode')} className={`${baseField} appearance-none pr-8 cursor-pointer text-xs sm:text-body`}>
+              <div className="flex items-stretch border border-transparent rounded-sm contact-input transition-all duration-200 outline outline-textSecondary/50 focus-within:outline-blue overflow-hidden">
+                <div className="relative border-r border-gray-200 shrink-0">
+                  <select {...register('phoneCode')} className="h-full bg-transparent pl-3 pr-8 py-2.5 @4xl:py-3 appearance-none cursor-pointer text-body text-gray-700 outline-none border-none">
                     {countryCodes.map((c) => (
                       <option key={c.code} value={c.dial_code}>
-                        {c.code} ({c.dial_code})
+                        {c.code} {c.dial_code}
                       </option>
                     ))}
                   </select>
@@ -143,7 +147,7 @@ const ContactPage: React.FC = () => {
                   })} 
                   type="tel" 
                   placeholder="Mobile number" 
-                  className={baseField} 
+                  className="w-full bg-transparent px-3 py-2.5 @4xl:py-3 text-body text-gray-900 placeholder:text-gray-400 outline-none border-none" 
                 />
               </div>
               {(touchedFields.phone || isSubmitted) && errors.phone && (
@@ -212,7 +216,7 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Area of Interest */}
-            <div className="flex flex-col gap-1.5 col-span-2">
+            <div className="flex flex-col gap-1.5 col-span-2 sm:col-span-1">
               <label className="contact-label text-body font-medium text-gray-700">
                 I'm looking for... <span className="text-red-500">*</span>
               </label>
@@ -253,34 +257,56 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* Submit */}
-            <div className="pt-4 col-span-2 flex flex-col gap-4">
-              <div className="w-full">
-                <CTA
-                  ctaContent={
-                    submitState === "loading" ? (
-                      <span className="flex items-center gap-2">
-                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Submitting…
-                      </span>
-                    ) : submitState === "success" ? (
-                      "Thank you!"
-                    ) : (
-                      "Send Enquiry"
-                    )
-                  }
-                  as="button"
-                  type="submit"
-                  disabled={submitState === "loading"}
-                  className="w-full justify-center"
-                />
-              </div>
-              
-              <div className="flex flex-col gap-2">
+            <div className="pt-4 col-span-2 flex flex-col gap-6">
+              <div className="flex flex-col gap-6">
+                {/* Terms / Privacy Policy */}
+                <div className="flex flex-col gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setValue('terms', !termsChecked, { shouldValidate: true })
+                    }
+                    className="flex items-start gap-3 group w-fit outline-none text-left"
+                  >
+                    <div className="mt-0.5 shrink-0 transition-colors duration-200">
+                      {termsChecked ? (
+                        <CheckSquare size={18} className="text-blue" />
+                      ) : (
+                        <Square size={18} className="text-gray-400 group-hover:text-blue/50" />
+                      )}
+                    </div>
+                    <p className="text-sm text-textSecondary tracking-tighter">
+                      By submitting this form, you agree to our Privacy Policy. We do not share your information with third parties.
+                    </p>
+                  </button>
+                  {(touchedFields.terms || isSubmitted) && errors.terms && (
+                    <p className="error-msg text-red-500 text-[10px] mt-0.5">{errors.terms.message}</p>
+                  )}
+                </div>
+
+                <div className="w-full">
+                  <CTA
+                    ctaContent={
+                      submitState === "loading" ? (
+                        <span className="flex items-center gap-2">
+                          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          Submitting…
+                        </span>
+                      ) : submitState === "success" ? (
+                        "Thank you!"
+                      ) : (
+                        "Send Enquiry"
+                      )
+                    }
+                    as="button"
+                    type="submit"
+                    disabled={submitState === "loading"}
+                    className="w-full justify-center cursor-pointer"
+                  />
+                </div>
+                
                 <p className="text-xs text-gray-500">
                   We typically respond within 1–2 business days. For urgent matters, email us directly at <a href="mailto:enquiry@lailanutra.com" className="text-blue hover:underline">enquiry@lailanutra.com</a>.
-                </p>
-                <p className="text-[10px] text-gray-400 uppercase tracking-tighter">
-                  By submitting this form, you agree to our <a href="/privacy-policy" className="underline hover:text-gray-600">Privacy Policy</a>. We do not share your information with third parties.
                 </p>
               </div>
             </div>

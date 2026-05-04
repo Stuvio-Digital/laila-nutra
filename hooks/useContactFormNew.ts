@@ -23,6 +23,7 @@ export const useContactFormNew = () => {
       phone: '',
       batchNumber: '',
       message: '',
+      terms: false,
     },
   });
 

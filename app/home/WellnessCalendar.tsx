@@ -25,7 +25,7 @@ const calendarEvents = [
   {
     date: "22 March, 2026",
     title: "World Water Day",
-    description: "Every drop matters — not just for life, but for the future of health and innovation. As water continues to be a critical resource across industries, responsible usage and sustainable practices become more important than ever. This World Water Day, we reaffirm the need to protect what sustains us all.",
+    description: "Every drop matters, not just for life, but for the future of health and innovation. As water continues to be a critical resource across industries, responsible usage and sustainable practices become more important than ever. This World Water Day, we reaffirm the need to protect what sustains us all.",
     link:"https://www.instagram.com/reel/DWLT0X-uNu6/",
     imgSrc: "/images/wellness-calendar/water-day.webp",
     imgAlt: "World Water Day",

@@ -58,7 +58,7 @@ const healthData = [
   {
     title: "Healthy Aging & Longevity",
     image: "/images/home/anti-aging-longevity.webp",
-    chips: ["NAD Booster"]
+    chips: ["NAD Booster", "Slimvance®", "Meratrim®"]  
   }
 ];
 

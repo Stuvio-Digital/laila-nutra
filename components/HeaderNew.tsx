@@ -4,6 +4,7 @@ import Link from "next/link";
 import useLockBodyScroll from "@/hooks/useLockBodyScroll";
 import { navItems } from "@/data/navData";
 import { useHeaderLogic } from "@/hooks/useHeaderLogic";
+import { usePathname } from "next/navigation";
 
 const Header = forwardRef<HTMLElement, any>((props, ref) => {
   const {
@@ -115,20 +116,41 @@ const Header = forwardRef<HTMLElement, any>((props, ref) => {
         } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
       >
         <nav className="flex justify-between items-center h-fit w-full">
-          <Link
-            href={"/"}
-            onClick={(e) => handleLinkClick(e, "/")}
-            style={{
-              width: "clamp(5.25rem, 4.37rem + 3.91vw, 7.5rem)"
-            }}
-            className="aspect-84/40 sm:aspect-104/60 max-w-24"
-          >
-            <img
-              src="/images/common/laila-logo-color.png"
-              alt="Laila Nutra Logo"
-              className="w-auto h-full sm:mx-auto"
-            />
-          </Link>
+          <div className="w-fit h-fit flex items-center gap-1 md:gap-4 lg:gap-6">
+            <Link
+              href={"/"}
+              onClick={(e) => handleLinkClick(e, "/")}
+              style={{
+                width: "clamp(5.25rem, 4.37rem + 3.91vw, 7.5rem)"
+              }}
+              className="aspect-84/40 sm:aspect-104/60 max-w-18 md:max-w-20 lg:max-w-24"
+            >
+              <img
+                src="/images/common/laila-logo-color.png"
+                alt="Laila Nutra Logo"
+                className="w-auto h-full sm:mx-auto"
+              />
+            </Link>
+
+            {
+              (usePathname() === "/crdmo") && (
+                <Link
+                  href={"/crdmo"}
+                  onClick={(e) => handleLinkClick(e, "/crdmo")}
+                  style={{
+                    width: "clamp(5.25rem, 4.37rem + 3.91vw, 7.5rem)"
+                  }}
+                  className="aspect-84/40 sm:aspect-104/60 max-w-16 md:max-w-20 lg:max-w-22"
+                >
+                  <img
+                    src="/images/cdmo/crdmo.png"
+                    alt="CRDMO Logo"
+                    className="w-auto h-full sm:mx-auto"
+                  />
+                </Link>
+              )
+            }
+          </div>
 
 
           {/* Desktop UL */}

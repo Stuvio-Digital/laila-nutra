@@ -120,7 +120,7 @@ export const healthSections: BannerCarouselSectionData[] = [
       {
         title: "Strengthera®",
         text: "Clinically studied botanical complex for muscle strength, endurance, and vitality.",
-        imgSrc: "/images/products/Strengthera.webp",
+        imgSrc: "/images/products/strengthera.webp",
         href: "https://www.plthealth.com/product-catalog/strengthera",
         commonName: "Sphaeranthus indicus & Mangifera indica Extract Blend",
         healthBenefit: "Supports muscle strength, improves endurance, and enhances physical performance and mobility."

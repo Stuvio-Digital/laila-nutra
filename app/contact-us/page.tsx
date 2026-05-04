@@ -86,7 +86,7 @@ const ContactPage: React.FC = () => {
         <h1 className="text-white text-heading2 [@media(min-width:1536px)]:text-heading1 font-semibold leading-[110%] tracking-[-2%]">
           Precision Starts Here
         </h1>
-        <p className="text-white/80 text-body [@media(min-width:1536px)]:text-bodyBase max-w-[90%] leading-[124%]">
+        <p className="text-white/80 text-bodyBase max-w-[90%] leading-[124%]">
           From validated botanicals to turnkey CDMO solutions, Laila Nutra works at the intersection of science and scale. Reach out to our team and let’s find the right solution for your market.
         </p>
       </FadeUp>
@@ -95,7 +95,7 @@ const ContactPage: React.FC = () => {
       <FadeUp className="col-span-4 sm:col-span-12 lg:col-span-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
         <div className="bg-white rounded-xl overflow-hidden shadow-xl">
           <div className="px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 py-8 border-b border-borderColor">
-            <p className="text-blue text-xs tracking-[-1%] font-bold mb-6">Get in Touch</p>
+            <p className="text-blue text-body tracking-[-1%] mb-6">Get in Touch</p>
             <h2 className="text-black text-body leading-[124%] tracking-[-2%] mb-3">Whether you’re exploring an ingredient, scaling a formula, or entering a new market — the right conversation starts here.</h2>
           </div>
           

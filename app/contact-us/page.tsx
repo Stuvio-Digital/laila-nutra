@@ -95,7 +95,7 @@ const ContactPage: React.FC = () => {
       <FadeUp className="col-span-4 sm:col-span-12 lg:col-span-6 [@media(min-width:1920px)]:max-w-[90%] [@media(min-width:1920px)]:ml-auto w-full mt-10 md:mt-0" delay={0.4}>
         <div className="bg-white rounded-xl overflow-hidden shadow-xl">
           <div className="px-4 sm:px-5 md:px-6 lg:px-7.5 xl:px-10 py-8 border-b border-borderColor">
-            <p className="text-blue text-body tracking-[-1%] mb-6">Get in Touch</p>
+            <p className="text-blue text-bodyBase tracking-[-1%] mb-6">Get in Touch</p>
             <h2 className="text-black text-body leading-[124%] tracking-[-2%] mb-3">Whether you’re exploring an ingredient, scaling a formula, or entering a new market — the right conversation starts here.</h2>
           </div>
           

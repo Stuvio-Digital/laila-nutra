@@ -7,6 +7,7 @@ export const LINKS_HEADING_CLASS =
 interface NavLink {
   label: string;
   href: string;
+  target?: string;
 }
 
 interface NavSection {
@@ -32,6 +33,8 @@ const insightsLinks: NavLink[] = [
   // { label: 'Blog / Wellness Articles', href: '#' },
   // { label: 'How-to Guides', href: '#' },
   { label: 'Contact Us', href: '/contact-us' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/lailanutra.com/', target: '_blank' },
+  { label: 'Instagram', href: 'https://www.instagram.com/lailanutra/', target: '_blank' },
 ];
 
 export const navSections: NavSection[] = [

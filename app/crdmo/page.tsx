@@ -116,7 +116,7 @@ const overlayBannerItems = [
   { iconSrc: '/icons/monitoring.svg', iconAlt: "Monitoring", text: 'Analytical Method Development & Validation' },
   { iconSrc: '/icons/avg_pace.svg', iconAlt: "Test", text: 'Performance Testing & Real-Time Stability Studies' },
   { iconSrc: '/icons/license.svg', iconAlt: "License", text: 'Global QA Certifications such as FSSAI, AYUSH, US-FDA, EFSA, GMP and ISO' },
-  { iconSrc: '/icons/approval_delegation.svg', iconAlt: "Approval Delegation", text: 'CTD/eCTD Dossier Creation, GRAS and Novel Food approvals' }
+  { iconSrc: '/icons/approval_delegation_white.svg', iconAlt: "Approval Delegation", text: 'CTD/eCTD Dossier Creation, GRAS and Novel Food approvals' }
 ];
 
 const partnerSectionData = [

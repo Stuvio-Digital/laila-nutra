@@ -20,7 +20,7 @@ export const useHeaderLogic = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const isWhiteBackground = isScrolled || activeMenuIndex !== null || pathname === "/contact-us";
+  const isWhiteBackground = isScrolled || activeMenuIndex !== null || pathname === "/contact-us" || pathname === "/sitemap";
 
   // Handle scroll events
   useEffect(() => {

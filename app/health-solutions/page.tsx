@@ -138,6 +138,7 @@ const page: React.FC = () => {
           {healthSections.map((section, index) => (
             <div 
               key={index} 
+              id={section.heading.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, '-')}
               ref={(el) => { sectionRefs.current[index] = el; }}
               className="scroll-mt-35 lg:scroll-mt-45"
             >

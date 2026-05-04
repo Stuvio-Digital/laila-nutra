@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className='@container h-fit w-full grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5'>
-      {(pathname !== "/contact-us") && <SectionHeader
+      {(!["/contact-us", "/sitemap"].includes(pathname)) && <SectionHeader
         heading={heading}
         text={text}
         ctaContent={ctaContent}
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
         className='col-span-4 sm:col-span-12 py-15 lg:py-20 footer-bg'
       />}
 
-      <div className={`pb-10 lg:pb-15 px-4 sm:px-6 lg:px-10 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 col-span-4 sm:col-span-12 gap-y-10 sm:gap-y-15 ${usePathname() === "/contact-us" && "pt-10 lg:pt-15"}`}>
+      <div className={`pb-10 lg:pb-15 px-4 sm:px-6 lg:px-10 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 col-span-4 sm:col-span-12 gap-y-10 sm:gap-y-15 ${["/contact-us", "/sitemap"].includes(pathname) && "pt-10 lg:pt-15"}`}>
         <Link href='/' className='w-[104px] @6xl:w-[40%] aspect-104/60 col-span-4 sm:col-span-12 @6xl:col-span-3'>
           <FadeUp as="img" src='/images/common/laila-footer-logo.png' alt='Laila Footer Logo' className='w-full h-full' />
         </Link>
@@ -38,8 +38,8 @@ const Footer: React.FC = () => {
           <FadeUp key={title} className={`${colClass} flex flex-col`}>
             <p className={LINKS_HEADING_CLASS}>{title}</p>
             <div className='flex flex-col gap-3 sm:gap-4 lg:gap-5'>
-              {links.map(({ label, href }) => (
-                <Link key={label} href={href} className={NAV_LINK_CLASS}>
+              {links.map(({ label, href, target }) => (
+                <Link key={label} href={href} target={target} className={NAV_LINK_CLASS}>
                   {label}
                 </Link>
               ))}
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
       <div className='border-t border-blue col-span-4 sm:col-span-12 py-4 sm:py-5 md:py-6 flex flex-col sm:flex-row justify-between sm:items-center gap-4'>
         <div className='flex gap-4 pl-4 sm:pl-6 lg:pl-10'>
-          {[{ label: 'Sitemap', href: '#' }].map(({ label, href }) => (
+          {[{ label: 'Sitemap', href: '/sitemap' }].map(({ label, href }) => (
             <Link key={label} href={href} className='text-sm text-textSecondary hover:text-blue transition-colors duration-300 leading-[110%] tracking-[-1%]'>
               {label}
             </Link>

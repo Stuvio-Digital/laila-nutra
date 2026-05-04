@@ -8,17 +8,17 @@ const healthData = [
   {
     title: "Women’s Health",
     image: "/images/home/womens-health.webp",
-    chips: ["Xeya™"]
+    chips: ["Xeya™", "Estromira®"]
   },
   {
     title: "Joint & Bone Health",
     image: "/images/home/joints-bone-health.webp",
-    chips: ["AprèsFlex®", "Kinexa®", "5-LOXIN", "Flexir®"]
+    chips: ["AprèsFlex®", "Kinexa®", "5-LOXIN", "Flexir®", "CurQ60®"]
   },
   {
     title: "Cognition & Memory",
     image: "/images/home/cognition-memory.webp",
-    chips: ["Nutricog®", "Synapsa®"]
+    chips: ["Nutricog®", "Synapsa®", "BacoZest®"]
   },
   {
     title: "Gut Health",
@@ -33,7 +33,7 @@ const healthData = [
   {
     title: "Metabolic Health & Weight Management",
     image: "/images/home/metabolic-health-obesity.webp",
-    chips: ["Slendacor®"]
+    chips: ["Slendacor®", "Meratrim®", "Slimvance®"]
   },
   {
     title: "Liver Health",

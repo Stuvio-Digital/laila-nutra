@@ -4,12 +4,10 @@ import Link from 'next/link';
 import { CarouselItem } from './HealthSolutionsCard';
 
 const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index: number, cardsColor?: string }) => {
-  return (
-    <Link
-      href={item.href || "#"}
-      target='_blank'
-      className={`group shrink-0 aspect-278/370 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex [@media(min-width:1241px)]:hidden flex-col justify-between relative overflow-hidden px-3.5 sm:px-5 lg:px-6 pt-6 pb-10 gap-y-4 @4xl:gap-y-6 w-[86vw] sm:w-[45vw] lg:w-[40vw] @6xl:w-[calc(33vw-46px)]`}
-    >
+  const cardClassName = `group shrink-0 aspect-278/370 ${cardsColor ? `bg-${cardsColor}` : "bg-white"} flex [@media(min-width:1241px)]:hidden flex-col justify-between relative overflow-hidden px-3.5 sm:px-5 lg:px-6 pt-6 pb-10 gap-y-4 @4xl:gap-y-6 w-[86vw] sm:w-[45vw] lg:w-[40vw] @6xl:w-[calc(33vw-46px)] ${item.href ? 'cursor-pointer' : 'cursor-default'}`;
+
+  const renderContent = () => (
+    <>
       <div className="flex flex-col w-full items-start mb-4 xl:mb-6 relative z-10">
         <p className="text-subHeading2 [@media(min-width:1920px)]:text-subHeading1 leading-[110%] tracking-[-2%] font-medium text-black text-wrap max-w-[80%] lg:max-w-full">
           {item.title.split("\n").map((line, i) => (
@@ -43,7 +41,25 @@ const CardItemMedium = ({ item, index, cardsColor }: { item: CarouselItem, index
           <img src="/icons/link_arrow.svg" alt="" className="absolute w-full h-full transform -translate-x-full translate-y-full lg:group-hover:transition-transform lg:group-hover:duration-500 lg:group-hover:ease-in-out lg:group-hover:translate-x-0 lg:group-hover:translate-y-0" />
         </div>
       )}
-    </Link>
+    </>
+  );
+
+  if (item.href) {
+    return (
+      <Link
+        href={item.href}
+        target='_blank'
+        className={cardClassName}
+      >
+        {renderContent()}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={cardClassName}>
+      {renderContent()}
+    </div>
   );
 };
 

@@ -195,8 +195,8 @@ const HealthSolutions: React.FC = () => {
                 >
                   {index === 10 ? (
                     <>
-                      <span className='md:hidden'>Anti-Aging & <br/> Longevity</span>
-                      <span className='hidden md:block'>Anti-Aging & Longevity</span>
+                      <span className='md:hidden'>Healthy Aging & <br/> Longevity</span>
+                      <span className='hidden md:block'>Healthy Aging & Longevity</span>
                     </>
                   ) : item.title}
                 </li>

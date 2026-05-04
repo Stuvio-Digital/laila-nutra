@@ -146,7 +146,7 @@ const ContactPage: React.FC = () => {
                     }
                   })} 
                   type="tel" 
-                  placeholder="Mobile number" 
+                  placeholder="+1 (555) 000-0000" 
                   className="w-full bg-transparent px-3 py-2.5 @4xl:py-3 text-body text-gray-900 placeholder:text-gray-400 outline-none border-none" 
                 />
               </div>

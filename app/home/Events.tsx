@@ -31,9 +31,9 @@ const Events: React.FC = () => {
           <CTA ctaContent="View More" href={"https://www.vitafoods.eu.com/en/home.html"} target='_blank' className='sm:block hidden' />
         </div>
         <Link href={"https://www.vitafoods.eu.com/en/home.html"} target='_blank' className='col-span-4 sm:col-span-2 w-full relative overflow-hidden aspect-4/3'>
-          <img src="/images/wellness-calendar/ve.webp" alt="Vitafoods Europe 2026" className='w-full h-full object-cover object-center absolute top-0 left-0 z-10' />
+          <img src="/images/homeeventse.png" alt="Vitafoods Europe 2026" className='w-full h-full object-cover object-center absolute top-0 left-0 z-10' />
           <div className='h-full w-full bg-black/30 backdrop-blur-md absolute top-0 left-0 z-20'/>
-          <img src="/images/wellness-calendar/ve.webp" alt="Vitafoods Europe 2026" className='h-full w-auto object-conatin object-center absolute top-0 left-1/2 -translate-x-1/2 z-30' />
+          <img src="/images/home/events.png" alt="Vitafoods Europe 2026" className='h-full w-auto object-conatin object-center absolute top-0 left-1/2 -translate-x-1/2 z-30' />
         </Link>
       </FadeUp>
     </section>

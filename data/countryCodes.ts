@@ -19,4 +19,4 @@ export const countryCodes = [
   { name: "Spain", code: "ES", dial_code: "+34" },
   { name: "Italy", code: "IT", dial_code: "+39" },
   { name: "Mexico", code: "MX", dial_code: "+52" },
-].sort((a, b) => a.name.localeCompare(b.name));
+];

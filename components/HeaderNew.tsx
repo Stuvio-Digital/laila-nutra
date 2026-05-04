@@ -123,7 +123,7 @@ const Header = forwardRef<HTMLElement, any>((props, ref) => {
               style={{
                 width: "clamp(5.25rem, 4.37rem + 3.91vw, 7.5rem)"
               }}
-              className="aspect-84/40 sm:aspect-104/60 max-w-18 md:max-w-20 lg:max-w-24"
+              className={`aspect-84/40 sm:aspect-104/60 ${pathname === "/crdmo" ? 'max-w-18 md:max-w-20 lg:max-w-24' : 'max-w-24'}`}
             >
               <img
                 src="/images/common/laila-logo-color.png"

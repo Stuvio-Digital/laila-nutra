@@ -30,9 +30,12 @@ const Footer: React.FC = () => {
       />}
 
       <div className={`pb-10 lg:pb-15 px-4 sm:px-6 lg:px-10 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 col-span-4 sm:col-span-12 gap-y-10 sm:gap-y-15 ${["/contact-us", "/sitemap"].includes(pathname) && "pt-10 lg:pt-15"}`}>
-        <Link href='/' className='w-[104px] @6xl:w-[40%] aspect-104/60 col-span-4 sm:col-span-12 @6xl:col-span-3'>
-          <FadeUp as="img" src='/images/common/laila-footer-logo.png' alt='Laila Footer Logo' className='w-full h-full' />
-        </Link>
+        <div className='flex flex-col col-span-4 sm:col-span-12 @6xl:col-span-3'>
+          <Link href='/' className='w-[104px] @6xl:w-[40%] aspect-104/60 flex flex-col'>
+            <FadeUp as="img" src='/images/common/laila-logo-color.png' alt='Laila Footer Logo' className='w-full h-full' />
+          </Link>
+          <FadeUp as="p" className='text-body [@media(min-width:1920px)]:text-bodyBase text-textSecondary leading-[124%] tracking-[-1%] mt-4 max-w-[285px] md:max-w-[40%] @6xl:max-w-[80%]'>Delivering science-backed nutraceutical solutions through innovation, quality, and global expertise.</FadeUp>
+        </div>
 
         {navSections.map(({ title, links, colClass }) => (
           <FadeUp key={title} className={`${colClass} flex flex-col`}>

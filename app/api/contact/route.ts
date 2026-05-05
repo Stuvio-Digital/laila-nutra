@@ -104,16 +104,19 @@ export async function POST(request: Request) {
       // 'jigar@stuvio.co'
     ];
 
-    await sendGraphEmail({
-      to: recipients,
-      replyTo: businessEmail,
-      subject: `${isHighPriority ? '[URGENT] ' : ''}New ${areaOfInterest} Enquiry: ${fullName} (${company})`,
-      html: htmlContent,
-    });
+    // Send emails in parallel
+    const emailPromises = [
+      sendGraphEmail({
+        to: recipients,
+        replyTo: businessEmail,
+        subject: `${isHighPriority ? '[URGENT] ' : ''}New ${areaOfInterest} Enquiry: ${fullName} (${company})`,
+        html: htmlContent,
+      })
+    ];
 
-    // Confirmation email to user
-    try {
-      await sendGraphEmail({
+    // Add confirmation email to the list of promises
+    emailPromises.push(
+      sendGraphEmail({
         to: businessEmail,
         subject: 'We’ve received your enquiry – Laila Nutra',
         html: `
@@ -129,10 +132,10 @@ export async function POST(request: Request) {
             </div>
           </div>
         `
-      });
-    } catch (e) {
-      console.log('Confirmation email failed', e);
-    }
+      }).catch(e => console.log('Confirmation email failed', e)) as Promise<any>
+    );
+
+    await Promise.all(emailPromises);
 
     return NextResponse.json({ success: true, message: 'Enquiry sent successfully' });
 

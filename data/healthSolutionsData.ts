@@ -14,8 +14,8 @@ export const healthSections: BannerCarouselSectionData[] = [
         healthBenefit: "Supports in hormonal balance, ovarian health, menopause related symptoms."
       },
       {
-        title: "Estromira®",
-        text: "Clinically demonstrated to help reduce menopausal discomfort with a naturally occurring phytoestrogen",
+        title: "EstroMira®",
+        text: "Clinically demonstrated to help reduce menopausal discomfort with a naturally occurring phytoestrogen.",
         imgSrc: "/images/products/estromira.webp",
         // href: "https://nxt-usa.com/estromira/",
         commonName: "Hops extract",
@@ -80,7 +80,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     text: "In an always-on world where mental fatigue is constant, these formulations help improve focus, memory and mental clarity for sharper day-to-day performance.",
     bannerCarouselItems: [
       {
-        title: "Nutricog®",
+        title: "NutriCog®",
         text: "Clinically validated to enhance memory and cognitive performance.",
         imgSrc: "/images/products/nutricog.webp",
         href: "https://www.plthealth.com/product-catalog/nutricog",
@@ -115,7 +115,7 @@ export const healthSections: BannerCarouselSectionData[] = [
         imgSrc: "/images/products/digexin.webp",
         href: "https://nxt-usa.com/what_is_digexin/",
         commonName: "Okra & Ashwagandha Extract Blend",
-        healthBenefit: "Supports in regular digestion, reduces discomfort, and supports the gut–brain connection."
+        healthBenefit: "Supports in regular digestion, reduces discomfort, and promotes the gut–brain connection."
       },
     ],
   },
@@ -133,13 +133,13 @@ export const healthSections: BannerCarouselSectionData[] = [
       },
       {
         title: "CinDura®",
-        text: "Clinically studied botanical blend for muscle strength and performance.",
+        text: "Clinically studied botanical blend for enhanced muscle strength, endurance, and performance.",
         imgSrc: "/images/products/cindura.webp",
         commonName: "Garcinia mangostana & Indian Bay Leaf Extract Blend",
-        healthBenefit: "Supports muscle strength, endurance, and recovery while enhancing overall physical performance."
+        healthBenefit: "Enhances strength, boosts endurance, supports lean muscle growth, and improves recovery."
       },
       {
-        title: "Maxinos®",
+        title: "MaxiNOs®",
         text: "Clinically studied botanical blend for cardiovascular and vascular health.",
         imgSrc: "/images/products/maxinos.webp",
         commonName: "Cissus quadrangularis, Turmeric & Tulasi Extract Blend",

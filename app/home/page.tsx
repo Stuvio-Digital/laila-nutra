@@ -109,7 +109,7 @@ const Home: React.FC = () => {
       <Banner
         imgSrc="/images/home/home-banner.webp"
         title={"Nature Meets \n Science"}
-        subCopy="For 50 years, Laila Nutra has transformed India’s botanical heritage into patented, clinically proven health solutions trusted in 25+ countries."
+        subCopy="For 50 years, Laila Nutra has transformed India’s botanical heritage into patented, clinically proven health solutions trusted in 100+ countries."
         ctaContent="View Solutions"
         ctaHref="/health-solutions"
       />

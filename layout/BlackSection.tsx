@@ -127,16 +127,18 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
     <section className='@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5 bg-black' ref={containerRef}>
       <SectionHeader heading={heading} text={text} textColor={textColor} textMaxWidth={textMaxWidth} headingColor='white' className='col-span-4 sm:col-span-12' />
       
-      <div className='col-span-4 sm:col-span-12 w-full h-fit px-4 sm:px-6 lg:px-10'>
+      <div className='col-span-4 sm:col-span-12 w-full h-fit md:px-6 lg:px-10'>
         <div className='grid grid-cols-4 sm:grid-cols-12 gap-y-0 md:gap-y-10 gap-x-4 md:gap-x-5 lg:gap-x-7.5 h-fit md:py-10 px-0 md:px-6 lg:px-10 md:bg-backgroundBlack items-center'>
           
           {/* Left Side: Accordion List */}
-          <div className='col-span-4 sm:col-span-12 md:col-span-7 lg:col-span-6 md:max-w-[90%] h-fit flex flex-col gap-y-4 md:gap-y-0'>
+          <div className='col-span-4 sm:col-span-12 md:col-span-7 lg:col-span-6 md:max-w-[90%] h-fit flex flex-col'>
             {data.map((item: DataItem, index: number) => (
               <div 
                 key={index}
                 onClick={() => handleItemClick(index)}
-                className={`w-full h-fit px-4 sm:px-6 md:px-0 py-6 md:py-7 lg:py-10 flex flex-col group cursor-pointer relative border-b-0 md:border-b-[1.5px] border-white/20 transition-colors duration-500 overflow-hidden bg-backgroundBlack md:bg-transparent rounded-lg md:rounded-none`}
+                className={`w-full h-fit px-4 sm:px-6 md:px-0 py-6 md:py-7 lg:py-10 flex flex-col group cursor-pointer relative transition-colors duration-500 overflow-hidden ${
+                  index === 0 ? "border-y border-white/20" : "border-b border-white/20"
+                }`}
               >
                 {/* Desktop Progress Bar (Animated Border) */}
                 <div 
@@ -167,7 +169,7 @@ const BlackSection: React.FC<BlackSectionProps> = ({ heading, text, textMaxWidth
                 >
                   <div className='overflow-hidden'>
                     <div 
-                      className='flex flex-col gap-y-6 pb-6 pt-4'
+                      className='flex flex-col gap-y-6 pt-4'
                       style={{
                         clipPath: index === activeIndex ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
                         transition: "clip-path 0.5s ease-in-out"

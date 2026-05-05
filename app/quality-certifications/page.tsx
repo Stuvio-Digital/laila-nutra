@@ -99,8 +99,8 @@ const page: React.FC = () => {
       <OverlayBannerSection
         heading={"State-of-the-Art \n Facilities"}
         text="Our GMP-certified, tech-enabled manufacturing network combines automation, precision, and global best practices to deliver world-class nutraceuticals."
-        ctaContent="Know More"
-        ctaHref="#"
+        // ctaContent="Know More"
+        // ctaHref="#"
         headingColor="white"
         textMaxWidth="max-w-142 lg:max-w-none"
         textColor="white"

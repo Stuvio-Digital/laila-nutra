@@ -162,7 +162,7 @@ const Hero: React.FC = () => {
         <div className="row-span-1 col-span-4 h-full grid grid-cols-4 items-end gap-x-4 sm:gap-x-5 lg:gap-x-7.5 gap-y-6">
           <p className="w-[80%] order-2 sm:order-1 text-white text-bodyBase 2xl:text-[1.25vw] tracking-text leading-[110%] font-normal col-span-4 sm:col-span-2">
             For 50 years, Laila Nutra has transformed India’s botanical heritage
-            into patented, clinically proven health solutions trusted in 25
+            into patented, clinically proven health solutions trusted in 100+
             countries.
           </p>
           <span className="col-span-4 order-1 sm:order-2 sm:col-span-2 text-right text-heading1 sm:text-display text-white tracking-heading1 sm:tracking-display leading-[110%] font-semibold 2xl:text-[10vw]">

@@ -23,36 +23,36 @@ const certificationsData = [
     title: "FSSC 22000 Certified",
     description: "Guaranteeing food safety management at every step."
   },
+  // {
+  //   id: 4,
+  //   image: "/images/home/iso.png",
+  //   alt: "ISO Certified",
+  //   title: "ISO 9001:2015 Certified",
+  //   description: "Delivering consistent quality across processes."
+  // },
   {
     id: 4,
-    image: "/images/home/iso.png",
-    alt: "ISO Certified",
-    title: "ISO 9001:2015 Certified",
-    description: "Delivering consistent quality across processes."
-  },
-  {
-    id: 5,
     image: "/images/home/halal.png",
     alt: "Kosher Certified",
     title: "Kosher Certified",
     description: "Meets strict kosher guidelines for quality and purity assurance."
   },
   {
-    id: 6,
+    id: 5,
     image: "/images/home/halal-1.png",
     alt: "Halal Certified",
     title: "Halal Certified",
     description: "Compliant with Islamic dietary standards for global acceptability."
   },
   {
-    id: 7,
+    id: 6,
     image: "/images/home/non-gmo.png",
     alt: "Non-GMO Project Verified",
     title: "Non-GMO & Allergen-Free",
     description: "Committed to clean, safe formulations for every consumer."
   },
   {
-    id: 8,
+    id: 7,
     image: "/images/home/eu.png",
     alt: "EU Compliant",
     title: "EU Compliance",

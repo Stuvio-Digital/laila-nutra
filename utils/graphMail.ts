@@ -1,4 +1,12 @@
+let cachedToken: string | null = null;
+let tokenExpiry: number = 0;
+
 async function getAccessToken() {
+  // Return cached token if it exists and hasn't expired (with 5-minute buffer)
+  if (cachedToken && Date.now() < tokenExpiry - 300000) {
+    return cachedToken;
+  }
+
   const tenantId = process.env.AZURE_TENANT_ID;
   const clientId = process.env.AZURE_CLIENT_ID;
   const clientSecret = process.env.AZURE_CLIENT_SECRET;
@@ -29,7 +37,13 @@ async function getAccessToken() {
   }
 
   const data = await response.json();
-  return data.access_token;
+  
+  // Cache the token
+  cachedToken = data.access_token;
+  // expires_in is in seconds, convert to absolute timestamp in ms
+  tokenExpiry = Date.now() + (data.expires_in * 1000);
+  
+  return cachedToken;
 }
 
 interface SendEmailOptions {

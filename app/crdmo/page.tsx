@@ -243,7 +243,7 @@ const qualityCertificationsData = [
 
 const page: React.FC = () => {
   const { setFooterContent } = useFooter();
-  
+
   React.useEffect(() => {
     setFooterContent({
       heading: "Transforming Healthcare with \n a Strong Partnership",
@@ -262,7 +262,7 @@ const page: React.FC = () => {
         subCopy="From early discovery to global manufacturing, we integrate science, innovation, and expertise to deliver scalable, high-performance solutions."
       />
       <FeatureImageGridSection featureGridItem={partnerSectionData} />
-      <Step/>
+      <Step />
       <InlineListingSection
         heading={"Various Formulation \n Expertise"}
         text="We create a versatile range of dosage formats ranging from tablets to AYUSH-compliant sprays and drops, to meet global consumer preferences."
@@ -289,10 +289,10 @@ const page: React.FC = () => {
         bgColor="backgroundSecondary"
         features={technologyInnovationFeatures}
       />
-      <BlackSection 
-        heading={"Testing Process"} 
-        text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety." 
-        textColor="text-white70" 
+      <BlackSection
+        heading={"Testing Process"}
+        text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety."
+        textColor="text-white70"
         textMaxWidth="max-w-[90%]  xl:max-w-142 2xl:max-w-[80%]"
         data={qualityCertificationsData}
       />
@@ -310,7 +310,7 @@ const page: React.FC = () => {
       />
       <BlockLineFeatureSection
         heading={"Proof & Protect Always"}
-        text={"We build your product on scientific credibility and protect it too. Our in-house IPR team has secured 80+ US patents and 120+ Indian patents, ensuring brand exclusivity."}
+        text={"We build your product on scientific credibility and protect it too. Our in-house IPR team has secured 70+ US patents and 120+ Indian patents, ensuring brand exclusivity."}
         featureItems={blockLineFeatureItems}
       />
       <InlineImageSection

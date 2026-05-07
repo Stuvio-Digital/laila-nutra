@@ -22,7 +22,7 @@ const overlayBannerItems = [
   { iconSrc: '/icons/autorenew.svg', text: '8-Step Innovation Cycle (from ideation to launch)' },
   { iconSrc: '/icons/pill_white.svg', text: 'Wide dosage forms (capsules, gummies, effervescents, sprays, topicals)' },
   { iconSrc: '/icons/policy.svg', text: 'Global compliance & dossier readiness' },
-  { iconSrc: '/icons/shield.svg', text: 'IP protection with 80+ US and 120+ Indian patents' }
+  { iconSrc: '/icons/shield.svg', text: 'IP protection with 70+ US and 120+ Indian patents' }
 ];
 
 const clinicallyTestedItems = [
@@ -124,7 +124,7 @@ const Home: React.FC = () => {
         textColor="textSecondary"
         carouselItems={clinicallyTestedItems}
       />
-      <InlineFeatureSection featureItems={blockLineFeatureItems}/>
+      <InlineFeatureSection featureItems={blockLineFeatureItems} />
       <Certified />
       <BlockLineFeatureSection heading={"Bioavailability Enhancement \n Technology"} text="Powered by Eleonor LEO-HB® Technology, this proprietary solid dispersion process transforms poorly soluble actives into highly bioavailable, water-dispersible formats for faster absorption and enhanced efficacy." ctaContent="Know More" ctaHref="https://leohb.com/" target="_blank" featureItems={eleonorItems} />
       <OverlayBannerSection
@@ -151,7 +151,7 @@ const Home: React.FC = () => {
         textColor="textSecondary"
         carouselItems={globalWellnessItems}
       />
-      <WellnessCalendar />  
+      <WellnessCalendar />
       <Events />
     </main>
   );

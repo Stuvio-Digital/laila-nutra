@@ -81,7 +81,7 @@ const page: React.FC = () => {
       <Banner
         imgSrc="/images/quality-certifications/quality-certifications-banner.webp"
         title={"Wellness You \n Can Trust"}
-        subCopy="We don't just meet standards, we redefine them in Japan, USA, Australia and 20+ other countries."
+        subCopy="We don't just meet standards, we redefine them in Japan, USA, Australia and 100+ other countries."
       />
       <ThreeImageSection
         heading={"Uncompromising Quality. \n Assured Excellence."}
@@ -89,10 +89,10 @@ const page: React.FC = () => {
         threeImageSectionItems={threeImageSectionItems}
       />
       <Certified showCta={false} />
-      <BlackSection 
-        heading={"Testing & Validation \n Process"} 
-        text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety." 
-        textColor="text-white70" 
+      <BlackSection
+        heading={"Testing & Validation \n Process"}
+        text="Every Laila Nutra product undergoes multiple layers of testing and validation ensuring unmatched quality, efficacy, and safety."
+        textColor="text-white70"
         textMaxWidth="max-w-[90%] xl:max-w-142 2xl:max-w-[80%]"
         data={qualityCertificationsData}
       />

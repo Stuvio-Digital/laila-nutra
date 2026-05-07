@@ -40,7 +40,7 @@ const responsibilityPillars = [
   {
     imgSrc: "/icons/verified_user.svg",
     title: "IPR Integrity",
-    text: "Protecting innovation with 80+ US and 120+ Indian patents.",
+    text: "Protecting innovation with 70+ US and 120+ Indian patents.",
   },
   {
     imgSrc: "/icons/approval_delegation.svg",

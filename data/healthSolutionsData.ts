@@ -97,7 +97,7 @@ export const healthSections: BannerCarouselSectionData[] = [
       },
       {
         title: "BacoZest™",
-        text: "Clinically proven cognitive enhancer used to improve memory, learning & attention",
+        text: "Clinically proven cognitive enhancer used to improve memory, learning & attention.",
         imgSrc: "/images/products/bacozest.webp",
         // href: "https://www.plthealth.com/product-catalog/synapsa",
         commonName: "Bacopa monnieri extract (Brahmi)",
@@ -195,7 +195,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     bannerCarouselItems: [
       {
         title: "4Liver®",
-        text: "Supports detox & metabolic function",
+        text: "Supports detox & metabolic function.",
         imgSrc: "/images/products/4liver.webp",
         href: "https://www.saanroo.com/ingredients/4liver",
         commonName: "Terminalia chebula & Sphaeranthus indicus Extract Blend",
@@ -223,7 +223,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     bannerCarouselItems: [
       {
         title: "Tesnor® ",
-        text: "Provides natural testosterone and vitality support",
+        text: "Provides natural testosterone and vitality support.",
         imgSrc: "/images/products/tesnor.webp",
         href: "https://www.saanroo.com/ingredients/tesnor",
         commonName: "Cocoa Bean & Pomegranate Peel Extract Blend",
@@ -235,7 +235,7 @@ export const healthSections: BannerCarouselSectionData[] = [
         imgSrc: "/images/products/testfactor.webp",
         href: "https://www.plthealth.com/product-catalog/testfactor",
         commonName: "Sphaeranthus indicus & Mangifera indica Extract Blend",
-        healthBenefit: "Supports healthy testosteron, libido, energy and muscle performance"
+        healthBenefit: "Supports healthy testosterone, libido, energy and muscle performance."
       },
     ],
   },
@@ -245,7 +245,7 @@ export const healthSections: BannerCarouselSectionData[] = [
     bannerCarouselItems: [
       {
         title: "Serezin®",
-        text: "Supports deeper sleep & recovery",
+        text: "Supports deeper sleep & recovery.",
         imgSrc: "/images/products/serezin.webp",
         href: "https://www.plthealth.com/product-catalog/serezin",
         commonName: "Boswellia & Ginger Extract Blend",

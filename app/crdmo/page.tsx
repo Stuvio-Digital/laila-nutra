@@ -141,7 +141,7 @@ const partnerSectionData = [
       },
       {
         icon: "/icons/distance.svg",
-        title: "Presence across 25+ countries"
+        title: "Presence across 100+ countries"
       }
     ]
   }

@@ -10,7 +10,7 @@ const Events: React.FC = () => {
     <section className="@container h-fit w-full py-15 lg:py-20 grid grid-cols-4 sm:grid-cols-12 gap-x-4 md:gap-x-5 lg:gap-x-7.5">
       <SectionHeader
         className='col-span-4 sm:col-span-12'
-        heading={"Upcoming Events"}
+        heading={"Past Events"}
       />
       <FadeUp className='col-span-4 sm:col-span-12 h-fit w-full grid grid-cols-4 gap-x-4 md:gap-x-5 lg:gap-x-7.5 gap-y-6 mb-6 md:mb-7.5 lg:mb-10 pt-6 border-t border-borderColor px-4 sm:px-6 lg:px-10'>
         <div className='col-span-4 sm:col-span-3 lg:col-span-2 md:max-w-[80%] flex flex-col gap-y-4 md:gap-y-5'>

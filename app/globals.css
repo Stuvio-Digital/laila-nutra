@@ -97,3 +97,74 @@ img {
 .footer-bg {
   background: linear-gradient(107deg, #80B9E6 -20.85%, #99C7EB 48.97%, #CAE16D 118.78%);
 }
+
+/* Event Detail Prose Styling */
+.event-prose {
+  color: #3f3f46;
+  font-size: 1.125rem; /* Increased font size a little (from 1rem to 1.125rem) */
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+.event-prose * {
+  text-align: left !important;
+}
+
+.event-prose p,
+.event-prose span,
+.event-prose div {
+  margin-bottom: 1.25rem;
+  color: #3f3f46 !important;
+  font-size: 1.125rem !important; /* Forces the slightly larger font size */
+  line-height: 1.75 !important;
+}
+
+.event-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.event-prose h2 {
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  color: #111 !important;
+  margin: 2rem 0 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.event-prose h3 {
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  color: #27272a !important;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.event-prose ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.event-prose ol {
+  list-style: decimal;
+  padding-left: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.event-prose li {
+  margin-bottom: 0.35rem;
+  color: #3f3f46 !important;
+  font-size: 1.125rem !important;
+}
+
+.event-prose a {
+  color: #0080C7 !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.event-prose strong, 
+.event-prose b {
+  font-weight: 600;
+  color: #111 !important;
+}
+

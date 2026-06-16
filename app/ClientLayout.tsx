@@ -103,6 +103,12 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     };
   }, []);
 
+  const isAdmin = pathname.startsWith('/admin');
+
+  if (isAdmin) {
+    return <>{children}</>;
+  }
+
   return (
     <FooterProvider>
       <ReactLenis root>

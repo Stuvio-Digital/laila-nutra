@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Banner from "@/components/Banner";
 import Wellness from "./Wellness";

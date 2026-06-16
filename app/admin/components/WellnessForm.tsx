@@ -22,11 +22,20 @@ function slugify(title: string): string {
 
 // ─── Image Upload Helper ─────────────────────────────────────────────────────
 async function uploadFile(file: File): Promise<string | null> {
-  const fd = new FormData();
-  fd.append('file', file);
-  const res = await fetch('/api/upload', { method: 'POST', body: fd });
-  const data = await res.json();
-  return data.success ? data.url : null;
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch('/api/upload', { method: 'POST', body: fd });
+    if (!res.ok) {
+      console.error('Upload response not ok:', res.status, res.statusText);
+      return null;
+    }
+    const data = await res.json();
+    return data.success ? data.url : null;
+  } catch (err) {
+    console.error('uploadFile error:', err);
+    return null;
+  }
 }
 
 export default function WellnessForm({ initialData, eventId, mode }: WellnessFormProps) {
@@ -63,14 +72,19 @@ export default function WellnessForm({ initialData, eventId, mode }: WellnessFor
   async function handleThumbnailUpload(file: File) {
     setUploadingThumb(true);
     setError('');
-    const url = await uploadFile(file);
-    if (url) {
-      set('imageUrl', url);
-      if (!form.imageAlt) set('imageAlt', file.name.replace(/\.[^.]+$/, ''));
-    } else {
-      setError('Image upload failed');
+    try {
+      const url = await uploadFile(file);
+      if (url) {
+        set('imageUrl', url);
+        if (!form.imageAlt) set('imageAlt', file.name.replace(/\.[^.]+$/, ''));
+      } else {
+        setError('Image upload failed. Please try again.');
+      }
+    } catch (err: any) {
+      setError(err?.message || 'Image upload failed');
+    } finally {
+      setUploadingThumb(false);
     }
-    setUploadingThumb(false);
   }
 
   const handleThumbDrop = useCallback((e: React.DragEvent) => {
@@ -187,7 +201,18 @@ export default function WellnessForm({ initialData, eventId, mode }: WellnessFor
             />
           </div>
         </div>
-        <input ref={thumbnailInputRef} type="file" accept="image/*" className="hidden" onChange={(e) => e.target.files?.[0] && handleThumbnailUpload(e.target.files[0])} />
+        <input
+          ref={thumbnailInputRef}
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={(e) => {
+            if (e.target.files?.[0]) {
+              handleThumbnailUpload(e.target.files[0]);
+            }
+            e.target.value = '';
+          }}
+        />
       </div>
 
       {/* ── Section: Core Fields ───────────────────────────────────────────── */}

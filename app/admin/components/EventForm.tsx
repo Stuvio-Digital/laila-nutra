@@ -186,11 +186,20 @@ function RichTextEditor({
 
 // ─── Image Upload Button ─────────────────────────────────────────────────────
 async function uploadFile(file: File): Promise<string | null> {
-  const fd = new FormData();
-  fd.append('file', file);
-  const res = await fetch('/api/upload', { method: 'POST', body: fd });
-  const data = await res.json();
-  return data.success ? data.url : null;
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch('/api/upload', { method: 'POST', body: fd });
+    if (!res.ok) {
+      console.error('Upload response not ok:', res.status, res.statusText);
+      return null;
+    }
+    const data = await res.json();
+    return data.success ? data.url : null;
+  } catch (err) {
+    console.error('uploadFile error:', err);
+    return null;
+  }
 }
 
 // ─── Main Form ───────────────────────────────────────────────────────────────
@@ -238,14 +247,19 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
   async function handleThumbnailUpload(file: File) {
     setUploadingThumb(true);
     setError('');
-    const url = await uploadFile(file);
-    if (url) {
-      set('imageUrl', url);
-      if (!form.imageAlt) set('imageAlt', file.name.replace(/\.[^.]+$/, ''));
-    } else {
-      setError('Thumbnail upload failed');
+    try {
+      const url = await uploadFile(file);
+      if (url) {
+        set('imageUrl', url);
+        if (!form.imageAlt) set('imageAlt', file.name.replace(/\.[^.]+$/, ''));
+      } else {
+        setError('Thumbnail upload failed. Please try again.');
+      }
+    } catch (err: any) {
+      setError(err?.message || 'Thumbnail upload failed');
+    } finally {
+      setUploadingThumb(false);
     }
-    setUploadingThumb(false);
   }
 
   const handleThumbDrop = useCallback((e: React.DragEvent) => {
@@ -259,13 +273,18 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
   async function handleGalleryUpload(files: FileList) {
     setUploadingGallery(true);
     setError('');
-    const newUrls: string[] = [];
-    for (const file of Array.from(files)) {
-      const url = await uploadFile(file);
-      if (url) newUrls.push(url);
+    try {
+      const newUrls: string[] = [];
+      for (const file of Array.from(files)) {
+        const url = await uploadFile(file);
+        if (url) newUrls.push(url);
+      }
+      set('galleryImages', [...form.galleryImages, ...newUrls]);
+    } catch (err: any) {
+      setError(err?.message || 'Gallery upload failed');
+    } finally {
+      setUploadingGallery(false);
     }
-    set('galleryImages', [...form.galleryImages, ...newUrls]);
-    setUploadingGallery(false);
   }
 
   function removeGalleryImage(idx: number) {
@@ -380,7 +399,18 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
             />
           </div>
         </div>
-        <input ref={thumbnailInputRef} type="file" accept="image/*" className="hidden" onChange={(e) => e.target.files?.[0] && handleThumbnailUpload(e.target.files[0])} />
+        <input
+          ref={thumbnailInputRef}
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={(e) => {
+            if (e.target.files?.[0]) {
+              handleThumbnailUpload(e.target.files[0]);
+            }
+            e.target.value = '';
+          }}
+        />
       </div>
 
       {/* ── Section: Core Fields ───────────────────────────────────────────── */}
@@ -544,7 +574,12 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
           accept="image/*"
           multiple
           className="hidden"
-          onChange={(e) => e.target.files && handleGalleryUpload(e.target.files)}
+          onChange={(e) => {
+            if (e.target.files) {
+              handleGalleryUpload(e.target.files);
+            }
+            e.target.value = '';
+          }}
         />
       </div>
 

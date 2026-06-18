@@ -20,6 +20,45 @@ function slugify(title: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+// ─── Date Formatter & Mask Helpers ───────────────────────────────────────────
+function formatAsDateMask(value: string): string {
+  const clean = value.replace(/\D/g, '');
+  if (clean.length === 0) return '';
+  const day = clean.slice(0, 2);
+  const month = clean.slice(2, 4);
+  const year = clean.slice(4, 8);
+  
+  if (clean.length <= 2) {
+    return day;
+  } else if (clean.length <= 4) {
+    return `${day}/${month}`;
+  } else {
+    return `${day}/${month}/${year}`;
+  }
+}
+
+function isoToCMS(isoStr?: string): string {
+  if (!isoStr) return '';
+  const d = new Date(isoStr);
+  if (isNaN(d.getTime())) return '';
+  const day = String(d.getDate()).padStart(2, '0');
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+function cmsToIso(cmsStr: string): string {
+  if (!cmsStr) return '';
+  const parts = cmsStr.split('/');
+  if (parts.length !== 3) return '';
+  const day = parseInt(parts[0], 10);
+  const month = parseInt(parts[1], 10);
+  const year = parseInt(parts[2], 10);
+  if (isNaN(day) || isNaN(month) || isNaN(year)) return '';
+  const d = new Date(year, month - 1, day);
+  return d.toISOString();
+}
+
 // ─── Image Upload Helper ─────────────────────────────────────────────────────
 // ─── Image Compression Helper ────────────────────────────────────────────────
 async function compressImage(file: File, maxWidth = 1920, maxHeight = 1920, quality = 0.8): Promise<File> {
@@ -121,7 +160,7 @@ export default function WellnessForm({ initialData, eventId, mode }: WellnessFor
   const [form, setForm] = useState({
     title: initialData?.title || '',
     slug: initialData?.slug || '',
-    startDate: initialData?.startDate ? initialData.startDate.slice(0, 10) : '',
+    startDate: initialData?.startDate ? isoToCMS(initialData.startDate) : '',
     description: initialData?.description || '',
     imageUrl: initialData?.imageUrl || '',
     imageAlt: initialData?.imageAlt || '',
@@ -171,11 +210,19 @@ export default function WellnessForm({ initialData, eventId, mode }: WellnessFor
     setError('');
     setSaving(true);
 
+    // Validate DD/MM/YYYY date format
+    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (!dateRegex.test(form.startDate)) {
+      setError('Date must be a valid date in DD/MM/YYYY format.');
+      setSaving(false);
+      return;
+    }
+
     const payload = {
       ...form,
-      type: 'wellness_calendar', // statically set for Wellness Calendar
-      startDate: form.startDate ? new Date(form.startDate).toISOString() : '',
-      endDate: '', // wellness calendar only uses a single date
+      type: 'wellness_calendar',
+      startDate: cmsToIso(form.startDate),
+      endDate: '',
     };
 
     try {
@@ -305,8 +352,15 @@ export default function WellnessForm({ initialData, eventId, mode }: WellnessFor
           {/* Date */}
           <div>
             <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Date <span className="text-red-400">*</span></label>
-            <input type="date" value={form.startDate} onChange={(e) => set('startDate', e.target.value)} required
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-[#0080C7]/60 focus:bg-white transition-all" />
+            <input 
+              type="text" 
+              maxLength={10}
+              placeholder="DD/MM/YYYY" 
+              value={form.startDate} 
+              onChange={(e) => set('startDate', formatAsDateMask(e.target.value))} 
+              required
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-[#0080C7]/60 focus:bg-white transition-all" 
+            />
           </div>
         </div>
 

@@ -98,7 +98,7 @@ export default async function EventDetailPage({
           {/* Date */}
           <div className="col-span-12 lg:col-start-2 lg:col-span-8 mb-10">
             <p className="text-[#71717a] text-sm font-normal">
-              {event.publishDate || formatEventDateRange(event.startDate, event.endDate)}
+              {formatEventDateRange(event.startDate, event.endDate)}
             </p>
           </div>
 

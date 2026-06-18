@@ -20,6 +20,45 @@ function slugify(title: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+// ─── Date Formatter & Mask Helpers ───────────────────────────────────────────
+function formatAsDateMask(value: string): string {
+  const clean = value.replace(/\D/g, '');
+  if (clean.length === 0) return '';
+  const day = clean.slice(0, 2);
+  const month = clean.slice(2, 4);
+  const year = clean.slice(4, 8);
+  
+  if (clean.length <= 2) {
+    return day;
+  } else if (clean.length <= 4) {
+    return `${day}/${month}`;
+  } else {
+    return `${day}/${month}/${year}`;
+  }
+}
+
+function isoToCMS(isoStr?: string): string {
+  if (!isoStr) return '';
+  const d = new Date(isoStr);
+  if (isNaN(d.getTime())) return '';
+  const day = String(d.getDate()).padStart(2, '0');
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+function cmsToIso(cmsStr: string): string {
+  if (!cmsStr) return '';
+  const parts = cmsStr.split('/');
+  if (parts.length !== 3) return '';
+  const day = parseInt(parts[0], 10);
+  const month = parseInt(parts[1], 10);
+  const year = parseInt(parts[2], 10);
+  if (isNaN(day) || isNaN(month) || isNaN(year)) return '';
+  const d = new Date(year, month - 1, day);
+  return d.toISOString();
+}
+
 // ─── Rich Text Toolbar ───────────────────────────────────────────────────────
 const TOOLBAR_BUTTONS = [
   { label: 'B', cmd: 'bold', title: 'Bold', style: 'font-bold' },
@@ -293,8 +332,8 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
     title: initialData?.title || '',
     slug: initialData?.slug || '',
     headline: initialData?.headline || '',
-    startDate: initialData?.startDate ? initialData.startDate.slice(0, 10) : '',
-    endDate: initialData?.endDate ? initialData.endDate.slice(0, 10) : '',
+    startDate: initialData?.startDate ? isoToCMS(initialData.startDate) : '',
+    endDate: initialData?.endDate ? isoToCMS(initialData.endDate) : '',
     description: initialData?.description || '',
     contentHtml: initialData?.contentHtml || '',
     imageUrl: initialData?.imageUrl || '',
@@ -376,10 +415,23 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
     setError('');
     setSaving(true);
 
+    // Validate DD/MM/YYYY date format
+    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (!dateRegex.test(form.startDate)) {
+      setError('Start Date must be a valid date in DD/MM/YYYY format.');
+      setSaving(false);
+      return;
+    }
+    if (form.endDate && !dateRegex.test(form.endDate)) {
+      setError('End Date must be a valid date in DD/MM/YYYY format.');
+      setSaving(false);
+      return;
+    }
+
     const payload = {
       ...form,
-      startDate: form.startDate ? new Date(form.startDate).toISOString() : '',
-      endDate: form.endDate ? new Date(form.endDate).toISOString() : undefined,
+      startDate: cmsToIso(form.startDate),
+      endDate: form.endDate ? cmsToIso(form.endDate) : undefined,
       type: initialData?.type,
     };
 
@@ -537,13 +589,26 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Start Date <span className="text-red-400">*</span></label>
-              <input type="date" value={form.startDate} onChange={(e) => set('startDate', e.target.value)} required
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-[#0080C7]/60 focus:bg-white transition-all" />
+              <input 
+                type="text" 
+                maxLength={10}
+                placeholder="DD/MM/YYYY" 
+                value={form.startDate} 
+                onChange={(e) => set('startDate', formatAsDateMask(e.target.value))} 
+                required
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-[#0080C7]/60 focus:bg-white transition-all" 
+              />
             </div>
             <div>
               <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">End Date</label>
-              <input type="date" value={form.endDate} onChange={(e) => set('endDate', e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-[#0080C7]/60 focus:bg-white transition-all" />
+              <input 
+                type="text" 
+                maxLength={10}
+                placeholder="DD/MM/YYYY" 
+                value={form.endDate} 
+                onChange={(e) => set('endDate', formatAsDateMask(e.target.value))}
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-800 text-sm focus:outline-none focus:border-[#0080C7]/60 focus:bg-white transition-all" 
+              />
             </div>
           </div>
         </div>

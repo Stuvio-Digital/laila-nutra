@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const maxSizeMB = 10;
+    const maxSizeMB = 15;
     if (file.size > maxSizeMB * 1024 * 1024) {
       return NextResponse.json(
         { success: false, error: `File too large. Max ${maxSizeMB}MB` },

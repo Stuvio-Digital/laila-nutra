@@ -21,20 +21,20 @@ function slugify(title: string): string {
 }
 
 // ─── Image Upload Helper ─────────────────────────────────────────────────────
-async function uploadFile(file: File): Promise<string | null> {
+async function uploadFile(file: File): Promise<{ success: boolean; url?: string; error?: string }> {
   try {
     const fd = new FormData();
     fd.append('file', file);
     const res = await fetch('/api/upload', { method: 'POST', body: fd });
-    if (!res.ok) {
-      console.error('Upload response not ok:', res.status, res.statusText);
-      return null;
-    }
     const data = await res.json();
-    return data.success ? data.url : null;
-  } catch (err) {
+    return {
+      success: !!data.success,
+      url: data.url,
+      error: data.error || (res.ok ? undefined : `Upload failed with status ${res.status}`),
+    };
+  } catch (err: any) {
     console.error('uploadFile error:', err);
-    return null;
+    return { success: false, error: err?.message || 'Connection error' };
   }
 }
 
@@ -73,12 +73,12 @@ export default function WellnessForm({ initialData, eventId, mode }: WellnessFor
     setUploadingThumb(true);
     setError('');
     try {
-      const url = await uploadFile(file);
-      if (url) {
-        set('imageUrl', url);
+      const res = await uploadFile(file);
+      if (res.success && res.url) {
+        set('imageUrl', res.url);
         if (!form.imageAlt) set('imageAlt', file.name.replace(/\.[^.]+$/, ''));
       } else {
-        setError('Image upload failed. Please try again.');
+        setError(res.error || 'Image upload failed. Please try again.');
       }
     } catch (err: any) {
       setError(err?.message || 'Image upload failed');

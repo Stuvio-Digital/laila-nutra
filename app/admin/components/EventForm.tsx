@@ -185,20 +185,20 @@ function RichTextEditor({
 }
 
 // ─── Image Upload Button ─────────────────────────────────────────────────────
-async function uploadFile(file: File): Promise<string | null> {
+async function uploadFile(file: File): Promise<{ success: boolean; url?: string; error?: string }> {
   try {
     const fd = new FormData();
     fd.append('file', file);
     const res = await fetch('/api/upload', { method: 'POST', body: fd });
-    if (!res.ok) {
-      console.error('Upload response not ok:', res.status, res.statusText);
-      return null;
-    }
     const data = await res.json();
-    return data.success ? data.url : null;
-  } catch (err) {
+    return {
+      success: !!data.success,
+      url: data.url,
+      error: data.error || (res.ok ? undefined : `Upload failed with status ${res.status}`),
+    };
+  } catch (err: any) {
     console.error('uploadFile error:', err);
-    return null;
+    return { success: false, error: err?.message || 'Connection error' };
   }
 }
 
@@ -248,12 +248,12 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
     setUploadingThumb(true);
     setError('');
     try {
-      const url = await uploadFile(file);
-      if (url) {
-        set('imageUrl', url);
+      const res = await uploadFile(file);
+      if (res.success && res.url) {
+        set('imageUrl', res.url);
         if (!form.imageAlt) set('imageAlt', file.name.replace(/\.[^.]+$/, ''));
       } else {
-        setError('Thumbnail upload failed. Please try again.');
+        setError(res.error || 'Thumbnail upload failed. Please try again.');
       }
     } catch (err: any) {
       setError(err?.message || 'Thumbnail upload failed');
@@ -276,8 +276,12 @@ export default function EventForm({ initialData, eventId, mode }: EventFormProps
     try {
       const newUrls: string[] = [];
       for (const file of Array.from(files)) {
-        const url = await uploadFile(file);
-        if (url) newUrls.push(url);
+        const res = await uploadFile(file);
+        if (res.success && res.url) {
+          newUrls.push(res.url);
+        } else {
+          setError(res.error || 'Gallery upload failed. Please try again.');
+        }
       }
       set('galleryImages', [...form.galleryImages, ...newUrls]);
     } catch (err: any) {

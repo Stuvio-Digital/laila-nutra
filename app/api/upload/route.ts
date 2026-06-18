@@ -20,7 +20,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'No file provided' }, { status: 400 });
     }
 
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
+    const allowedTypes = [
+      'image/jpeg',
+      'image/jpg',
+      'image/pjpeg',
+      'image/png',
+      'image/webp',
+      'image/gif',
+      'image/svg+xml'
+    ];
     if (!allowedTypes.includes(file.type)) {
       return NextResponse.json(
         { success: false, error: 'Invalid file type. Allowed: JPEG, PNG, WebP, GIF, SVG' },

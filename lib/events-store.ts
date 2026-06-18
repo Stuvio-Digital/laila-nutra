@@ -266,3 +266,24 @@ export function adjustEventType(event: EventItem): EventItem {
   };
 }
 
+export function formatDateCMS(startDateStr: string, endDateStr?: string): string {
+  if (!startDateStr) return '';
+  
+  const formatDate = (dateStr: string) => {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return '';
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const startFormatted = formatDate(startDateStr);
+  if (!endDateStr) return startFormatted;
+  
+  const endFormatted = formatDate(endDateStr);
+  if (!endFormatted || startFormatted === endFormatted) return startFormatted;
+  
+  return `${startFormatted} - ${endFormatted}`;
+}
+

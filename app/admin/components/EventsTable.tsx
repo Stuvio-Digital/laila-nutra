@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import type { EventItem } from '@/lib/events-store';
-import { formatEventDateRange } from '@/lib/events-store';
+import { formatDateCMS } from '@/lib/events-store';
 
 const TYPE_LABELS: Record<EventItem['type'], string> = {
   past_event: 'Past Event',
@@ -131,7 +131,7 @@ export default function EventsTable({ events: initialEvents }: { events: EventIt
                 {/* Date */}
                 <td className="px-6 py-4">
                   <p className="text-slate-600 text-sm">
-                    {formatEventDateRange(event.startDate, event.endDate)}
+                    {formatDateCMS(event.startDate, event.endDate)}
                   </p>
                 </td>
 
@@ -210,7 +210,7 @@ export default function EventsTable({ events: initialEvents }: { events: EventIt
               <div className="flex-1 min-w-0">
                 <p className="text-slate-800 text-sm font-medium truncate">{event.title}</p>
                 <p className="text-slate-500 text-xs mt-0.5">
-                  {formatEventDateRange(event.startDate, event.endDate)}
+                  {formatDateCMS(event.startDate, event.endDate)}
                 </p>
                 <div className="flex items-center gap-2 mt-2">
                   <span className={`inline-flex px-2 py-0.5 rounded-full text-[11px] font-medium border ${TYPE_COLORS[event.type]}`}>

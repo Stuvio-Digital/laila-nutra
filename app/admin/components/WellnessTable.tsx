@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import type { EventItem } from '@/lib/events-store';
-import { formatEventDateRange } from '@/lib/events-store';
+import { formatDateCMS } from '@/lib/events-store';
 
 export default function WellnessTable({ events: initialEvents }: { events: EventItem[] }) {
   const router = useRouter();
@@ -119,7 +119,7 @@ export default function WellnessTable({ events: initialEvents }: { events: Event
                 {/* Date */}
                 <td className="px-6 py-4">
                   <p className="text-slate-600 text-sm">
-                    {formatEventDateRange(event.startDate, event.endDate)}
+                    {formatDateCMS(event.startDate, event.endDate)}
                   </p>
                 </td>
 
@@ -191,7 +191,7 @@ export default function WellnessTable({ events: initialEvents }: { events: Event
               <div className="flex-1 min-w-0">
                 <p className="text-slate-800 text-sm font-medium truncate">{event.title}</p>
                 <p className="text-slate-500 text-xs mt-0.5">
-                  {formatEventDateRange(event.startDate, event.endDate)}
+                  {formatDateCMS(event.startDate, event.endDate)}
                 </p>
               </div>
             </div>

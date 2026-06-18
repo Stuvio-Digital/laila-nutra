@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getEventBySlug, getAllEvents, formatEventDateRange } from '@/lib/events-store';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import EventGallery from '@/components/EventGallery';
 
 /**
  * Comprehensive HTML sanitizer that strips all browser-injected inline formatting
@@ -169,24 +170,7 @@ export default async function EventDetailPage({
 
             {/* Gallery images — right column, horizontal scroll */}
             <div className="col-span-12 lg:col-start-2 lg:col-span-11 mt-4 lg:mt-0">
-              {/* First row */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
-                {event.galleryImages.map((url, idx) => (
-                  <a
-                    key={url + idx}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block overflow-hidden rounded-xl aspect-[4/3] bg-[#f4f4f5] group"
-                  >
-                    <img
-                      src={url}
-                      alt={`${event.title} — photo ${idx + 1}`}
-                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </a>
-                ))}
-              </div>
+              <EventGallery galleryImages={event.galleryImages} eventTitle={event.title} />
             </div>
           </div>
         </div>

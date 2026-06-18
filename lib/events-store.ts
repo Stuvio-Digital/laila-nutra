@@ -1,4 +1,4 @@
-import { put, list } from '@vercel/blob';
+import { put, list, del } from '@vercel/blob';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export interface EventItem {
@@ -48,20 +48,31 @@ export async function readEvents(): Promise<EventItem[]> {
   noStore();
   try {
     let url = cachedBlobUrl;
-    if (!url) {
+    try {
       const { blobs } = await list({ prefix: 'cms/events' });
-      const blob = blobs.find((b) => b.pathname === DATA_BLOB_KEY);
-      if (!blob) return [];
-      url = blob.url;
-      cachedBlobUrl = url;
+      const jsonBlobs = blobs.filter(
+        (b) => b.pathname.startsWith('cms/events') && b.pathname.endsWith('.json')
+      );
+      if (jsonBlobs.length > 0) {
+        // Sort descending by uploadedAt to get the absolute newest file
+        jsonBlobs.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+        url = jsonBlobs[0].url;
+        cachedBlobUrl = url;
+      }
+    } catch (listErr) {
+      console.error('[readEvents] list() failed, using in-memory cached URL fallback:', listErr);
     }
-    // Append cache-busting query parameter to guarantee fetching the fresh version
-    const cacheBusterUrl = `${url}?t=${Date.now()}`;
-    const res = await fetch(cacheBusterUrl, { cache: 'no-store' });
+
+    if (!url) {
+      return [];
+    }
+
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) return [];
     const data = await res.json();
     return Array.isArray(data) ? data : [];
-  } catch {
+  } catch (err) {
+    console.error('[readEvents] error fetching events:', err);
     return [];
   }
 }
@@ -72,9 +83,29 @@ async function writeEvents(events: EventItem[]): Promise<void> {
     access: 'public',
     contentType: 'application/json',
     allowOverwrite: true,
-    addRandomSuffix: false,
+    addRandomSuffix: true, // Generate unique URL to bypass CDN/Edge cache
   });
   cachedBlobUrl = blob.url;
+
+  // Clean up older JSON databases in the background to prevent storage bloat
+  list({ prefix: 'cms/events' })
+    .then(({ blobs }) => {
+      const jsonBlobs = blobs.filter(
+        (b) => b.pathname.startsWith('cms/events') && b.pathname.endsWith('.json')
+      );
+      jsonBlobs.sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
+      
+      const oldBlobs = jsonBlobs.slice(1);
+      if (oldBlobs.length > 0) {
+        const urlsToDelete = oldBlobs.map((b) => b.url);
+        del(urlsToDelete).catch((err) => {
+          console.error('[writeEvents] Cleanup failed for old json blobs:', err);
+        });
+      }
+    })
+    .catch((err) => {
+      console.error('[writeEvents] Listing blobs for cleanup failed:', err);
+    });
 }
 
 // ─── CRUD Operations ────────────────────────────────────────────────────────

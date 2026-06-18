@@ -21,11 +21,81 @@ function slugify(title: string): string {
 }
 
 // ─── Image Upload Helper ─────────────────────────────────────────────────────
+// ─── Image Compression Helper ────────────────────────────────────────────────
+async function compressImage(file: File, maxWidth = 1920, maxHeight = 1920, quality = 0.8): Promise<File> {
+  if (!['image/jpeg', 'image/jpg', 'image/png', 'image/webp'].includes(file.type)) {
+    return file;
+  }
+
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target?.result as string;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > maxWidth) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          }
+        } else {
+          if (height > maxHeight) {
+            width = Math.round((width * maxHeight) / height);
+            height = maxHeight;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          resolve(file);
+          return;
+        }
+
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              const compressedFile = new File([blob], file.name, {
+                type: 'image/jpeg',
+                lastModified: Date.now(),
+              });
+              resolve(compressedFile);
+            } else {
+              resolve(file);
+            }
+          },
+          'image/jpeg',
+          quality
+        );
+      };
+      img.onerror = () => resolve(file);
+    };
+    reader.onerror = () => resolve(file);
+  });
+}
+
 async function uploadFile(file: File): Promise<{ success: boolean; url?: string; error?: string }> {
   try {
     const fd = new FormData();
     fd.append('file', file);
     const res = await fetch('/api/upload', { method: 'POST', body: fd });
+    
+    const contentType = res.headers.get('content-type') || '';
+    if (!contentType.includes('application/json')) {
+      const text = await res.text();
+      if (res.status === 413 || text.includes('Too Large')) {
+        return { success: false, error: 'File is too large for the hosting environment. Please select a smaller file.' };
+      }
+      return { success: false, error: `Upload failed: ${text.slice(0, 100)}` };
+    }
+
     const data = await res.json();
     return {
       success: !!data.success,
@@ -73,7 +143,8 @@ export default function WellnessForm({ initialData, eventId, mode }: WellnessFor
     setUploadingThumb(true);
     setError('');
     try {
-      const res = await uploadFile(file);
+      const compressed = await compressImage(file);
+      const res = await uploadFile(compressed);
       if (res.success && res.url) {
         set('imageUrl', res.url);
         if (!form.imageAlt) set('imageAlt', file.name.replace(/\.[^.]+$/, ''));
